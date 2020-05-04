@@ -1,0 +1,51 @@
+background_opacity: 0.9
+colors:
+   # Default colors
+   primary:
+     background: '#2E3440'
+     foreground: '#D8DEE9'
+
+   # Normal colors
+   normal:
+     black:   '#3B4252'
+     red:     '#BF616A'
+     green:   '#A3BE8C'
+     yellow:  '#EBCB8B'
+     blue:    '#81A1C1'
+     magenta: '#B48EAD'
+     cyan:    '#88C0D0'
+     white:   '#E5E9F0'
+
+   # Bright colors
+   bright:
+     black:   '#4C566A'
+     red:     '#BF616A'
+     green:   '#A3BE8C'
+     yellow:  '#EBCB8B'
+     blue:    '#81A1C1'
+     magenta: '#B48EAD'
+     cyan:    '#8FBCBB'
+     white:   '#ECEFF4'
+font:
+  bold:
+    family: Hack Nerd Font Mono
+  italic:
+    family: Hack Nerd Font Mono
+  normal:
+    family: Hack Nerd Font Mono
+    style: Regular
+  size: 8.0
+key_bindings:
+- action: IncreaseFontSize
+  key: I
+  mods: Control|Shift
+- action: DecreaseFontSize
+  key: O
+  mods: Control|Shift
+- action: ResetFontSize
+  key: P
+  mods: Control|Shift
+window:
+  padding:
+    x: 5
+    y: 5
