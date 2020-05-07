@@ -6,11 +6,13 @@
 "	   \\  //	  GitHub: https://github.com/vpcano 
 "	    \\//
 "	     --
-" "===========================================================
+"===========================================================
 set nocompatible
 filetype off
 
-""  PLUGINS (using Vundle)  ""
+"""""""""""""""""""""""""""""""""""""""""""""""""
+""  PLUGINS (using Vundle)  
+"""""""""""""""""""""""""""""""""""""""""""""""""
 set rtp+=~/.vim/bundle/Vundle.vim	"required
 call vundle#begin()			"required
 Plugin 'VundleVim/Vundle.vim' 		"required
@@ -26,10 +28,9 @@ Plugin 'severin-lemaignan/vim-minimap'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'morhetz/gruvbox'
 Plugin 'ap/vim-css-color'
-Plugin 'chrisbra/Colorizer'
+Plugin 'lilydjwg/colorizer'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'tc50cal/vim-terminal'
 
 call vundle#end()           		 "required
 filetype plugin indent on   		 "required
@@ -84,9 +85,6 @@ let g:NERDTreeWinSize=38
 ""  KEYS  
 """"""""""""""""""""""""""""""""""""""""""""""""""
 :imap ii <Esc>
-map <C-t>t :TerminalTab bash<CR>
-map <C-t>s :TerminalVSplit bash<CR>
-map <C-t>h :TerminalSplit bash<CR>
 map <C-m>m :Vifm<CR>
 map <C-m>s :VsplitVifm<CR>
 map <C-m>t :TabVifm<CR>
@@ -111,3 +109,17 @@ set smarttab
 ""  OPEN MINIMAP ON START
 """"""""""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * :Minimap
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+""  C DEVELOPMENT CONFIGURATION
+""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup cproject 
+	autocmd!
+	autocmd BufRead,BufNewFile *.h,*.c set filetype=c.doxygen
+"" TODO autocmd BufRead,BufNewFile *.c set makeprg=*COMMAND TO COMPILE (READ FROM CURRENT FILE)*
+	autocmd BufRead,BufNewFile *.c :packadd termdebug
+augroup END
+nnoremap <F4> :w <bar> :make %<cr>
+nnoremap <F5> :Termdebug exec/%:r<cr>	
+nnoremap <F6> :! exec/%:r<cr>	
+nnoremap <F7> :! valgrind exec/%:r<cr>	
