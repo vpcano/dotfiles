@@ -76,10 +76,10 @@ let g:NERDCreateDefaultMappings = 0
 map <C-n> :NERDTreeToggle<CR>
 let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
-let NERDTreeShowLineNumbers=1
+let NERDTreeShowLineNumbers=0
 let NERDTreeShowHidden=1
 let NERDTreeMinimalUI = 1
-let g:NERDTreeWinSize=38
+let g:NERDTreeWinSize=30
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 ""  KEYS  

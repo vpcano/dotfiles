@@ -25,7 +25,7 @@ set -g fish_prompt_pwd_dir_lenght 0
 
 ##  VARIABLES  ##
 set PATH $PATH
-set -x EDITOR "vim"
+set -x EDITOR "nvim"
 set -x TERM "alacritty"
 
 ##  ALIAS  ##
@@ -34,6 +34,10 @@ alias la="ls -a"
 alias grep="grep --color=auto"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"
+alias vim="nvim"
+alias rm="rm -r"
+alias cp="cp -r"
+alias mv="mv -r"
 
 ##  FUNCTIONS  ##
 function cd 
