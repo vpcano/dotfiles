@@ -107,8 +107,7 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show")),
     Key([mod], "e", lazy.spawn("dolphin")),
     Key([mod], "w", lazy.spawn("firefox")),
-    Key([mod], "c", lazy.spawn("code")),
-    Key([mod], "v", lazy.spawn("alacritty -e vim &"))
+    Key([mod], "v", lazy.spawn("alacritty -e nvim &"))
 ]
 
 
