@@ -39,6 +39,7 @@ alias grep="grep --color=auto"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"
 alias vim="nvim"
+alias chrome="google-chrome-stable"
 
 ##  FUNCTIONS  ##
 function cd 

@@ -110,8 +110,8 @@ keys = [
     Key([mod], "Return", lazy.spawn(term)),
     Key([mod], "r", lazy.spawn("rofi -show")),
     Key([mod], "e", lazy.spawn("dolphin")),
-    Key([mod], "w", lazy.spawn("firefox")),
-    Key([mod], "v", lazy.spawn("alacritty -e vim"))
+    Key([mod], "w", lazy.spawn("google-chrome-stable")),
+    Key([mod], "v", lazy.spawn("alacritty -e nvim"))
 ]
 
 

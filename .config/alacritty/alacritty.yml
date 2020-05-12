@@ -21,6 +21,14 @@ colors:
   primary:
     background: '0x0f101a'
     foreground: '0xf1ffff'
+window:
+        decorations: full
+        dimensions:
+                columns: 172
+                lines: 46 
+        padding:
+                x: 3
+                y: 3
 font:
   bold:
     family: Hack Nerd Font Mono
@@ -40,7 +48,3 @@ key_bindings:
 - action: ResetFontSize
   key: P
   mods: Control|Shift
-window:
-  padding:
-    x: 5
-    y: 5
