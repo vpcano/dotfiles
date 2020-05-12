@@ -1,11 +1,15 @@
 #===========================================================
+#      ____    __    _   __          _    __  _   ______
+#     / __ \  / /_  (_) / / ___     | |  / / (_) / ____/
+#    / / / / / __/ / / / / / _ \    | | / / / / / /     
+#   / /_/ / / /_  / / / / /  __/    | |/ / / / / /___   
+#   \___\_\ \__/ /_/ /_/  \___/     |___/ /_/  \____/   
+#  
+#       ~/.config/qtile/config.py file
 #
-#       \\        //    ~/.config/qtile/config.py file
-#        \\      //
-#         \\    //      Víctor Pérez Cano
-#          \\  //         GitHub: https://github.com/vpcano
-#           \\//
-#            --
+#       Víctor Pérez Cano
+#       GitHub: https://github.com/vpcano
+#
 #===========================================================
 
 from libqtile.config import Key, Screen, Group, Drag, Click
@@ -107,7 +111,7 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show")),
     Key([mod], "e", lazy.spawn("dolphin")),
     Key([mod], "w", lazy.spawn("firefox")),
-    Key([mod], "v", lazy.spawn("alacritty -e nvim &"))
+    Key([mod], "v", lazy.spawn("alacritty -e vim"))
 ]
 
 
@@ -450,7 +454,7 @@ floating_layout = layout.Floating(float_rules=[
     {'wname': 'pinentry'},  # GPG key password entry
     {'wmclass': 'ssh-askpass'},  # ssh-askpass
 ])
-auto_fullscreen = False 
+auto_fullscreen = True 
 focus_on_window_activation = "smart"
 
 def set_wallpaper(qtile):

@@ -1,11 +1,15 @@
 #===========================================================
-#
-#	\\        //	config.fish file 
-#	 \\      //	
-#	  \\    //	Víctor Pérez Cano
-#	   \\  //	  GitHub: https://github.com/vpcano 
-#	    \\//
-#	     --
+#      ______ _         __          _    __  _   ______
+#     / ____/(_) _____ / /_        | |  / / (_) / ____/
+#    / /_   / / / ___// __ \       | | / / / / / /     
+#   / __/  / / (__  )/ / / /       | |/ / / / / /___   
+#  /_/    /_/ /____//_/ /_/        |___/ /_/  \____/   
+#	
+#	~/.config/fish/config.fish file 
+#	  
+#	Víctor Pérez Cano
+#	GitHub: https://github.com/vpcano 
+#	  
 #===========================================================
 
 ##  COLOR OPTIONS  ##
@@ -35,9 +39,6 @@ alias grep="grep --color=auto"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"
 alias vim="nvim"
-alias rm="rm -r"
-alias cp="cp -r"
-alias mv="mv -r"
 
 ##  FUNCTIONS  ##
 function cd 

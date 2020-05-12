@@ -1,12 +1,16 @@
-"===========================================================
+"==============================================================
+"        _   __                       _    __  _   ______
+"       / | / /   __ (_)____ ___     | |  / / (_) / ____/
+"      /  |/ / | / // // __ `__ \    | | / / / / / /     
+"     / /|  /| |/ // // / / / / /    | |/ / / / / /___   
+"    /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/   
 "
-"	\\        //	~/.config/nvim/init.vim file 
-"	 \\      //	
-"	  \\    //	Víctor Pérez Cano
-"	   \\  //	  GitHub: https://github.com/vpcano 
-"	    \\//
-"	     --
-"===========================================================
+"	~/.config/nvim/init.vim file 
+"	
+"	Víctor Pérez Cano
+"	GitHub: https://github.com/vpcano 
+"
+"==============================================================
 
 
 
@@ -32,7 +36,10 @@ Plug 'frazrepo/vim-rainbow'
 Plug 'tpope/vim-surround'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'morhetz/gruvbox', {'dir': '~/.config/nvim/themes/gruvbox'}
+Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
 Plug 'unblevable/quick-scope'
+Plug 'liuchengxu/vim-which-key'
+Plug 'mhinz/vim-startify'
 
 "Required
 call plug#end()
@@ -92,7 +99,7 @@ let g:minimap_highlight='Visual'
 ""  VIM-AIRLINE (POWERLINE)
 """"""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
+let g:airline_theme = 'base16_spacemacs'
 
 
 
@@ -133,10 +140,19 @@ augroup END
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
+""  STARTIFY
+""""""""""""""""""""""""""""""""""""""""""""""""
+source $HOME/.config/nvim/configs/start-screen.vim
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
 ""  THEME (gruvbox)
 """"""""""""""""""""""""""""""""""""""""""""""""
-let g:gruvbox_contrast_dark = 'hard'
-colorscheme gruvbox
+"let g:gruvbox_contrast_dark = 'hard'
+"colorscheme gruvbox
+colorscheme dracula
+hi Normal guibg=NONE ctermbg=NONE
 
 
 
@@ -147,8 +163,11 @@ imap ii <Esc>
 map nn :NERDTreeToggle<CR>
 map mm :Vifm<CR>
 map ms :VsplitVifm<CR>
+map mh :SplitVifm<CR>
 map mt :TabVifm<CR>
 map tt :botright 15split term://fish -C clear <bar> :set nonumber <bar> :startinsert <CR> 
+map <C-i> :vertical resize +5<CR>
+map <C-o> :vertical resize -5<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
@@ -162,7 +181,7 @@ nnoremap <C-Space> <C-w>r
 """"""""""""""""""""""""""""""""""""""""""""""""
 augroup autostart	
 	autocmd!
-	autocmd VimEnter * :Minimap
+	"autocmd VimEnter * :Minimap
 	autocmd VimEnter *
 	  \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
 	  \|   PlugInstall | q
@@ -173,10 +192,10 @@ augroup cproject
 	autocmd!
 "" TODO autocmd BufRead,BufNewFile *.c set makeprg=*COMMAND TO COMPILE (READ FROM CURRENT FILE)*
 	autocmd BufRead,BufNewFile *.c :packadd termdebug
-	autocmd BufRead,BufNewFile *.c nnoremap <F4> :w <bar> :make %<cr>
+	autocmd BufRead,BufNewFile *.c nnoremap <F4> :w <bar> :make %:r<cr>
 	autocmd BufRead,BufNewFile *.c nnoremap <F5> :Termdebug exec/%:r<cr>	
-	autocmd BufRead,BufNewFile *.c nnoremap <F6> :! exec/%:r<cr>	
-	autocmd BufRead,BufNewFile *.c nnoremap <F7> :! valgrind exec/%:r<cr>	
+	autocmd BufRead,BufNewFile *.c nnoremap <F6> :botright 15split term://fish -C ./exec/%:r <bar> :set nonumber <bar> :startinsert <cr>	
+	autocmd BufRead,BufNewFile *.c nnoremap <F7> :botright 15split term://fish -C valgrind ./exec/%:r <bar> :set nonumber <bar> :startinsert <cr>	
 augroup END
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
