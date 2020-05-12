@@ -92,4 +92,4 @@ function ex
 end				
 
 ##  AUTOSTART  ##
-neofetch
+$HOME/.local/bin/vicfetch
