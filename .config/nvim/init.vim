@@ -59,6 +59,7 @@ set shell=sh
 set noshowmode
 set termguicolors
 set mouse=a
+filetype plugin on
 
 
 
