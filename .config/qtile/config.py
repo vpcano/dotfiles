@@ -13,7 +13,6 @@
 #===========================================================
 
 from libqtile.config import Key, Screen, Group, Drag, Click
-#from libqtile.command_client import CommandClient
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
 from operator import itemgetter
@@ -31,7 +30,6 @@ theme = "victor-custom" # only if available in ~/.config/qtile/themes
 mod = "mod4"
 term = "alacritty"
 termi = 'alacritty'
-#c = CommandClient()
 
 ##  THEME  ##
 
@@ -49,8 +47,6 @@ img_path = path.join(theme_path, "img")
 wallpaper_path = path.join(qtile_path, "wallpapers")
 for i in listdir(img_path):
     img[i.split(".")[0]] = path.join(img_path, i)
-for i in listdir(wallpaper_path):
-    wallpaper[i.split(".")[0]] = path.join(wallpaper_path, i)
 ##  KEYS  ##
 
 keys = [
@@ -341,7 +337,8 @@ widget_list = [
     ),
     widget.Notify(
         **base(bg='dark'),
-        **text_box
+        **text_box,
+        width=13
     ),
     widget.Sep(
         linewidth=0,
@@ -359,7 +356,7 @@ widget_list = [
     widget.Clipboard(
         **base(bg='blue'),
         **text_box,
-        max_width=6
+        max_width=10
     ),
     widget.Image(
         filename=img['blue-to-primary']
@@ -457,13 +454,6 @@ floating_layout = layout.Floating(float_rules=[
 auto_fullscreen = True 
 focus_on_window_activation = "smart"
 
-def set_wallpaper(qtile):
-    group = qtile.currentGroup.name    
-    if group=='DEV' or group=='TERM':
-        subprocess.call(["wal", "-i", wallpaper['pattern']])
-    else:
-        subprocess.call(["wal", "-i", wallpaper['landscape']])
-
 ##  AUTOSTART  ##
 @hook.subscribe.startup_once
 def autostart():
@@ -490,10 +480,6 @@ def float_code(window):
     w_name = window.window.get_name()
     if wm_class==("code", "Code") and (w_name=="Open File" or w_name=="Open Folder"):
         window.floating = True
-
-@hook.subscribe.changegroup
-def call_group_setWallpaper():
-    lazy.function(set_wallpaper)
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

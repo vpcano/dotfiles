@@ -1,4 +1,4 @@
-"==============================================================
+" ==============================================================
 "        _   __                       _    __  _   ______
 "       / | / /   __ (_)____ ___     | |  / / (_) / ____/
 "      /  |/ / | / // // __ `__ \    | | / / / / / /     
@@ -40,6 +40,7 @@ Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
 Plug 'unblevable/quick-scope'
 Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'
+Plug 'tpope/vim-fugitive'
 
 "Required
 call plug#end()
@@ -60,6 +61,8 @@ set noshowmode
 set termguicolors
 set mouse=a
 filetype plugin on
+set timeoutlen=350
+let g:mapleader = ","
 
 
 
@@ -70,7 +73,6 @@ let g:NERDTreeDirArrowExpandable = '►'
 let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers=0
 let NERDTreeShowHidden=1
-let NERDTreeMinimalUI = 1
 let g:NERDTreeWinSize=30
 
 
@@ -144,6 +146,13 @@ augroup END
 ""  STARTIFY
 """"""""""""""""""""""""""""""""""""""""""""""""
 source $HOME/.config/nvim/configs/start-screen.vim
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+""  VIM-WHICH-KEY
+""""""""""""""""""""""""""""""""""""""""""""""""
+source $HOME/.config/nvim/configs/vim-which-key.vim
 
 
 
