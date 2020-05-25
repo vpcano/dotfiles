@@ -19,6 +19,7 @@ from operator import itemgetter
 from typing import List 
 from os import listdir
 from os import path
+import psutil
 import subprocess
 import json
 
@@ -26,27 +27,16 @@ import json
 ##  VARIABLES ##
 
 qtile_path = path.join(path.expanduser("~"), ".config", "qtile")
-theme = "victor-custom" # only if available in ~/.config/qtile/themes
 mod = "mod4"
+
 term = "alacritty"
 termi = 'alacritty'
-
-##  THEME  ##
-
-theme_path = path.join(qtile_path, "themes", theme)
+browser = "waterfox-current"
 
 # map color name to hex values
-with open(path.join(theme_path, "colors.json")) as f:
+with open(path.join(qtile_path, "colors.json")) as f:
     colors = json.load(f)
 
-img = {}
-wallpaper = {}
-
-# map image name to its path
-img_path = path.join(theme_path, "img")
-wallpaper_path = path.join(qtile_path, "wallpapers")
-for i in listdir(img_path):
-    img[i.split(".")[0]] = path.join(img_path, i)
 ##  KEYS  ##
 
 keys = [
@@ -104,16 +94,24 @@ keys = [
     
     # Application shortcuts and Rofi
     Key([mod], "Return", lazy.spawn(term)),
-    Key([mod], "r", lazy.spawn("rofi -show")),
-    Key([mod], "e", lazy.spawn("dolphin")),
-    Key([mod], "w", lazy.spawn("google-chrome-stable")),
-    Key([mod], "v", lazy.spawn("alacritty -e nvim"))
+    Key([mod], "n", lazy.spawn("notcenter")),
+    Key([mod], "r", lazy.spawn("rofi -show drun")),
+    Key([mod], "comma", lazy.spawn("rofi -show run")),
+    Key([mod], "space", lazy.spawn("rofi -show window")),
+    Key([mod], "p", lazy.spawn("powermenu")),
+    Key([mod], "e", lazy.spawn(term + " -e vifm")),
+    Key([mod], "w", lazy.spawn(browser)),
+    Key([mod], "v", lazy.spawn(term + " -d 198 53 -e nvim")),
+    Key([mod], "s", lazy.spawn(term + " -d 100 36 -e spoty")),
+    Key([mod], "m", lazy.spawn(term + " -e fish -c mutt")),
+    Key([mod], "c", lazy.spawn(term + " -d 100 36 -e calcurse")),
+    Key([mod], "a", lazy.spawn(term + " -d 126 42 -e fish -C \"curl wttr.in\""))
 ]
 
 
 ##  GROUPS ##
 
-group_names = [("NAV", {'layout': 'floating'}),
+group_names = [("NAV", {'layout': 'max'}),
                ("DEV", {'layout': 'monadtall'}),
                ("TERM", {'layout': 'monadtall'}),
                ("DOC", {'layout': 'monadtall'}),
@@ -126,11 +124,10 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
     
-    
 ##  LAYOUTS  ##
 
 layout_theme = {"border_width": 2,
-                "margin": 13,
+                "margin": 4,
                 "border_focus": "e1acff",
                 "border_normal": "1D2330"
                 }
@@ -138,7 +135,7 @@ layout_theme = {"border_width": 2,
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.Floating(**layout_theme),
-    layout.Matrix(columns=3, **layout_theme),
+    layout.Matrix(columns=2, **layout_theme),
     layout.Max(**layout_theme),   
     layout.Stack(num_stacks=2)
 ]
@@ -146,23 +143,31 @@ layouts = [
 
 ##  WIDGETS  ##
 
-def base(fg='light', bg='dark'):
+def base(fg='grey', bg='dark'):
     return {
         'foreground': colors[fg],
         'background': colors[bg]
     }
 
+def powerline_sep(prev='dark', to='light_grey'):
+    return {
+        'foreground': colors[to],
+        'background': colors[prev],
+        'font': 'Hack Nerd Font Mono',
+        'fontsize': 18,
+        'padding': 0.9,
+        'text': ''
+    }
 
 separator = {
-    **base(),
     'linewidth': 0,
     'padding': 5,
 }
 
 group_box = {
-    **base(),
+    **base(fg='light'),
     'font': 'Ubuntu Bold',
-    'fontsize': 10,
+    'fontsize': 9,
     'margin_y': 3,
     'margin_x': 0,
     'padding_y': 5,
@@ -172,59 +177,58 @@ group_box = {
     'inactive': colors['light'],
     'rounded': False,
     'highlight_method': 'line',
-    'this_current_screen_border': colors['primary'],
+    'this_current_screen_border': colors['red'],
     'this_screen_border': colors['grey'],
     'other_current_screen_border': colors['dark'],
     'other_screen_border': colors['dark']
 }
 
 task_list = {
-    **base(fg='primary'),
-    'font': 'Ubuntu Bold',
+    **base(fg='red'),
+    'font': 'Ubuntu Light',
     'fontsize': 13,
-    'icon_size': 0,
-    'padding': 5,
-    'margin_y': -3,
+    'icon_size': 17,
+    'padding_x': 3,
+    'padding_y': 2,
     'highlight_method': 'block',
-    'max_title_width': 150, 
-    'rounded' : False
+    'max_title_width': 250, 
+    'rounded' : False,
+    'txt_floating' : '🗗 ',
+    'txt_maximized' : '🗖 ',
+    'txt_minimized' : '🗕 '
 }
 
 systray = {
-    'background': colors['systray'],
+    'background': colors['grey'],
+    'foreground': colors['light_grey'],
     'padding': 4
 }
 
 text_box = {
-    'font': 'Ubuntu Mono',
-    'fontsize': 15,
-    'padding': 5
+    'font': 'Iosevka Nerd Font',
+    'fontsize': 13,
 }
 
 pacman = {
     'execute': termi,
-    'update_interval': 1800
+    'update_interval': 1000
 }
 
 current_layout_icon = {
-	'custom_icon_paths': path.join(qtile_path, "icons"),
+    'custom_icon_paths': [path.expanduser(path.join(qtile_path, "icons", "layout"))],
     'scale': 0.65
 }
 
-current_layout = {
-    'padding': 5
-}
-
 clock = {
-    'format': '%d/%m/%Y - %H:%M '
+    'format': '📅 %d/%m/%Y | 🕗 %H:%M '
 }
 
 
 def workspaces():
     return [
-        widget.Sep(**separator),
+        widget.Sep(**base(), **separator),
         widget.GroupBox(**group_box),
-        widget.Sep(**separator),
+        widget.Sep(**base(), **separator),
         widget.TaskList(**task_list)
     ]
 
@@ -232,96 +236,92 @@ def workspaces():
 def powerline_base():
     return [
         widget.Sep(
-            linewidth=0,
-            padding=0,
-            background=colors['primary']
+            **separator,
+            background=colors['red']
         ),
         widget.CurrentLayoutIcon(
-            **base(bg='primary'),
+            **base(bg='red', fg='grey'),
             **current_layout_icon
         ),
         widget.CurrentLayout(
-            **base(bg='primary'),
-            **current_layout
+            **base(bg='red'),
+            **text_box,
+            padding=5
         ),
         widget.Sep(
-            linewidth=0,
-            padding=5,
-            background=colors['primary']
-        ),
-        widget.Image(
-            filename=img['primary-to-green']
+            **separator,
+            background=colors['red']
         ),
         widget.TextBox(
-            **base(bg='green'),
+            **powerline_sep(prev='red', to='blue')
+        ),
+        widget.TextBox(
+            **base(bg='blue'),
             **text_box,
-            text='Vol.'
+            text='🔊'
         ),
         widget.Volume(
-            **base(bg='green'),
-            font='Ubuntu Mono',
-            fontsize=15
+            **base(bg='blue'),
+            **text_box,
         ),
         widget.Sep(
-            linewidth=0,
-            padding=5,
-            background=colors['green']
+            **separator,
+            background=colors['blue']
         ),
-        widget.Image(
-            filename=img['green-to-orange']
+        widget.TextBox(
+            **powerline_sep(prev='blue', to='orange')
         ),
         widget.TextBox(
             **base(bg='orange'),
             **text_box,
-            text='Bat.'
+            text='🔋'
         ),
         widget.Battery(
             **base(bg='orange'),
-            font='Ubuntu Mono',
-            fontsize=15,
+            **text_box,
             format='{percent:2.0%}'
         ),
         widget.Sep(
-            linewidth=0,
-            padding=5,
+            **separator,
             background=colors['orange']
         ),
-        widget.Image(
-            filename=img['orange-to-secondary']
+        widget.TextBox(
+            **powerline_sep(prev='orange', to='light_grey')
         ),
         widget.Sep(
-            linewidth=0,
-            padding=5,
-            background=colors['secondary']
+            **separator,
+            background=colors['light_grey']
         ),
         widget.Clock(
-            **base(bg='secondary'),
-            **clock
+            **base(bg='light_grey'),
+            **clock,
+            **text_box,
+            padding=5,
         ),
-        widget.Image(
-            filename=img['secondary-to-systray']
+        widget.TextBox(
+            **powerline_sep(prev='light_grey', to='grey')
+        ),
+        widget.Sep(
+            **separator,
+            background=colors['grey']
         ),
         widget.Systray(
             **systray
         ),
         widget.TextBox(
-            **base(bg='systray', fg='dark'),
-            font='Ubuntu Mono Bold',
-            fontsize=20,
-            padding=4,
+            **systray,
+            **text_box,
             text='|'
         ),
         widget.QuickExit(
-            **base(bg='systray'),
-            font='Ubuntu Mono',
-            fontsize=15,
-            padding=1,
+            **systray,
+            **text_box,
             default_text='[logout]'
         ),
         widget.Sep(
             linewidth=0,
             padding=8,
-            background=colors['systray']
+            background=colors['grey']
         )
     ]
 
@@ -330,89 +330,81 @@ widget_list = [
     *workspaces(),
 
     widget.Sep(
+        **base(),
         **separator
     ),
     widget.Sep(
+        **base(),
         **separator
-    ),
-    widget.Notify(
-        **base(bg='dark'),
-        **text_box,
-        width=13
-    ),
-    widget.Sep(
-        linewidth=0,
-        padding=5,
-        background=colors['dark']
-    ),
-    widget.Image(
-        filename=img['bg-to-blue']
     ),
     widget.TextBox(
-        **base(bg='blue'),
+        **powerline_sep(prev='dark', to='green')
+    ),
+    widget.TextBox(
+        **base(bg='green'),
         **text_box,
         text='📋'
     ),
     widget.Clipboard(
-        **base(bg='blue'),
+        **base(bg='green'),
         **text_box,
+        padding=5,
         max_width=10
     ),
-    widget.Image(
-        filename=img['blue-to-primary']
+    widget.TextBox(
+        **powerline_sep(prev='green', to='red')
     ),
     widget.Sep(
-        linewidth=0,
-        padding=5,
-        background=colors['primary']
+        **separator,
+        background=colors['red']
     ),
     widget.MemoryGraph(
-        background=colors['primary'],
+        background=colors['red'],
         type='box',
-        graph_color=colors['green'],
+        graph_color=colors['blue'],
         samples=60,
         border_color=colors['dark'],
         line_width=3
     ),
     widget.Sep(
-        linewidth=0,
-        padding=5,
-        background=colors['primary']
-    ),
-    widget.Image(
-        filename=img['primary-to-blue']
+        **separator,
+        background=colors['red']
     ),
     widget.TextBox(
-        **base(bg='blue'),
+        **powerline_sep(prev='red', to='green')
+    ),
+    widget.TextBox(
+        **base(bg='green'),
         **text_box,
+        padding=5,
         text=' ⟳'
     ),
     widget.Pacman(
-        **base(bg='blue'),
-        **pacman
+        **base(bg='green'),
+        **pacman,
+        **text_box
     ),
     widget.Sep(
-        linewidth=0,
-        padding=5,
-        background=colors['blue']
+        **separator,
+        background=colors['green']
     ),
-    widget.Image(
-        filename=img['blue-to-primary']
+    widget.TextBox(
+        **powerline_sep(prev='green', to='red')
     ),
     *powerline_base()
  ]
 
 widget_defaults = dict(
-    font='sans',
-    fontsize=12,
-    padding=3,
+    **base(),
+    **text_box,
+    padding=3
 )
 extension_defaults = widget_defaults.copy()
 
 
 ##  SCREENS  ##
 screens = [
-    Screen(top=bar.Bar(widget_list, 24, opacity=0.95))
+    Screen(top=bar.Bar(widget_list, 23, opacity=1))
 ]
 
 ##  MOUSE  ##
@@ -429,7 +421,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = True 
 cursor_warp = False
 
@@ -461,24 +453,10 @@ def autostart():
     subprocess.call([script])
 
 @hook.subscribe.client_new
-def float_poweroff_dialog(window):
-    wm_class = window.window.get_wm_class()
-    w_name = window.window.get_name()
-    if wm_class == ("cairo-dock", "Cairo-dock") and w_name == "cairo-dock-dialog":
-        window.floating = True
-
-@hook.subscribe.client_new
 def float_firefox(window):
     wm_class = window.window.get_wm_class()
     w_name = window.window.get_name()
     if wm_class == ("Places", "firefox") and w_name == "Catálogo":
-        window.floating = True
-
-@hook.subscribe.client_new
-def float_code(window):
-    wm_class = window.window.get_wm_class()
-    w_name = window.window.get_name()
-    if wm_class==("code", "Code") and (w_name=="Open File" or w_name=="Open Folder"):
         window.floating = True
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this

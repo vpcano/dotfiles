@@ -2,7 +2,7 @@ let half_width = winwidth(0)/2
 let spaces = ' ' 
 let i = 1
 
-while i<(half_width-38)
+while i<(half_width-33)
 	let spaces = spaces . ' ' 
 	let i += 1
 endwhile
@@ -10,10 +10,10 @@ endwhile
 let g:startify_session_dir = '~/.config/nvim/sessions'
 
 let g:startify_lists = [
-          \ { 'type': 'files',     'header': [spaces . '   ⏲  RECENT FILES']            },
-          \ { 'type': 'dir',       'header': [spaces . '   🖿  CURRENT DIRECTORY:  '. getcwd()] },
-          \ { 'type': 'sessions',  'header': [spaces . '   🖿  SESSIONS']       },
-          \ { 'type': 'bookmarks', 'header': [spaces . '   ★  BOOKMARKS']      },
+          \ { 'type': 'files',     'header': [spaces . '	⏲  RECENT FILES']            },
+          \ { 'type': 'dir',       'header': [spaces . '	🖿  CURRENT DIRECTORY:  '. getcwd()] },
+          \ { 'type': 'sessions',  'header': [spaces . '	🖿  SESSIONS']       },
+          \ { 'type': 'bookmarks', 'header': [spaces . '	★  BOOKMARKS']      },
           \ ]
 
 let g:startify_bookmarks = [
@@ -35,16 +35,17 @@ let g:startify_session_persistence = 1
 
 let g:startify_enable_special = 0
 
-let g:startify_padding_left = half_width - 27 
+let g:startify_padding_left = half_width - 23 
 
-let spaces = spaces . '   '
+let g:startify_files_number = 6
 
 let g:startify_custom_header = [
-        \ spaces . '	      _   __                       _    __  _   ______       ',
-	\ spaces . '	     / | / /   __ (_)____ ___     | |  / / (_) / ____/       ',
-	\ spaces . '	    /  |/ / | / // // __ `__ \    | | / / / / / /            ', 
- 	\ spaces . '	   / /|  /| |/ // // / / / / /    | |/ / / / / /___          ', 
-	\ spaces . '	  /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/          ',
-	\ spaces . '							       	     ',
-	\ spaces . '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+	\ '',
+        \ spaces . '	     _   __                       _    __  _   ______      ',
+	\ spaces . '	    / | / /   __ (_)____ ___     | |  / / (_) / ____/      ',
+	\ spaces . '	   /  |/ / | / // // __ `__ \    | | / / / / / /           ', 
+ 	\ spaces . '	  / /|  /| |/ // // / / / / /    | |/ / / / / /___         ', 
+	\ spaces . '	 /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/         ',
+	\ spaces . '							       	    ',
+	\ spaces . '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
         \]

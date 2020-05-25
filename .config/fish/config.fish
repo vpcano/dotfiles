@@ -24,13 +24,8 @@ set -g theme_display_hostname yes
 set -g theme_date_timezone Europe/Madrid
 set -g theme_date_format "+%d/%m-[%H:%M]"
 set -g theme_display_date yes 
-set -g theme_color_scheme base16-light
+set -g theme_color_scheme nord
 set -g fish_prompt_pwd_dir_lenght 0  
-
-##  VARIABLES  ##
-set PATH $PATH
-set -x EDITOR "nvim"
-set -x TERM "alacritty"
 
 ##  ALIAS  ##
 alias ls="exa -l"
@@ -39,12 +34,14 @@ alias grep="grep --color=auto"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"
 alias vim="nvim"
-alias chrome="google-chrome-stable"
+alias mutt="neomutt"
+alias waterfox="waterfox-current"
 
 ##  FUNCTIONS  ##
 function cd 
-	builtin cd $argv  
-	ls
+	if builtin cd $argv
+		ls
+	end
 end
 
 function swap
@@ -93,4 +90,4 @@ function ex
 end				
 
 ##  AUTOSTART  ##
-$HOME/.local/bin/vicfetch
+vicfetch

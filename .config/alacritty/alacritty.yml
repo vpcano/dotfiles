@@ -1,43 +1,47 @@
-background_opacity: 0.65
+background_opacity: 0.85
 colors:
   bright:
-    black: '0x282a40'
-    blue: '0x93bbff'
-    cyan: '0x98e4ff'
-    green: '0xcdea9f'
-    magenta: '0xd3a7ee'
-    red: '0xF07178'
-    white: '0xf1ffff'
-    yellow: '0xffd47e'
+    black: '0x5c6370'
+    blue: '0x61afef'
+    cyan: '0x56b6c2'
+    green: '0x98c379'
+    magenta: '0xc678dd'
+    red: '0xe06c75'
+    white: '0xe6efff'
+    yellow: '0xd19a66'
+  dim:
+    black: '0x1e2127'
+    blue: '0x61afef'
+    cyan: '0x56b6c2'
+    green: '0x98c379'
+    magenta: '0xc678dd'
+    red: '0xe06c75'
+    white: '0x828791'
+    yellow: '0xd19a66'
   normal:
-    black: '0x181a29'
-    blue: '0x93bbff'
-    cyan: '0x98e4ff'
-    green: '0xcdea9f'
-    magenta: '0xd3a7ee'
-    red: '0xF07178'
-    white: '0xbfd5de'
-    yellow: '0xffd47e'
+    black: '0x1e2127'
+    blue: '0x61afef'
+    cyan: '0x56b6c2'
+    green: '0x98c379'
+    magenta: '0xc678dd'
+    red: '0xe06c75'
+    white: '0x828791'
+    yellow: '0xd19a66'
   primary:
-    background: '0x0f101a'
-    foreground: '0xf1ffff'
-window:
-        decorations: full
-        dimensions:
-                columns: 172
-                lines: 46 
-        padding:
-                x: 3
-                y: 3
+    background: '0x282c34'
+    bright_foreground: '0xe6efff'
+    foreground: '0xabb2bf'
 font:
   bold:
     family: Hack Nerd Font Mono
   italic:
     family: Hack Nerd Font Mono
+  italic:
   normal:
     family: Hack Nerd Font Mono
+  italic:
     style: Regular
-  size: 8.0
+  size: 13
 key_bindings:
 - action: IncreaseFontSize
   key: I
@@ -48,3 +52,8 @@ key_bindings:
 - action: ResetFontSize
   key: P
   mods: Control|Shift
+window:
+  decorations: full
+  padding:
+    x: 3
+    y: 3

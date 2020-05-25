@@ -1,7 +1,8 @@
 #! /bin/bash 
 compton --config /home/victor/.config/compton.conf & 
-lxsession &
 wal -i /usr/share/backgrounds/52258.jpg &
-cairo-dock &
-dbus-launch nm-applet &
+nm-applet &
 blueman-applet &
+deadd-notification-center &
+xmodmap -e "keycode 135 = Super_L" &
+xmodmap -e "remove mod1 = Super_L" &

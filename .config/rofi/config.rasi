@@ -1,7 +1,14 @@
 configuration {
- modi: "run,drun,window,ssh,combi";
- theme: "~/.cache/wal/colors-rofi-dark";
- combi-modi: "window,drun,ssh";
+ modi: "run,drun,window,ssh";
  show-icons: true;
+ combi-modi: "run,drun,ssh";
+ kb-accept-entry: "Control+m,Return,KP_Enter";
+ kb-remove-to-eol: "";
+ kb-row-down: "Control+j,Down";
+ kb-row-up: "Control+k,Up";
+ scroll-method: 1;
+ font: "Hack Nerd Font Mono 12";
+ lines: 17;
+ terminal: "alacritty";
+ theme: "Arc-Dark";
 }
-@import "/usr/share/rofi/themes/gruvbox-light-soft.rasi"

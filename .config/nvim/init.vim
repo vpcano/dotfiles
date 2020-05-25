@@ -32,15 +32,22 @@ Plug 'Shougo/deoplete.nvim'
 Plug 'dense-analysis/ale'
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
-Plug 'frazrepo/vim-rainbow'
 Plug 'tpope/vim-surround'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'morhetz/gruvbox', {'dir': '~/.config/nvim/themes/gruvbox'}
 Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
+Plug 'joshdick/onedark.vim', { 'dir': '~/.config/nvim/themes/onedark' }
 Plug 'unblevable/quick-scope'
 Plug 'liuchengxu/vim-which-key'
 Plug 'mhinz/vim-startify'
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'voldikss/vim-floaterm'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'justinmk/vim-syntax-extra'
+Plug 'Shougo/neocomplete.vim'
+
 
 "Required
 call plug#end()
@@ -50,7 +57,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  GENERAL CONFIG
 """"""""""""""""""""""""""""""""""""""""""""""""
-set number
+set number relativenumber
+set cursorline
 set splitbelow splitright
 set path+=**
 set wildmenu
@@ -59,10 +67,27 @@ set smarttab
 set shell=sh
 set noshowmode
 set termguicolors
+syntax on
 set mouse=a
 filetype plugin on
 set timeoutlen=350
 let g:mapleader = ","
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+""  COMMANDS
+""""""""""""""""""""""""""""""""""""""""""""""""
+command Mail botright split term://fish -c mutt | :set nonumber | :set norelativenumber | :startinsert
+command Calendar botright 15split term://fish -C \"clear & gcalcli calw\" | :set nonumber | :set norelativenumber | :startinsert
+command PopupTerm botright 15split term://fish -C clear | :set nonumber | :set norelativenumber | :startinsert
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+""  THEME 
+""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme onedark
 
 
 
@@ -157,12 +182,16 @@ source $HOME/.config/nvim/configs/vim-which-key.vim
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-""  THEME (gruvbox)
+""  FLOATERM
 """"""""""""""""""""""""""""""""""""""""""""""""
-"let g:gruvbox_contrast_dark = 'hard'
-"colorscheme gruvbox
-colorscheme dracula
-hi Normal guibg=NONE ctermbg=NONE
+let g:floaterm_gitcommit='floaterm'
+let g:floaterm_shell='fish'
+let g:floaterm_autoinsert=1
+let g:floaterm_width=0.8
+let g:floaterm_height=0.8
+let g:floaterm_wintitle=0
+let g:floaterm_autoclose=1
+let g:floaterm_rootmarkers=['.project', '.git', '.hg', '.svn', '.root', '.gitignore']
 
 
 
@@ -175,7 +204,10 @@ map mm :Vifm<CR>
 map ms :VsplitVifm<CR>
 map mh :SplitVifm<CR>
 map mt :TabVifm<CR>
-map tt :botright 15split term://fish -C clear <bar> :set nonumber <bar> :startinsert <CR> 
+map tt :PopupTerm <CR> 
+map tf :FloatermSend clear <CR>
+map tg :FloatermNew lazygit <CR>
+map ; :Files<CR>
 map <C-i> :vertical resize +5<CR>
 map <C-o> :vertical resize -5<CR>
 nnoremap <C-h> <C-w>h

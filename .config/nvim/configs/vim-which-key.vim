@@ -12,8 +12,7 @@ autocmd  FileType which_key set laststatus=0 noshowmode noruler
 
 highlight default link WhichKey          Operator
 highlight default link WhichKeySeperator DiffAdded
-highlight default link WhichKeyGroup     Identifier
-highlight default link WhichKeyDesc      Function
+highlight default link WhichKeyGroup     Function
 
 let g:which_key_map[','] = [ '<Plug>NERDCommenterToggle'  , 'Comment' ]
 let g:which_key_map['/'] = [ '/'                          , 'Search text' ]
@@ -21,7 +20,7 @@ let g:which_key_map['h'] = [ '<C-W>s'                     , 'Split below']
 let g:which_key_map['v'] = [ '<C-W>v'                     , 'Split right']
 let g:which_key_map['i'] = [ '<C-i>'			  , 'Vertical Resize +5' ]
 let g:which_key_map['o'] = [ '<C-o>'			  , 'Vertical Resize -5' ]
-let g:which_key_map['s'] = [ ':Startify'                  , 'Start screen' ]
+let g:which_key_map['S'] = [ ':Startify'                  , 'Start screen' ]
 let g:which_key_map['m'] = [ 'mm'			  , '🖿 Open Vifm' ]
 let g:which_key_map['n'] = [ 'nn'			  , 'NERDTree' ]
 let g:which_key_map['t'] = [ 'tt'			  , '💻Terminal' ]
@@ -29,6 +28,35 @@ let g:which_key_map['w'] = [ ':w'			  , '🖪 Save' ]
 let g:which_key_map['q'] = [ ':wq'			  , '🖪 Save and exit' ]
 let g:which_key_map['c'] = [ ':Git commit'		  , 'Git Commit' ]
 let g:which_key_map['f'] = [ ':Git status'		  , 'Git Status' ]
+let g:which_key_map['g'] = [ 'tg'			  , 'Lazy git']		
+
+let g:which_key_map.s = {
+      \ 'name' : '+🔍search' ,
+      \ '/' : [':History/'     , 'history'],
+      \ ';' : [':Commands'     , 'commands'],
+      \ 'a' : [':Ag'           , 'text Ag'],
+      \ 'b' : [':BLines'       , 'current buffer'],
+      \ 'B' : [':Buffers'      , 'open buffers'],
+      \ 'c' : [':Commits'      , 'commits'],
+      \ 'C' : [':BCommits'     , 'buffer commits'],
+      \ 'f' : [':Files'        , 'files'],
+      \ 'g' : [':GFiles'       , 'git files'],
+      \ 'G' : [':GFiles?'      , 'modified git files'],
+      \ 'h' : [':History'      , 'file history'],
+      \ 'H' : [':History:'     , 'command history'],
+      \ 'l' : [':Lines'        , 'lines'] ,
+      \ 'm' : [':Marks'        , 'marks'] ,
+      \ 'M' : [':Maps'         , 'normal maps'] ,
+      \ 'p' : [':Helptags'     , 'help tags'] ,
+      \ 'P' : [':Tags'         , 'project tags'],
+      \ 's' : [':Snippets'     , 'snippets'],
+      \ 'S' : [':Colors'       , 'color schemes'],
+      \ 't' : [':Rg'           , 'text Rg'],
+      \ 'T' : [':BTags'        , 'buffer tags'],
+      \ 'w' : [':Windows'      , 'search windows'],
+      \ 'y' : [':Filetypes'    , 'file types'],
+      \ 'z' : [':FZF'          , 'FZF'],
+      \ }
 
 let g:which_key_map.d = {
 	\ 'name' : '+Debugging' ,
@@ -67,7 +95,7 @@ let g:which_key_map.l = {
     	    \ },
       	\ }
 
-let g:which_key_map.g = {
+let g:which_key_map.G = {
 	\ 'name' : '+Git',
 	\ 'a' : [':Git add'				, 'Add']		,
 	\ 's' : [':Git status'				, 'Status']		,
@@ -76,6 +104,7 @@ let g:which_key_map.g = {
 	\ 'f' : [':Git fetch'				, 'Fetch']		,
 	\ 'P' : [':Git pull'				, 'Pull']		,
 	\ 'd' : [':vertical Git diff'			, 'Diff']		,
+      	\ 'g' : [':FloatermNew lazygit'                 , 'Lazy git']		,
 	\ }
 
 let g:which_key_map.W = {
@@ -92,7 +121,7 @@ let g:which_key_map.W = {
 	\ }
 
 let g:which_key_map.V = {
-	\ 'name' : '+ 🖿 Vifm',
+	\ 'name' : '+🖿 Vifm',
 	\ 'm' : [ 'mm'					, 'Open Vifm' ]		,
 	\ 't' : [ 'mt'					, 'Open Vifm on new tab' ],
 	\ 's' : [ 'ms'					, 'Open Vifm on vertical split' ],
@@ -100,7 +129,7 @@ let g:which_key_map.V = {
 	\ }
 
 let g:which_key_map.a = {
-	\ 'name' : '+ ★ Bookmarks',
+	\ 'name' : '+★ Bookmarks',
 	\ 'c' : [ ':e ~/.config/qtile/config.py'	, 'Open Qtile config.py' ]	,
 	\ 'i' : [ ':e ~/.config/nvim/init.vim'		, 'Open Neovim init.vim' ]	,
 	\ 'z' : [ ':e ~/.config/fish/config.fish'	, 'Open Fish config.fish' ]	,
@@ -110,3 +139,19 @@ let g:which_key_map.a = {
 	\ 'Z' : [ ':vsplit ~/.config/fish/config.fish'	, 'Open Fish config.fish on vertical split' ]	,
 	\ 'A' : [ ':vsplit ~/.config/alacritty/alacritty.yml', 'Open Alacritty .yml on vertical split' ],
 	\ }
+
+let g:which_key_map.e = {
+      \ 'name' : '+⏏ Run' ,
+      \ 't' : ['tt'				        	, '💻Terminal (popup)'],
+      \ 'f' : ['tf'       					, '💻Terminal (floating)'],
+      \ 'g' : [':FloatermNew lazygit'                           , 'Lazy git'],
+      \ 'w' : [':silent ! google-chrome-stable'			, '🌐Browser'],
+      \ 'm' : [':FloatermNew neomutt'				, '📧 Mail (floating)'],
+      \ 'M' : [':Mail'						, '📧 Mail (popup)'],
+      \ 'c' : [':FloatermNew calcurse'			, '📅 Calendar (month)'],
+      \ 'C' : [':Calendar'					, '📅 Calendar (week)'],
+      \ 's' : [':FloatermNew spt'				, '🎵Spotify'],
+      \ 'p' : [':FloatermNew python'                            , 'Python'],
+      \ 'h' : [':FloatermNew htop'				, 'Htop'],
+      \ 'G' : [':FloatermNew gtop'				, 'Gtop'],
+      \ }

@@ -12,7 +12,7 @@
 #
 #===========================================================
 
-EDITOR="vim"
+EDITOR="nvim"
 export TERM="alacritty"
 
 alias ls='exa -l'
