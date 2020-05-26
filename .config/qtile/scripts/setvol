@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Script to change the volume and send notification
+
+OP=$1
+
+if [ "${OP}" = "inc" ]
+then
+	amixer set Master 10%+
+	SYM="+"
+elif [ "${OP}" = "dec" ]
+then
+	amixer set Master 10%-
+	SYM="-"
+elif [ "${OP}" = "mute" ]
+then
+	amixer set Master toggle
+else
+	exit 1
+fi
+
+MUTE=$(amixer sget Master | grep [][] | grep Left | cut -d " " -f 8 | cut -d "[" -f 2 | cut -d "]" -f 1)
+VOL=$(amixer sget Master | grep [][] | grep Left | cut -d " " -f 7 | cut -d "[" -f 2 | cut -d "%" -f 1)
+FILE=~/.config/qtile/scripts/res/vol_prev
+PREV_ID=$(cat "${FILE}")
+
+if [ "${MUTE}" = "off" ]
+then
+	notify-send.py "Volume ${SYM}" "${VOL}" -a "Volume" -r ${PREV_ID} -t 3000 --hint string:image-path:"audio-volume-muted" boolean:transient:true > "${FILE}"
+elif [ $VOL -gt 65 ]
+then
+	notify-send.py "Volume ${SYM}" "${VOL}" -a "Volume" -r ${PREV_ID}  -t 3000 --hint string:image-path:"audio-volume-high" boolean:transient:true > "${FILE}"
+elif [ $VOL -gt 35 ]
+then
+	notify-send.py "Volume ${SYM}" "${VOL}" -a "Volume" -r ${PREV_ID}  -t 3000 --hint string:image-path:"audio-volume-medium" boolean:transient:true > "${FILE}"
+elif [ $VOL -gt 0 ]
+then
+	notify-send.py "Volume ${SYM}" "${VOL}" -a "Volume" -r ${PREV_ID}  -t 3000 --hint string:image-path:"audio-volume-low" boolean:transient:true > "${FILE}"
+else
+	notify-send.py "Volume ${SYM}" "${VOL}" -a "Volume" -r ${PREV_ID}  -t 3000 --hint string:image-path:"audio-volume-muted" boolean:transient:true > "${FILE}"
+fi
+
+exit 0

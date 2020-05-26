@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Script to change the bright and send a notification
+
+OP=$1
+
+if [ "${OP}" = "inc" ]
+then
+	xbacklight -inc 10	
+	SYM="+"
+elif [ "${OP}" = "dec" ]
+then
+	xbacklight -dec 10	
+	SYM="-"
+fi
+ 
+CONTRAST=$(xbacklight | cut -d "." -f 1)
+FILE=~/.config/qtile/scripts/res/bri_prev
+PREV_ID=$(cat "${FILE}")
+
+notify-send.py "Brightness ${SYM}" "${CONTRAST}" -a "Brightness" -r ${PREV_ID}  -t 3000 --hint string:image-path:"contrast" boolean:transient:true > "${FILE}"
+
+exit 0
