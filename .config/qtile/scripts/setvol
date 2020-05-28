@@ -4,16 +4,13 @@
 
 OP=$1
 
-if [ "${OP}" = "inc" ]
-then
+if [ "${OP}" = "inc" ]; then
 	amixer set Master 10%+
 	SYM="+"
-elif [ "${OP}" = "dec" ]
-then
+elif [ "${OP}" = "dec" ]; then
 	amixer set Master 10%-
 	SYM="-"
-elif [ "${OP}" = "mute" ]
-then
+elif [ "${OP}" = "mute" ]; then
 	amixer set Master toggle
 else
 	exit 1

@@ -2,8 +2,7 @@
 
 # Script to toggle night mode (using clight) and show notification
 
-if [ $(ps -A | grep clight | wc | tr -s ' ' | cut -d " " -f 2) -gt 1 ]
-then
+if [ $(ps -A | grep clight | wc | tr -s ' ' | cut -d " " -f 2) -gt 1 ]; then
 	notify-send.py "Night Mode" "Disabled" -a "Night Mode" -t 3000 --hint string:image-path:"night-light-disabled-symbolic" boolean:transient:true
 	killall clight
 else

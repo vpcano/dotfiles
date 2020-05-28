@@ -4,12 +4,10 @@
 
 OP=$1
 
-if [ "${OP}" = "inc" ]
-then
+if [ "${OP}" = "inc" ]; then
 	xbacklight -inc 10	
 	SYM="+"
-elif [ "${OP}" = "dec" ]
-then
+elif [ "${OP}" = "dec" ]; then
 	xbacklight -dec 10	
 	SYM="-"
 fi

@@ -11,6 +11,9 @@
 #       GitHub: https://github.com/vpcano
 #
 #===========================================================
+
+
+##  IMPORTS  ##
 from typing import List
 from os import path, environ
 import re
@@ -20,32 +23,75 @@ import subprocess
 from libqtile.config import Key, Screen, Group, Drag, Click, Rule
 from libqtile.command import lazy
 from libqtile import layout, bar, widget, hook
-
 from plugins import arcobattery 
 
 
 ##  VARIABLES ##
-
 qtile_path = path.join(path.expanduser("~"), ".config", "qtile")
 colors_path = path.join(qtile_path, "colors.json")
 icons_path = path.join(qtile_path, "icons")
 scripts_path = path.join(qtile_path, "scripts")
 mod = "mod4"
 
-term = environ["TERM"]
-browser = environ["BROWSER"]
-editor = environ["EDITOR"]
-
 # map color name to hex values
-#  with open(colors_path) as f:
 def init_colors():
     with open(colors_path) as f:
         colors = json.load(f)
     return colors
 colors = init_colors()
 
-##  KEYS  ##
+term = environ["TERM"]
+browser = environ["BROWSER"]
+editor = environ["EDITOR"]
 
+mailbox1 = '.local/share/mail/gmail'
+mailbox2 = '.local/share/mail/uam'
+
+
+##  FUNCTIONS  ##
+def OpenCalendar(qtile):
+    qtile.cmd_spawn(term + " -d 100 36 -e calcurse")
+
+def OpenPowermenu(qtile):
+    qtile.cmd_spawn(str(path.join(scripts_path, "powermenu")))
+
+def ToggleNightmode(qtile):
+    qtile.cmd_spawn(str(path.join(scripts_path, "nightmode")))
+
+def OpenNotcenter(qtile):
+    qtile.cmd_spawn(str(path.join(scripts_path, "notcenter")))
+
+def OpenVolumepanel(qtile):
+    qtile.cmd_spawn(term + " -d 126 42 -e alsamixer")
+
+def OpenWeather(qtile):
+    qtile.cmd_spawn(term + " -d 126 42 -e fish -C \"curl wttr.in\"")
+
+def OpenUpdate(qtile):
+    qtile.cmd_spawn("update")
+
+def GetNewMails(mailbox):
+    cmd = [str(path.join(scripts_path, "getunreadmails"))]
+    inp = mailbox.encode('utf-8')
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, input=inp) 
+    return int(res.stdout.decode('utf-8'))
+
+def GetNewMails1():
+    new = GetNewMails(mailbox1)
+    return '📧 ' + str(new)
+
+def GetNewMails2():
+    new = GetNewMails(mailbox2)
+    return '📧 ' + str(new)
+
+def OpenMail1(qtile):
+    qtile.cmd_spawn(term + " -e neomutt")
+
+def OpenMail2(qtile):
+    qtile.cmd_spawn(term + " -e neomutt -e \"source /home/victor/.config/mutt/accounts/2-uam.muttrc\"")
+
+
+##  KEYS  ##
 keys = [
 
     # Move between different groups
@@ -128,6 +174,7 @@ keys = [
 
     # Application shortcuts and Rofi
     Key([mod], "Return", lazy.spawn(term)),
+    Key([mod], "t", lazy.spawn("st")),
     Key([mod], "n", lazy.spawn(str(path.join(scripts_path, "notcenter")))),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
     Key([mod], "comma", lazy.spawn("rofi -show run")),
@@ -135,16 +182,15 @@ keys = [
     Key([mod], "p", lazy.spawn(str(path.join(scripts_path, "powermenu")))),
     Key([mod], "e", lazy.spawn(term + " -e vifm")),
     Key([mod], "w", lazy.spawn(browser)),
-    Key([mod], "v", lazy.spawn(term + " -d 198 53 -e " + editor)),
+    Key([mod], "v", lazy.spawn("st -g 198x53 -e " + editor)),
     Key([mod], "s", lazy.spawn(term + " -d 100 36 -e spoty")),
-    Key([mod], "m", lazy.spawn(term + " -e fish -c mutt")),
+    Key([mod], "m", lazy.spawn(term + " -e neomutt")),
     Key([mod], "c", lazy.spawn(term + " -d 100 36 -e calcurse")),
     Key([mod], "a", lazy.spawn(term + " -d 126 42 -e fish -C \"curl wttr.in\""))
 ]
 
 
 ##  GROUPS ##
-
 group_names = [("NAV", {'layout': 'max'}),
                ("DEV", {'layout': 'monadtall'}),
                ("TERM", {'layout': 'monadtall'}),
@@ -158,8 +204,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
     keys.append(Key([mod], str(i), lazy.group[name].toscreen()))        # Switch to another group
     keys.append(Key([mod, "shift"], str(i), lazy.window.togroup(name))) # Send current window to another group
     
-##  LAYOUTS  ##
 
+##  LAYOUTS  ##
 def init_layout_theme():
     return {"border_width": 2,
             "margin": 4,
@@ -178,7 +224,6 @@ layouts = [
 
 
 ##  WIDGETS  ##
-
 def base(fg='grey', bg='dark'):
     return {
         'foreground': colors[fg],
@@ -194,6 +239,11 @@ def powerline_sep(prev='dark', to='light_grey'):
         'padding': 0.9,
         'text': ''
     }
+
+text_box = {
+    'font': 'Iosevka Nerd Font',
+    'fontsize': 13,
+}
 
 separator = {
     'linewidth': 0,
@@ -234,31 +284,6 @@ task_list = {
     'txt_minimized' : '🗕 '
 }
 
-systray = {
-    'background': colors['grey'],
-    'foreground': colors['light_grey'],
-    'padding': 4
-}
-
-text_box = {
-    'font': 'Iosevka Nerd Font',
-    'fontsize': 13,
-}
-
-pacman = {
-    'execute': term + ' -e sudo pacman -Syu',
-    'update_interval': 1000
-}
-
-current_layout_icon = {
-    'custom_icon_paths': [path.expanduser(path.join(icons_path, "layout"))],
-    'scale': 0.65
-}
-
-clock = {
-    'format': '📅 %d/%m/%Y | 🕗 %H:%M '
-}
-
 def init_widget_defaults():
     return dict(
         **base(),
@@ -268,7 +293,6 @@ def init_widget_defaults():
 widget_defaults = init_widget_defaults()
 
 def init_widget_list():
-    prompt = "{0}@{1}: ".format(environ["USER"], socket.gethostname())
     widget_list = [
         # WORKSPACES
         widget.Sep(**base(), **separator),
@@ -283,43 +307,25 @@ def init_widget_list():
         widget.TextBox(
             **base(bg='green'),
             **text_box,
-            text='📋'
-        ),
-        widget.Clipboard(
-            **base(bg='green'),
-            **text_box,
-            padding=5,
-            max_width=10
-        ),
-        widget.TextBox(**powerline_sep(prev='green', to='red')),
-        widget.Sep(**separator, background=colors['red']),
-        widget.MemoryGraph(
-            background=colors['red'],
-            type='box',
-            graph_color=colors['blue'],
-            samples=60,
-            border_color=colors['dark'],
-            line_width=3
-        ),
-        widget.Sep(**separator, background=colors['red']),
-        widget.TextBox(**powerline_sep(prev='red', to='green')),
-        widget.TextBox(
-            **base(bg='green'),
-            **text_box,
             padding=5,
             text=' ⟳'
         ),
         widget.Pacman(
             **base(bg='green'),
-            **pacman,
-            **text_box
+            **text_box,
+            execute='update',
+            update_interval=1000,
+            mouse_callbacks={
+                'Button1': OpenUpdate
+            }
         ),
         widget.Sep(**separator, background=colors['green']),
         widget.TextBox(**powerline_sep(prev='green', to='red')),
         widget.Sep(**separator, background=colors['red']),
         widget.CurrentLayoutIcon(
             **base(bg='red', fg='grey'),
-            **current_layout_icon
+            custom_icon_paths=[path.expanduser(path.join(icons_path, "layout"))],
+            scale=0.65
         ),
         widget.CurrentLayout(
             **base(bg='red'),
@@ -327,30 +333,31 @@ def init_widget_list():
             padding=5
         ),
         widget.Sep(**separator, background=colors['red']),
-        widget.TextBox(**powerline_sep(prev='red', to='blue')),
+        widget.TextBox(**powerline_sep(prev='red', to='green')),
+        widget.Sep(**separator, background=colors['green']),
+        widget.GenPollText(
+            **base(bg='green'),
+            **text_box,
+            func=GetNewMails1,
+            mouse_callbacks={
+                'Button1': OpenMail1
+            }
+        ),
         widget.TextBox(
-            **base(bg='blue'),
+            **base(bg='green'),
             **text_box,
-            text='🔊'
+            text='|'
         ),
-        widget.Volume(
-            **base(bg='blue'),
+        widget.GenPollText(
+            **base(bg='green'),
             **text_box,
-            padding=2
-        ),
-        widget.TextBox(
-            **base(bg='blue'),
-            **text_box,
-            text='| 🔆'
-        ),
-        widget.Backlight(
-            **base(bg='blue'),
-            **text_box,
-            backlight_name='intel_backlight',
-            format='{percent:2.0%}'
-        ),
-        widget.Sep(**separator, background=colors['blue']),
-        widget.TextBox(**powerline_sep(prev='blue', to='orange')),
+            func=GetNewMails2,
+            mouse_callbacks={
+                'Button1': OpenMail2
+            }
+        ), 
+        widget.Sep(**separator, background=colors['green']),
+        widget.TextBox(**powerline_sep(prev='green', to='orange')),
         widget.Sep(**separator, background=colors['orange']),
         arcobattery.BatteryIcon(
             padding=0,
@@ -363,35 +370,94 @@ def init_widget_list():
         widget.Battery(
             **base(bg='orange'),
             **text_box,
-            format='{percent:2.0%}'
+            format='{percent:2.0%} - {hour:d}:{min:02d}'
         ),
         widget.Sep(**separator, background=colors['orange']),
-        widget.TextBox(**powerline_sep(prev='orange', to='light_grey')),
-        widget.Sep(**separator, background=colors['light_grey']),
-        widget.Clock(
+        widget.TextBox(**powerline_sep(prev='orange', to='blue')),
+        widget.Volume(
+            **base(bg='blue'),
+            **text_box,
+            padding=3,
+            emoji=True,
+        ),
+        widget.Volume(
+            **base(bg='blue'),
+            **text_box,
+            padding=2,
+        ),
+        widget.TextBox(
+            **base(bg='blue'),
+            **text_box,
+            text='| 🔆'
+        ),
+        widget.Backlight(
+            **base(bg='blue'),
+            **text_box,
+            backlight_name='intel_backlight',
+            format='{percent:2.0%}'
+        ),
+        widget.TextBox(
+            **base(bg='blue'),
+            **text_box,
+            text='| 🌙',
+            mouse_callbacks={
+                'Button1': ToggleNightmode
+            }
+        ),
+        widget.Sep(**separator, background=colors['blue']),
+        widget.TextBox(**powerline_sep(prev='blue', to='light_grey')),
+        widget.YahooWeather(
             **base(bg='light_grey'),
-            **clock,
             **text_box,
             padding=5,
+            location='Madrid',
+            format='{current_observation_condition_symbol} {current_observation_condition_temperature}°{units_temperature} |',
+            mouse_callbacks={
+                'Button1': OpenWeather
+            }
+        ),
+        widget.Clock(
+            **base(bg='light_grey'),
+            **text_box,
+            padding=5,
+            format='📅 %d/%m | 🕗 %H:%M ',
+            mouse_callbacks={
+                'Button1': OpenCalendar
+            }
         ),
         widget.TextBox(**powerline_sep(prev='light_grey', to='grey')),
         widget.Sep(**separator, background=colors['grey']),
         widget.Systray(
-            **systray
+            **base(bg='grey', fg='light'),
+            padding=5
         ),
         widget.TextBox(
-            **systray,
+            **base(bg='grey', fg='light'),
             **text_box,
+            padding=5,
             text='|'
         ),
-        widget.QuickExit(
-            **systray,
+        widget.TextBox(
+            **base(bg='grey', fg='light'),
             **text_box,
-            default_text='[logout]'
+            padding=5,
+            text='➕',
+            mouse_callbacks={
+                'Button1': OpenNotcenter
+            }
+        ),
+        widget.TextBox(
+            **base(bg='grey', fg='light'),
+            **text_box,
+            padding=5,
+            text='⏻',
+            mouse_callbacks={
+                'Button1': OpenPowermenu
+            }
         ),
         widget.Sep(
             linewidth=0,
-            padding=8,
+            padding=16,
             background=colors['grey']
         )
     ]
@@ -454,10 +520,10 @@ def autostart():
     script = path.join(scripts_path, "autostart.sh")
     subprocess.call([script])
 
-@hook.subscribe.startup
-def start_always():
+#  @hook.subscribe.startup
+#  def start_always():
     # Set the cursor to something sane in X
-    subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
+    #  subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
 
 @hook.subscribe.client_new
 def float_firefox(window):

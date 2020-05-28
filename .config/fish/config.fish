@@ -24,7 +24,7 @@ set -g theme_display_hostname yes
 set -g theme_date_timezone Europe/Madrid
 set -g theme_date_format "+%d/%m-[%H:%M]"
 set -g theme_display_date yes 
-set -g theme_color_scheme nord
+set -g theme_color_scheme terminal-light
 set -g fish_prompt_pwd_dir_lenght 0  
 
 ##  ALIAS  ##
