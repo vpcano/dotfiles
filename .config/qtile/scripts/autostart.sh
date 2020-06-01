@@ -1,6 +1,9 @@
 #! /bin/bash 
+
+xscreensaver -no-splash &
 compton --config /home/victor/.config/compton.conf & 
-wal -i /usr/share/backgrounds/52258.jpg &
+nitrogen --restore &
+systemctl --user start spotifyd.service &
 nm-applet &
 blueman-applet &
 deadd-notification-center &

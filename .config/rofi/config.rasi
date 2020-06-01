@@ -12,3 +12,4 @@ configuration {
  terminal: "alacritty";
  theme: "Arc-Dark";
 }
+@import "/usr/share/rofi/themes/Arc-Dark.rasi"

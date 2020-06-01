@@ -43,6 +43,7 @@ colors = init_colors()
 term = environ["TERM"]
 browser = environ["BROWSER"]
 editor = environ["EDITOR"]
+filemanager = environ["FM"]
 
 mailbox1 = '.local/share/mail/gmail'
 mailbox2 = '.local/share/mail/uam'
@@ -50,7 +51,7 @@ mailbox2 = '.local/share/mail/uam'
 
 ##  FUNCTIONS  ##
 def OpenCalendar(qtile):
-    qtile.cmd_spawn(term + " -d 100 36 -e calcurse")
+    qtile.cmd_spawn(term + " -g 100x36 -e calcurse")
 
 def OpenPowermenu(qtile):
     qtile.cmd_spawn(str(path.join(scripts_path, "powermenu")))
@@ -62,10 +63,10 @@ def OpenNotcenter(qtile):
     qtile.cmd_spawn(str(path.join(scripts_path, "notcenter")))
 
 def OpenVolumepanel(qtile):
-    qtile.cmd_spawn(term + " -d 126 42 -e alsamixer")
+    qtile.cmd_spawn(term + " -g 126x42 -e alsamixer")
 
 def OpenWeather(qtile):
-    qtile.cmd_spawn(term + " -d 126 42 -e fish -C \"curl wttr.in\"")
+    qtile.cmd_spawn(term + " -g 126x42 -e fish -C \"curl wttr.in\"")
 
 def OpenUpdate(qtile):
     qtile.cmd_spawn("update")
@@ -174,19 +175,18 @@ keys = [
 
     # Application shortcuts and Rofi
     Key([mod], "Return", lazy.spawn(term)),
-    Key([mod], "t", lazy.spawn("st")),
     Key([mod], "n", lazy.spawn(str(path.join(scripts_path, "notcenter")))),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
     Key([mod], "comma", lazy.spawn("rofi -show run")),
     Key([mod], "period", lazy.spawn("rofi -show window")),
     Key([mod], "p", lazy.spawn(str(path.join(scripts_path, "powermenu")))),
-    Key([mod], "e", lazy.spawn(term + " -e vifm")),
+    Key([mod], "e", lazy.spawn(term + " -e " + filemanager)),
     Key([mod], "w", lazy.spawn(browser)),
-    Key([mod], "v", lazy.spawn("st -g 198x53 -e " + editor)),
-    Key([mod], "s", lazy.spawn(term + " -d 100 36 -e spoty")),
+    Key([mod], "v", lazy.spawn(term + " -g 198x53 -e " + editor)),
+    Key([mod], "s", lazy.spawn(term + " -g 100x36 -e spt ")),
     Key([mod], "m", lazy.spawn(term + " -e neomutt")),
-    Key([mod], "c", lazy.spawn(term + " -d 100 36 -e calcurse")),
-    Key([mod], "a", lazy.spawn(term + " -d 126 42 -e fish -C \"curl wttr.in\""))
+    Key([mod], "c", lazy.spawn(term + " -g 100x36 -e calcurse")),
+    Key([mod], "a", lazy.spawn(term + " -g 126x42 -e fish -C \"curl wttr.in\""))
 ]
 
 
@@ -519,11 +519,6 @@ focus_on_window_activation = "smart"
 def autostart():
     script = path.join(scripts_path, "autostart.sh")
     subprocess.call([script])
-
-#  @hook.subscribe.startup
-#  def start_always():
-    # Set the cursor to something sane in X
-    #  subprocess.Popen(['xsetroot', '-cursor_name', 'left_ptr'])
 
 @hook.subscribe.client_new
 def float_firefox(window):
