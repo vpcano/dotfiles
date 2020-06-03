@@ -1,4 +1,4 @@
-#! /bin/bash 
+#! /bin/sh
 
 xscreensaver -no-splash &
 compton --config /home/victor/.config/compton.conf & 

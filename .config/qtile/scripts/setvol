@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Script to change the volume and send notification
 

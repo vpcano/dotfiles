@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 
 res=$(echo "🔒Lock|⇥ Logout|↺ Reboot|⏻ Shutdown" | rofi -sep "|" -dmenu -p 'Power Menu' -theme "~/.config/qtile/scripts/powermenu-theme.rasi" -width 12 -lines 4 -eh 2 -location 3 -yoffset 23 -padding 15 -font "Hack Nerd Font Mono 10")

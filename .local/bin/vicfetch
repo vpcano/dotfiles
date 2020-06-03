@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 OS="Arch Linux x86_64"
 KERNEL=$(uname -r)

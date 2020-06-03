@@ -33,8 +33,9 @@ export PATH=$PATH:$HOME/.local/bin/
 export SUDO_ASKPASS=$HOME/.local/bin/daskpass
 
 # KEEP HOME DIR CLEAN
+export ZDOTDIR=$XDG_CONFIG_HOME/shell/zsh
 export LESSHISTFILE=$HOME/.local/share/less/.lesshst
-export HISTFILE=$XDG_CONFIG_HOME/bash/bash_history
+export HISTFILE=$XDG_CONFIG_HOME/shell/histfile
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
 rm $HOME/.xsession-errors* >>/dev/null 2>&1	# This can be done since Xsession output has been redirected to ~/.config/xconfig/xsession-log

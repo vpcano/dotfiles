@@ -1,4 +1,8 @@
-alias ls="exa -l --group-directories-first"
+#!/bin/sh
+
+# Alias script for Víctor Pérez Cano
+
+alias ls="colorls -l --sd"
 alias la="ls -a"
 alias grep="grep --color=auto"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
