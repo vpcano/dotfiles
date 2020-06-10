@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Image previewer script using ueberzug
+
+source "`ueberzug library`"
+
+export $(xdotool getactivewindow getwindowgeometry --shell)
+M_WDTH=$(expr $WIDTH / 2)
+I_WDTH=$(mediainfo $1 | grep Width | cut -d':' -f 2 | cut -d'p' -f 1 | tr -d ' ')
+S_WDTH=$(xdpyinfo | grep -B 2 resolution | grep dimensions | cut -d'p' -f 1 | cut -d':' -f 2 | cut -d'x' -f 1 | tr -d ' ')
+if [ $I_WDTH -ge $M_WDTH ]; then
+	X_INIT=$M_WDTH
+else
+	X_INIT=$(expr $M_WDTH * 3 / 2 - $I_WDTH / 2)
+fi
+ID=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 10 | head -n 1)
+
+ImageLayer 0< <(
+	# ImageLayer::add [identifier]="$ID" [x]="$(expr $X_INIT * 200 / $S_WDTH)" [y]="1" [max_width]="$(expr $M_WDTH * 200 / $S_WDTH)" [max_height]="20" [path]="$1"
+	ImageLayer::add [identifier]="$ID" [x]="105" [y]="1" [max_width]="120" [max_height]="20" [path]="$1"
+	read -ern 1
+	ImageLayer::remove [identifier]="$ID"
+)
