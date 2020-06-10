@@ -21,7 +21,7 @@ let g:which_key_map['v'] = [ '<C-W>v'                     , 'Split right']
 let g:which_key_map['i'] = [ '<C-i>'			  , 'Vertical Resize +5' ]
 let g:which_key_map['o'] = [ '<C-o>'			  , 'Vertical Resize -5' ]
 let g:which_key_map['S'] = [ ':Startify'                  , 'Start screen' ]
-let g:which_key_map['m'] = [ 'mm'			  , '🖿 Open Vifm' ]
+let g:which_key_map['m'] = [ 'mm'			  , '🖿 Open Lf' ]
 let g:which_key_map['n'] = [ 'nn'			  , 'NERDTree' ]
 let g:which_key_map['t'] = [ 'tt'			  , '💻Terminal' ]
 let g:which_key_map['w'] = [ ':w'			  , '🖪 Save' ]
@@ -120,12 +120,20 @@ let g:which_key_map.W = {
 	\ 'Q' : [ ':q!'					, 'Exit without saving' ],
 	\ }
 
-let g:which_key_map.V = {
-	\ 'name' : '+🖿 Vifm',
+let g:which_key_map.M = {
+	\ 'name' : '+🖿 Lf',
 	\ 'm' : [ 'mm'					, 'Open Vifm' ]		,
 	\ 't' : [ 'mt'					, 'Open Vifm on new tab' ],
 	\ 's' : [ 'ms'					, 'Open Vifm on vertical split' ],
 	\ 'h' : [ 'mh'					, 'Open Vifm on horizintal split'],
+	\ }
+
+let g:which_key_map.V = {
+	\ 'name' : '+🖿 Vifm',
+	\ 'm' : [ ':Vifm'					, 'Open Vifm' ]		,
+	\ 't' : [ ':TabVifm'					, 'Open Vifm on new tab' ],
+	\ 's' : [ ':VsplitVifm'					, 'Open Vifm on vertical split' ],
+	\ 'h' : [ ':SplitVifm'					, 'Open Vifm on horizintal split'],
 	\ }
 
 let g:which_key_map.a = {

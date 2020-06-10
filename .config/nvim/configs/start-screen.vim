@@ -18,9 +18,12 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [
             \ { 'c': '~/.config/qtile/config.py' },
+            \ { 'p': '~/.profile' },
             \ { 'i': '~/.config/nvim/init.vim' },
-            \ { 'z': '~/.config/fish/config.fish' },
+            \ { 'z': '~/.config/shell/zsh/.zshrc' },
+            \ { 'l': '~/.config/lf/lfrc' },
 	    \ { 'a': '~/.config/alacritty/alacritty.yml' },
+	    \ { 's': '~/Dev/st/config.def.h' },
             \ ]
 
 let g:startify_session_autoload = 1
@@ -37,7 +40,7 @@ let g:startify_enable_special = 0
 
 let g:startify_padding_left = half_width - 23 
 
-let g:startify_files_number = 6
+let g:startify_files_number = 8
 
 let g:startify_custom_header = [
 	\ '',

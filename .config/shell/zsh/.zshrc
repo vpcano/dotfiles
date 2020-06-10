@@ -30,14 +30,15 @@ SAVEHIST=1000
 
 ##  LEFT AND RIGHT PROMPTS  ##
 function update-prompts {
-  RPS1="[%{$fg_bold[white]%}$1]%{$reset_color%}-[%D{%H:%M}]"
-  if [[ $TERM == *"st"* ]] || [[ $TERM == *"alacritty"* ]]; then
+  # if [[ $TERM == *"st"* ]] || [[ $TERM == *"alacritty"* ]]; then
 	# Powerline themed prompt (requires special fonts)
-	source $ZDOTDIR/plugins/powerline.zsh-theme
-  else
+  	RPS1="[$2$1%{$reset_color%}]-[%D{%H:%M}]"
+	# source $ZDOTDIR/plugins/powerline.zsh-theme
+  # else
 	# Simple prompt (no unicode characters, useful for tty or ssh)
-	PS1="%{$fg_bold[red]%}[%{$fg_bold[yellow]%}${USER}%{$fg_bold[magenta]%}@%{$fg_bold[blue]%}%m%{$fg_bold[red]%}]%{$reset_color%}-%{$fg_bold[red]%}[%{$fg[cyan]%}%(4~|%-2~/…/%1~|%4~)%{$fg_bold[red]%}] $2=>%{$reset_color%} "
-  fi
+          # RPS1="[%D{%H:%M}]"
+	PS1=" %{$fg_bold[red]%}[%{$fg_bold[yellow]%}${USER}%{$fg_bold[magenta]%}@%{$fg_bold[blue]%}%m%{$fg_bold[red]%}]%{$reset_color%}-%{$fg_bold[red]%}[%{$fg[cyan]%}%(4~|%-2~/…/%1~|%4~)%{$fg_bold[red]%}] $2=>%{$reset_color%} "
+  # fi
 }
 
 ##  VIM MODE  ##
@@ -90,6 +91,11 @@ precmd() {
 source $ZDOTDIR/plugins/git.plugin.zsh
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
+
+# Ctrl+Space to accept suggestion
+bindkey '^ ' autosuggest-accept
 
 ##  ALIAS  ##
 source $HOME/.aliasrc
@@ -97,8 +103,22 @@ source $HOME/.aliasrc
 ##  SOME FUNCTIONS  ##
 # Change dir and list
 function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls; }; }
-# Colorls
-source $(dirname $(gem which colorls))/tab_complete.sh
+# Change to the last directory before lf was closed
+function lfcd() {
+	tmp="$(mktemp)"
+	lf -last-dir-path="$tmp" "$@"
+	if [ -f "$tmp" ]; then
+		dir="$(cat "$tmp")"
+		rm -f "$tmp"
+		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
+	fi
+}
+# Search with fzf and edit with $EDITOR
+function efzf() {
+	$EDITOR $(find -maxdepth 4 | fzf --header "Edit with "$EDITOR" "$@"")
+}
 
 ##  AUTOSTART  ##
-vicfetch
+if ! [[ $TERM == *"xterm"* ]]; then 	# For not displaying vicfetch on vim terminal
+	vicfetch
+fi

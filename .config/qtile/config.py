@@ -179,6 +179,7 @@ keys = [
     Key([mod], "r", lazy.spawn("rofi -show drun")),
     Key([mod], "comma", lazy.spawn("rofi -show run")),
     Key([mod], "period", lazy.spawn("rofi -show window")),
+    Key([mod], "f", lazy.spawn("dfav")),
     Key([mod], "p", lazy.spawn(str(path.join(scripts_path, "powermenu")))),
     Key([mod], "e", lazy.spawn(term + " -e " + filemanager)),
     Key([mod], "w", lazy.spawn(browser)),
@@ -441,7 +442,7 @@ def init_widget_list():
             **base(bg='grey', fg='light'),
             **text_box,
             padding=5,
-            text='➕',
+            text=' ',
             mouse_callbacks={
                 'Button1': OpenNotcenter
             }

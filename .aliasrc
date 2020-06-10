@@ -4,6 +4,7 @@
 
 alias ls="colorls -l --sd"
 alias la="ls -a"
+alias tree="colorls --tree"
 alias grep="grep --color=auto"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
 alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"

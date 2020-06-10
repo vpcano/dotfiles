@@ -47,7 +47,8 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-syntax-extra'
 Plug 'Shougo/neocomplete.vim'
-
+Plug 'ptzz/lf.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 "Required
 call plug#end()
@@ -78,9 +79,9 @@ let g:mapleader = ","
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  COMMANDS
 """"""""""""""""""""""""""""""""""""""""""""""""
-command Mail botright split term://fish -c mutt | :set nonumber | :set norelativenumber | :startinsert
-command Calendar botright 15split term://fish -C \"clear & gcalcli calw\" | :set nonumber | :set norelativenumber | :startinsert
-command PopupTerm botright 15split term://fish -C clear | :set nonumber | :set norelativenumber | :startinsert
+command Mail botright split term://zsh -c mutt | :set nonumber | :set norelativenumber | :startinsert
+command Calendar botright 15split term://zsh -c calcurse | :set nonumber | :set norelativenumber | :startinsert
+command PopupTerm botright 15split term://zsh | :set nonumber | :set norelativenumber | :startinsert
 
 
 
@@ -99,6 +100,8 @@ let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers=0
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=30
+let g:NERDTreeHijackNetrw = 0
+let g:lf_replace_netrw = 1
 
 
 
@@ -185,7 +188,7 @@ source $HOME/.config/nvim/configs/vim-which-key.vim
 ""  FLOATERM
 """"""""""""""""""""""""""""""""""""""""""""""""
 let g:floaterm_gitcommit='floaterm'
-let g:floaterm_shell='fish'
+let g:floaterm_shell='zsh'
 let g:floaterm_autoinsert=1
 let g:floaterm_width=0.8
 let g:floaterm_height=0.8
@@ -199,11 +202,11 @@ let g:floaterm_rootmarkers=['.project', '.git', '.hg', '.svn', '.root', '.gitign
 ""  KEYMAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""
 imap ii <Esc>
-map nn :NERDTreeToggle<CR>
-map mm :Vifm<CR>
-map ms :VsplitVifm<CR>
-map mh :SplitVifm<CR>
-map mt :TabVifm<CR>
+map <C-n> :NERDTreeToggle<CR>
+map mm :Lf<CR>
+map ms :vsplit <bar> :Lf<CR>
+map mh :split <bar> :Lf<CR>
+map mt :LfNewTab<CR>
 map tt :PopupTerm <CR> 
 map tf :FloatermSend clear <CR>
 map tg :FloatermNew lazygit <CR>
@@ -236,8 +239,8 @@ augroup cproject
 	autocmd BufRead,BufNewFile *.c :packadd termdebug
 	autocmd BufRead,BufNewFile *.c nnoremap <F4> :w <bar> :make %:r<cr>
 	autocmd BufRead,BufNewFile *.c nnoremap <F5> :Termdebug exec/%:r<cr>	
-	autocmd BufRead,BufNewFile *.c nnoremap <F6> :botright 15split term://fish -C ./exec/%:r <bar> :set nonumber <bar> :startinsert <cr>	
-	autocmd BufRead,BufNewFile *.c nnoremap <F7> :botright 15split term://fish -C valgrind ./exec/%:r <bar> :set nonumber <bar> :startinsert <cr>	
+	autocmd BufRead,BufNewFile *.c nnoremap <F6> :botright 15split term://zsh -c ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>	
+	autocmd BufRead,BufNewFile *.c nnoremap <F7> :botright 15split term://zsh -c valgrind ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>	
 augroup END
 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

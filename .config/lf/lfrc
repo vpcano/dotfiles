@@ -1,0 +1,88 @@
+#===================================================
+#       __     ______      _    __  _  ______
+#      / /    / ____/     | |  / / (_)/ ____/
+#     / /    / /_         | | / / / // /     
+#    / /___ / __/         | |/ / / // /___   
+#   /_____//_/            |___/ /_/ \____/   
+#
+#	~/.config/lf/lfrc file
+#
+#	Víctor Pérez Cano
+#	GitHub: https://github.com/vpcano
+#                                                  
+#===================================================
+
+##  SETTINGS  ##
+set hidden true
+set color256 true
+set drawbox true
+set icons true		# LF_COLORS variable set in .profile
+set shell sh
+set preview true
+set previewer preview 
+
+##  FUNCTIONS  ##
+# Open function
+cmd open ${{
+    case $(file --mime-type "$f" -bL) in
+        text/*|application/json) $EDITOR "$f";;
+        video/*|image/*|application/pdf) xdg-open "$f" & disown;;
+        *) xdg-open "$f" ;;
+    esac
+}}
+# Edit with $EDITOR
+cmd edit ${{ $EDITOR "$f" }}
+# Some command line basic functions
+cmd mkdir %printf "Dir name: " && read dirname && mkdir $dirname
+cmd mkfile %printf "File name: " && read filename && touch $filename
+cmd chmod %printf "Mode bits: " && read modebits && chmod $modebits $f
+# Extract and compress files (using custom scripts)
+cmd extract %extract $f
+cmd compress-zip %compress -z $fx
+cmd compress-rar %compress -r $fx
+# Trash interaction
+cmd move-to-trash %trash-put $fx
+cmd clear-trash %trash-empty
+cmd restore-trash ${{trash-restore}}
+# Fuzzy finder
+cmd fzf_jump ${{
+   res="$(find -maxdepth 4 | fzf --header='Jump to location')"
+   if [ -f "$res" ]; then
+     cmd="select"
+   elif [ -d "$res" ]; then
+     cmd="cd"                                                       
+   fi
+lf -remote "send $id $cmd \"$res\""
+}}
+# Set as wallpaper
+cmd set-wallpaper %nitrogen --set-scaled $f 1>/dev/null 2>&1 
+
+##  KEYBINDINGS  ##
+# Remove some defaults
+map m
+map o
+map n
+map "'"
+map '"'
+map y
+map d
+map c
+map e
+map f
+# New keybindings
+map dd 	cut
+map dD 	move-to-trash
+map DD 	delete
+map yy 	copy
+map p 	paste
+map ;	fzf_jump
+map ex	extract
+map cz	compress-zip
+map cr 	compress-rar
+map ch	chmod
+map cl 	clear
+map md	mkdir
+map mf	mkfile
+map cw 	rename
+map . set hidden!
+map ee	edit
