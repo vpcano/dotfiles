@@ -34,6 +34,7 @@ export SUDO_ASKPASS=$HOME/.local/bin/daskpass
 
 # KEEP HOME DIR CLEAN
 export ZDOTDIR=$XDG_CONFIG_HOME/shell/zsh
+export POWERLEVEL9K_INSTALLATION_DIR=$ZDOTDIR/plugins/powerlevel10k
 export LESSHISTFILE=$HOME/.local/share/less/.lesshst
 export HISTFILE=$XDG_CONFIG_HOME/shell/histfile
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc

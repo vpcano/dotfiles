@@ -1,4 +1,4 @@
-#==================================================
+###################################################
 #    _____          __       _    __ _  ______
 #   /__  /   _____ / /_     | |  / /(_)/ ____/
 #     / /   / ___// __ \    | | / // // /     
@@ -10,7 +10,7 @@
 #	Víctor Pérez Cano
 #	GitHub: https://github.com/vpcano
 #
-#==================================================
+###################################################
 
 
 ##  SOME SETTINGS  ##
@@ -27,19 +27,41 @@ _comp_options+=(globdots)
 # History
 HISTSIZE=1000
 SAVEHIST=1000
+# Colorls
+source $(dirname $(gem which colorls))/tab_complete.sh
 
-##  LEFT AND RIGHT PROMPTS  ##
-function update-prompts {
-  # if [[ $TERM == *"st"* ]] || [[ $TERM == *"alacritty"* ]]; then
-	# Powerline themed prompt (requires special fonts)
-  	RPS1="[$2$1%{$reset_color%}]-[%D{%H:%M}]"
-	# source $ZDOTDIR/plugins/powerline.zsh-theme
-  # else
-	# Simple prompt (no unicode characters, useful for tty or ssh)
-          # RPS1="[%D{%H:%M}]"
-	PS1=" %{$fg_bold[red]%}[%{$fg_bold[yellow]%}${USER}%{$fg_bold[magenta]%}@%{$fg_bold[blue]%}%m%{$fg_bold[red]%}]%{$reset_color%}-%{$fg_bold[red]%}[%{$fg[cyan]%}%(4~|%-2~/…/%1~|%4~)%{$fg_bold[red]%}] $2=>%{$reset_color%} "
-  # fi
-}
+
+##  PLUGINS  ##
+source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept 	# Ctrl+Space to accept suggestion
+source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZDOTDIR/plugins/git.plugin.zsh
+
+
+##  FUNCTIONS  ##
+fpath=($fpath $ZDOTDIR/functions)
+autoload cd
+autoload lfcd
+autoload select-prompt
+function update-prompts() {}	# Sourcing prompt file will override this function. It is defined to avoid errors.
+
+
+##  ALIAS  ##
+source $HOME/.aliasrc
+
+
+##  AUTOSTART  ##
+if ! [[ $TERM == *"xterm"* ]]; then 	# For not displaying vicfetch on vim terminal
+	vicfetch
+fi
+if ! [ -e $ZDOTDIR/prompt.zsh-theme ]; then
+	select-prompt
+fi
+
+
+##  PROMPT ##
+source $ZDOTDIR/prompt.zsh-theme
+
 
 ##  VIM MODE  ##
 bindkey -v
@@ -86,39 +108,3 @@ precmd() {
     VIMODE_COLOR="%{$fg_bold[green]%}"
     update-prompts $VIMODE_STRING $VIMODE_COLOR
 }
-
-##  PLUGINS  ##
-source $ZDOTDIR/plugins/git.plugin.zsh
-source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-# Colorls
-source $(dirname $(gem which colorls))/tab_complete.sh
-
-# Ctrl+Space to accept suggestion
-bindkey '^ ' autosuggest-accept
-
-##  ALIAS  ##
-source $HOME/.aliasrc
-
-##  SOME FUNCTIONS  ##
-# Change dir and list
-function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls; }; }
-# Change to the last directory before lf was closed
-function lfcd() {
-	tmp="$(mktemp)"
-	lf -last-dir-path="$tmp" "$@"
-	if [ -f "$tmp" ]; then
-		dir="$(cat "$tmp")"
-		rm -f "$tmp"
-		[ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
-	fi
-}
-# Search with fzf and edit with $EDITOR
-function efzf() {
-	$EDITOR $(find -maxdepth 4 | fzf --header "Edit with "$EDITOR" "$@"")
-}
-
-##  AUTOSTART  ##
-if ! [[ $TERM == *"xterm"* ]]; then 	# For not displaying vicfetch on vim terminal
-	vicfetch
-fi

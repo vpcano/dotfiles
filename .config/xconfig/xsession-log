@@ -11228,3 +11228,318 @@ There is an instance already running
 
 
 (blueman-tray:890): Gdk-CRITICAL **: 13:08:50.979: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed
+[ 10/06/20 15:31:56.671 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a54921.
+[ 10/06/20 15:31:56.671 paint_one ERROR ] Failed to bind texture for window 0x0180006c.
+[ 10/06/20 15:31:56.671 paint_one ERROR ] Window 0x0180006c is missing painting data.
+[0m[31m2020-06-10 15:38:50,226 [1m[31mlibqtile base.py:worker():L502 [0m problem polling to update widget pacman
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 498, in worker
+    text = self.poll()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/pacman.py", line 50, in poll
+    pacman = self.call_process(['checkupdates'])
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 286, in call_process
+    output = subprocess.check_output(command, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 411, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.8/subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['checkupdates']' returned non-zero exit status 2.[0m
+[ 10/06/20 15:46:51.137 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a5654f.
+[ 10/06/20 15:46:51.137 paint_one ERROR ] Failed to bind texture for window 0x0180006c.
+[ 10/06/20 15:46:51.137 paint_one ERROR ] Window 0x0180006c is missing painting data.
+[0m[31m2020-06-10 15:55:30,107 [1m[31mlibqtile base.py:worker():L502 [0m problem polling to update widget pacman
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 498, in worker
+    text = self.poll()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/pacman.py", line 50, in poll
+    pacman = self.call_process(['checkupdates'])
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 286, in call_process
+    output = subprocess.check_output(command, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 411, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.8/subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['checkupdates']' returned non-zero exit status 2.[0m
+[ 10/06/20 16:28:39.161 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a589ae.
+[ 10/06/20 16:28:39.162 paint_one ERROR ] Failed to bind texture for window 0x008001e4.
+[ 10/06/20 16:28:39.162 paint_one ERROR ] Window 0x008001e4 is missing painting data.
+[ 10/06/20 16:28:39.169 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a589ae.
+[ 10/06/20 16:28:39.169 paint_one ERROR ] Failed to bind texture for window 0x008001e4.
+[ 10/06/20 16:28:39.169 paint_one ERROR ] Window 0x008001e4 is missing painting data.
+[ 10/06/20 16:28:39.188 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a589ae.
+[ 10/06/20 16:28:39.188 paint_one ERROR ] Failed to bind texture for window 0x008001e4.
+[ 10/06/20 16:28:39.188 paint_one ERROR ] Window 0x008001e4 is missing painting data.
+[ 10/06/20 16:28:39.207 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a589ae.
+[ 10/06/20 16:28:39.207 paint_one ERROR ] Failed to bind texture for window 0x008001e4.
+[ 10/06/20 16:28:39.207 paint_one ERROR ] Window 0x008001e4 is missing painting data.
+[ 10/06/20 19:22:40.382 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00a6bdab.
+[ 10/06/20 19:22:40.383 paint_one ERROR ] Failed to bind texture for window 0x00800417.
+[ 10/06/20 19:22:40.383 paint_one ERROR ] Window 0x00800417 is missing painting data.
+[0m[31m2020-06-10 19:54:54,913 [1m[31mlibqtile manager.py:process_key_event():L359 [0m KB command error kill: No object window in path 'window'[0m
+[0m[31m2020-06-10 19:54:57,770 [1m[31mlibqtile qtile.py:main():L153 [0m Qtile crashed
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/scripts/qtile.py", line 151, in main
+    q.loop()
+  File "/usr/lib/python3.8/site-packages/libqtile/core/session_manager.py", line 48, in loop
+    self.qtile.loop()
+  File "/usr/lib/python3.8/site-packages/libqtile/ipc.py", line 234, in __exit__
+    self.close()
+  File "/usr/lib/python3.8/site-packages/libqtile/ipc.py", line 252, in close
+    self.loop.run_until_complete(self.server.wait_closed())
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 591, in run_until_complete
+    self._check_closed()
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 508, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed[0m
+Gdk-Message: 19:54:57.832: nm-applet: Fatal IO error 11 (Recurso no disponible temporalmente) on X server :0.
+
+[ 10/06/20 19:54:57.833 handle_queued_x_events FATAL ERROR ] X11 server connection broke (error 1)
+Gdk-Message: 19:54:57.833: deadd-notification-center: Fatal IO error 11 (Recurso no disponible temporalmente) on X server :0.
+
+Gdk-Message: 19:54:57.833: blueman-tray: Fatal IO error 11 (Recurso no disponible temporalmente) on X server :0.
+
+Gdk-Message: 19:54:57.835: blueman-applet: Fatal IO error 11 (Recurso no disponible temporalmente) on X server :0.
+
+[0m[33m2020-06-10 19:55:05,643 [1m[33mlibqtile pacman.py:__init__():L38 [0m Pacman is deprecated, please use CheckUpdates[0m
+[0m[33m2020-06-10 19:55:05,813 [1m[33mlibqtile pacman.py:__init__():L38 [0m Pacman is deprecated, please use CheckUpdates[0m
+[0m[33m2020-06-10 19:55:05,815 [1m[33mlibqtile pacman.py:__init__():L38 [0m Pacman is deprecated, please use CheckUpdates[0m
+[ 10/06/20 19:55:06.179 parse_config_libconfig WARN ] Option `no-dock-shadow` is deprecated, and will be removed. Please use the wintype option `shadow` of `dock` instead.
+[ 10/06/20 19:55:06.179 parse_config_libconfig WARN ] Option `no-dnd-shadow` is deprecated, and will be removed. Please use the wintype option `shadow` of `dnd` instead.
+[ 10/06/20 19:55:06.179 parse_config_libconfig WARN ] Option `menu-opacity` is deprecated, and will be removed.Please use the wintype option `opacity` of `popup_menu` and `dropdown_menu` instead.
+[ 10/06/20 19:55:06.179 parse_config_libconfig WARN ] vsync option will take a boolean from now on. "opengl-swc" is interpreted as "true" for compatibility, but this will stop working soon
+[ 10/06/20 19:55:06.179 parse_config_libconfig WARN ] glx-swap-method has been deprecated since v6, your setting "exchange" should be replaced by `use-damage = true`.
+[ 10/06/20 19:55:06.179 parse_config_libconfig WARN ] "clear-shadow" is removed as an option, and is always enabled now. Consider removing it from your config file
+[ 10/06/20 19:55:06.179 session_init WARN ] This compositor has been renamed to "picom", the "compton" binary will not be installed in the future.
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.254: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.255: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.255: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.257: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.258: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.258: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.259: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.259: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.259: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.260: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.260: Unable to locate theme engine in module_path: "murrine",
+[ 10/06/20 19:55:06.270 swopti_init WARN ] --sw-opti is going to be deprecated. If you get real benefits from using this option, please open an issue to let us know.
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.554: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.554: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.554: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.557: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.557: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.557: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.559: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.559: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.559: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.559: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:439656): Gtk-WARNING **: 19:55:06.560: Unable to locate theme engine in module_path: "murrine",
+
+(nm-applet:439658): Gtk-WARNING **: 19:55:06.634: Theme directory 32@2x/devices of theme Vimix-Doder-dark has no size field
+
+
+(blueman-applet:439659): Gtk-WARNING **: 19:55:06.798: Theme directory 32@2x/devices of theme Vimix-Doder-dark has no size field
+
+blueman-applet 19.55.06 WARNING  PluginManager:147 __load_plugin: Not loading PPPSupport because its conflict has higher priority
+blueman-applet 19.55.06 WARNING  PluginManager:147 __load_plugin: Not loading DhcpClient because its conflict has higher priority
+blueman-tray version 2.1.3 starting
+There is an instance already running
+
+(blueman-tray:439736): Gtk-WARNING **: 19:55:07.365: Theme directory 32@2x/devices of theme Vimix-Doder-dark has no size field
+
+
+(blueman-tray:439736): Gdk-CRITICAL **: 19:55:07.465: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed
+[0m[31m2020-06-10 19:55:37,771 [1m[31mlibqtile manager.py:process_key_event():L359 [0m KB command error up: No such command[0m
+[0m[31m2020-06-10 19:55:39,730 [1m[31mlibqtile xcore.py:_xpoll():L270 [0m Shutting down due to X connection error XCB_CONN_ERROR (1)
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 571, in wrapper
+    return f(*args)
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 610, in poll_for_event
+    self.invalid()
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 559, in invalid
+    raise ConnectionException(err)
+xcffib.ConnectionException: xcb connection errors because of socket, pipe and other stream errors.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/backend/x11/xcore.py", line 231, in _xpoll
+    event = self.conn.conn.poll_for_event()
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 573, in wrapper
+    self.invalid()
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 559, in invalid
+    raise ConnectionException(err)
+xcffib.ConnectionException: xcb connection errors because of socket, pipe and other stream errors.[0m
+Exception in callback Qtile.call_soon.<locals>.f() at /usr/lib/python3.8/site-packages/libqtile/core/manager.py:874
+handle: <Handle Qtile.call_soon.<locals>.f() at /usr/lib/python3.8/site-packages/libqtile/core/manager.py:874>
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/asyncio/events.py", line 81, in _run
+    self._context.run(self._callback, *self._args)
+  File "/usr/lib/python3.8/site-packages/libqtile/core/manager.py", line 875, in f
+    func(*args)
+  File "/usr/lib/python3.8/site-packages/libqtile/bar.py", line 317, in _actual_draw
+    i.draw()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/sep.py", line 68, in draw
+    self.drawer.draw(offsetx=self.offset, width=self.length)
+  File "/usr/lib/python3.8/site-packages/libqtile/drawer.py", line 305, in draw
+    self.qtile.conn.conn.core.CopyArea(
+  File "/usr/lib/python3.8/site-packages/xcffib/xproto.py", line 3035, in CopyArea
+    return self.send_request(62, buf, is_checked=is_checked)
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 391, in send_request
+    seq = self.conn.send_request(flags, xcb_parts + 2, xcb_req)
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 569, in wrapper
+    self.invalid()
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 559, in invalid
+    raise ConnectionException(err)
+xcffib.ConnectionException: xcb connection errors because of socket, pipe and other stream errors.
+[0m[31m2020-06-10 19:55:39,738 [1m[31mlibqtile manager.py:finalize():L303 [0m exception during finalize
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/core/manager.py", line 293, in finalize
+    widget.finalize()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 208, in finalize
+    self.drawer.finalize()
+  File "/usr/lib/python3.8/site-packages/libqtile/drawer.py", line 247, in finalize
+    self.qtile.conn.conn.core.FreeGC(self.gc)
+  File "/usr/lib/python3.8/site-packages/xcffib/xproto.py", line 3027, in FreeGC
+    return self.send_request(60, buf, is_checked=is_checked)
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 391, in send_request
+    seq = self.conn.send_request(flags, xcb_parts + 2, xcb_req)
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 569, in wrapper
+    self.invalid()
+  File "/usr/lib/python3.8/site-packages/xcffib/__init__.py", line 559, in invalid
+    raise ConnectionException(err)
+xcffib.ConnectionException: xcb connection errors because of socket, pipe and other stream errors.[0m
+[0m[31m2020-06-10 19:55:39,757 [1m[31mlibqtile xcbq.py:disconnect():L950 [0m Failed to disconnect, connection already failed?[0m
+[0m[31m2020-06-10 19:55:39,769 [1m[31mlibqtile qtile.py:main():L153 [0m Qtile crashed
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/scripts/qtile.py", line 151, in main
+    q.loop()
+  File "/usr/lib/python3.8/site-packages/libqtile/core/session_manager.py", line 48, in loop
+    self.qtile.loop()
+  File "/usr/lib/python3.8/site-packages/libqtile/ipc.py", line 234, in __exit__
+    self.close()
+  File "/usr/lib/python3.8/site-packages/libqtile/ipc.py", line 252, in close
+    self.loop.run_until_complete(self.server.wait_closed())
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 591, in run_until_complete
+    self._check_closed()
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 508, in _check_closed
+    raise RuntimeError('Event loop is closed')
+RuntimeError: Event loop is closed[0m
+[0m[33m2020-06-11 11:53:33,203 [1m[33mlibqtile pacman.py:__init__():L38 [0m Pacman is deprecated, please use CheckUpdates[0m
+[0m[33m2020-06-11 11:53:33,360 [1m[33mlibqtile pacman.py:__init__():L38 [0m Pacman is deprecated, please use CheckUpdates[0m
+[0m[33m2020-06-11 11:53:33,362 [1m[33mlibqtile pacman.py:__init__():L38 [0m Pacman is deprecated, please use CheckUpdates[0m
+[ 11/06/20 11:53:33.802 parse_config_libconfig WARN ] Option `no-dock-shadow` is deprecated, and will be removed. Please use the wintype option `shadow` of `dock` instead.
+[ 11/06/20 11:53:33.802 parse_config_libconfig WARN ] Option `no-dnd-shadow` is deprecated, and will be removed. Please use the wintype option `shadow` of `dnd` instead.
+[ 11/06/20 11:53:33.802 parse_config_libconfig WARN ] Option `menu-opacity` is deprecated, and will be removed.Please use the wintype option `opacity` of `popup_menu` and `dropdown_menu` instead.
+[ 11/06/20 11:53:33.802 parse_config_libconfig WARN ] vsync option will take a boolean from now on. "opengl-swc" is interpreted as "true" for compatibility, but this will stop working soon
+[ 11/06/20 11:53:33.802 parse_config_libconfig WARN ] glx-swap-method has been deprecated since v6, your setting "exchange" should be replaced by `use-damage = true`.
+[ 11/06/20 11:53:33.802 parse_config_libconfig WARN ] "clear-shadow" is removed as an option, and is always enabled now. Consider removing it from your config file
+[ 11/06/20 11:53:33.802 session_init WARN ] This compositor has been renamed to "picom", the "compton" binary will not be installed in the future.
+[ 11/06/20 11:53:33.950 swopti_init WARN ] --sw-opti is going to be deprecated. If you get real benefits from using this option, please open an issue to let us know.
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.043: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.043: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.043: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.046: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.046: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.046: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.048: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.049: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.049: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.049: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.050: Unable to locate theme engine in module_path: "murrine",
+
+(nm-applet:798): Gtk-WARNING **: 11:53:34.255: Theme directory 32@2x/devices of theme Vimix-Doder-dark has no size field
+
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.411: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.411: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.411: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.414: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.414: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.414: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.415: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.416: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.416: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.416: Unable to locate theme engine in module_path: "murrine",
+
+(nitrogen:796): Gtk-WARNING **: 11:53:34.416: Unable to locate theme engine in module_path: "murrine",
+
+(blueman-applet:799): Gtk-WARNING **: 11:53:34.557: Theme directory 32@2x/devices of theme Vimix-Doder-dark has no size field
+
+blueman-applet 11.53.34 WARNING  PluginManager:147 __load_plugin: Not loading PPPSupport because its conflict has higher priority
+blueman-applet 11.53.34 WARNING  PluginManager:147 __load_plugin: Not loading DhcpClient because its conflict has higher priority
+blueman-tray version 2.1.3 starting
+There is an instance already running
+
+(blueman-tray:924): Gtk-WARNING **: 11:53:35.277: Theme directory 32@2x/devices of theme Vimix-Doder-dark has no size field
+
+
+(blueman-tray:924): Gdk-CRITICAL **: 11:53:35.308: gdk_window_thaw_toplevel_updates: assertion 'window->update_and_descendants_freeze_count > 0' failed
+[0m[31m2020-06-11 12:30:17,880 [1m[31mlibqtile manager.py:process_key_event():L359 [0m KB command error right: No such command[0m
+[0m[31m2020-06-11 12:43:34,316 [1m[31mlibqtile base.py:worker():L502 [0m problem polling to update widget pacman
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 498, in worker
+    text = self.poll()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/pacman.py", line 50, in poll
+    pacman = self.call_process(['checkupdates'])
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 286, in call_process
+    output = subprocess.check_output(command, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 411, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.8/subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['checkupdates']' returned non-zero exit status 2.[0m
+[0m[31m2020-06-11 13:00:14,221 [1m[31mlibqtile base.py:worker():L502 [0m problem polling to update widget pacman
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 498, in worker
+    text = self.poll()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/pacman.py", line 50, in poll
+    pacman = self.call_process(['checkupdates'])
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 286, in call_process
+    output = subprocess.check_output(command, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 411, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.8/subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['checkupdates']' returned non-zero exit status 2.[0m

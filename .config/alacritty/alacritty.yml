@@ -33,12 +33,12 @@ colors:
     foreground: '0xabb2bf'
 font:
   bold:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
   italic:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
   italic:
   normal:
-    family: Hack Nerd Font Mono
+    family: JetBrainsMono Nerd Font
   italic:
     style: Regular
   size: 13
