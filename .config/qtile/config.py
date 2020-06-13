@@ -183,11 +183,11 @@ keys = [
     Key([mod], "p", lazy.spawn(str(path.join(scripts_path, "powermenu")))),
     Key([mod], "e", lazy.spawn(term + " -e " + filemanager)),
     Key([mod], "w", lazy.spawn(browser)),
-    Key([mod], "v", lazy.spawn(term + " -g 198x53 -e " + editor)),
-    Key([mod], "s", lazy.spawn(term + " -g 100x36 -e spt ")),
-    Key([mod], "m", lazy.spawn(term + " -e neomutt")),
-    Key([mod], "c", lazy.spawn(term + " -g 100x36 -e calcurse")),
-    Key([mod], "a", lazy.spawn(term + " -g 126x42 -e fish -C \"curl wttr.in\""))
+    Key([mod], "v", lazy.spawn("st -g 198x53 -e " + editor)),
+    Key([mod], "s", lazy.spawn("st -g 100x36 -e spt ")),
+    Key([mod], "m", lazy.spawn("st -e neomutt")),
+    Key([mod], "c", lazy.spawn("st -g 100x36 -e calcurse")),
+    Key([mod], "a", lazy.spawn("st -g 126x42 -e fish -C \"curl wttr.in\""))
 ]
 
 

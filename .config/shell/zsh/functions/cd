@@ -1,0 +1,4 @@
+# Change dir and list
+
+function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls; }; }
+

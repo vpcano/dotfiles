@@ -1,0 +1,28 @@
+#!/bin/zsh
+# Small program to choose a prompt for zsh between all in $ZDOTDIR/prompts/
+
+function select-prompt() {
+	echo "Available prompts: "
+	i=1
+	for theme in $ZDOTDIR/prompts/*.zsh-theme; do
+		filename=$(basename -- "$theme")
+		echo "	$i. ${filename%.*}" 	
+		i=$(expr $i + 1)
+	done
+	printf "Choose an option (1 - $(expr $i - 1)): " && read j
+	i=1
+	flag=0
+	for theme in $ZDOTDIR/prompts/*.zsh-theme; do
+		if [ $j -eq $i ]; then
+			cp $theme $ZDOTDIR/prompt.zsh-theme	
+			flag=1
+		fi
+		i=$(expr $i + 1)
+	done
+	if [ $flag -ne 1 ]; then
+		echo "Invalid option"
+		return 1
+	fi
+	clear
+	exec zsh -l
+}

@@ -1,4 +1,4 @@
-#!/bin/sh
+# vim: set ft=sh:
 #========================================================================
 #                               ____ _  __        _    __  _   ______
 #          ____   _____ ____   / __/(_)/ /___    | |  / / (_) / ____/
@@ -23,7 +23,7 @@
 
 
 # DEFAULT APPS AND PROGRAMS
-export TERM=st
+export TERM=alacritty
 export BROWSER=waterfox-current
 export EDITOR=nvim
 export FM=lf

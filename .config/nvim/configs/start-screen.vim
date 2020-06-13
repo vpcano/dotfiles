@@ -13,7 +13,7 @@ let g:startify_lists = [
           \ { 'type': 'files',     'header': [spaces . '	⏲  RECENT FILES']            },
           \ { 'type': 'dir',       'header': [spaces . '	🖿  CURRENT DIRECTORY:  '. getcwd()] },
           \ { 'type': 'sessions',  'header': [spaces . '	🖿  SESSIONS']       },
-          \ { 'type': 'bookmarks', 'header': [spaces . '	★  BOOKMARKS']      },
+          \ { 'type': 'bookmarks', 'header': [spaces . '	  BOOKMARKS']      },
           \ ]
 
 let g:startify_bookmarks = [
