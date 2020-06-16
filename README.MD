@@ -1,5 +1,5 @@
 # DOTFILES
-Welcome to my personal desktop settings and configuration files
+Welcome to my personal desktop settings and configuration files :yum:
 
 ![Animation GIF](.screenshots/anim.gif)
 
@@ -12,7 +12,7 @@ Welcome to my personal desktop settings and configuration files
 - Using **zsh** shell with custom prompt and `select-prompt` function
 
 ## Installation
-An installation script is in progress. Meanwhile you can get these settings just by coping this repository to your home folder and installing the necessary dependencies.
+An installation script is in progress. Meanwhile you can get these settings just by coping this repository to your home folder and installing the necessary dependencies :wink:.
 
 ## Screenshots
 ![Screenshot 1](.screenshots/screenshot1.jpg)
