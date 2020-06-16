@@ -41,6 +41,7 @@ def init_colors():
 colors = init_colors()
 
 term = environ["TERM"]
+term2 = environ["TERM2"]
 browser = environ["BROWSER"]
 editor = environ["EDITOR"]
 filemanager = environ["FM"]
@@ -175,6 +176,7 @@ keys = [
 
     # Application shortcuts and Rofi
     Key([mod], "Return", lazy.spawn(term)),
+    Key([mod], "t", lazy.spawn(term2)),
     Key([mod], "n", lazy.spawn(str(path.join(scripts_path, "notcenter")))),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
     Key([mod], "comma", lazy.spawn("rofi -show run")),
@@ -183,11 +185,11 @@ keys = [
     Key([mod], "p", lazy.spawn(str(path.join(scripts_path, "powermenu")))),
     Key([mod], "e", lazy.spawn(term + " -e " + filemanager)),
     Key([mod], "w", lazy.spawn(browser)),
-    Key([mod], "v", lazy.spawn("st -g 198x53 -e " + editor)),
-    Key([mod], "s", lazy.spawn("st -g 100x36 -e spt ")),
-    Key([mod], "m", lazy.spawn("st -e neomutt")),
-    Key([mod], "c", lazy.spawn("st -g 100x36 -e calcurse")),
-    Key([mod], "a", lazy.spawn("st -g 126x42 -e fish -C \"curl wttr.in\""))
+    Key([mod], "v", lazy.spawn(term2 + " -d 198 50 -e " + editor)),
+    Key([mod], "s", lazy.spawn(term + " -g 100x36 -e spt ")),
+    Key([mod], "m", lazy.spawn(term + " -e neomutt")),
+    Key([mod], "c", lazy.spawn(term + " -g 100x36 -e calcurse")),
+    Key([mod], "a", lazy.spawn(term + " -g 126x42 -e fish -C \"curl wttr.in\""))
 ]
 
 

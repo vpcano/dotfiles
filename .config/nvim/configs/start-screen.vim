@@ -2,7 +2,7 @@ let half_width = winwidth(0)/2
 let spaces = ' ' 
 let i = 1
 
-while i<(half_width-33)
+while i<(half_width-35)
 	let spaces = spaces . ' ' 
 	let i += 1
 endwhile
@@ -38,9 +38,7 @@ let g:startify_session_persistence = 1
 
 let g:startify_enable_special = 0
 
-let g:startify_padding_left = half_width - 23 
-
-let g:startify_files_number = 8
+let g:startify_files_number = 6
 
 let g:startify_custom_header = [
 	\ '',
@@ -49,6 +47,8 @@ let g:startify_custom_header = [
 	\ spaces . '	   /  |/ / | / // // __ `__ \    | | / / / / / /           ', 
  	\ spaces . '	  / /|  /| |/ // // / / / / /    | |/ / / / / /___         ', 
 	\ spaces . '	 /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/         ',
-	\ spaces . '							       	    ',
-	\ spaces . '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+	\ spaces . '							       	   ',
+	\ spaces . '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
         \]
+
+let g:startify_padding_left = half_width - 25 

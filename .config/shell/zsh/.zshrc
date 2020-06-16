@@ -51,7 +51,7 @@ source $HOME/.aliasrc
 
 
 ##  AUTOSTART  ##
-if ! [[ $TERM == *"xterm"* ]]; then 	# For not displaying vicfetch on vim terminal
+if ! [[ $(neofetch | grep -m 1 Terminal) == *"vim"* || $(neofetch | grep -m 1 Terminal) == *"vscode"* ]]; then 	# For not displaying vicfetch on vim terminal
 	vicfetch
 fi
 if ! [ -e $ZDOTDIR/prompt.zsh-theme ]; then

@@ -49,6 +49,8 @@ Plug 'justinmk/vim-syntax-extra'
 Plug 'Shougo/neocomplete.vim'
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 "Required
 call plug#end()
@@ -88,7 +90,7 @@ command PopupTerm botright 15split term://zsh | :set nonumber | :set norelativen
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  THEME 
 """"""""""""""""""""""""""""""""""""""""""""""""
-colorscheme onedark
+colorscheme gruvbox
 
 
 
@@ -130,7 +132,7 @@ let g:minimap_highlight='Visual'
 ""  VIM-AIRLINE (POWERLINE)
 """"""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16_spacemacs'
+let g:airline_theme = 'base16'
 
 
 
@@ -204,8 +206,8 @@ let g:floaterm_rootmarkers=['.project', '.git', '.hg', '.svn', '.root', '.gitign
 imap ii <Esc>
 map <C-n> :NERDTreeToggle<CR>
 map mm :Lf<CR>
-map ms :vsplit <bar> :Lf<CR>
-map mh :split <bar> :Lf<CR>
+map ms :VsplitLf<CR>
+map mh :SplitLf<CR>
 map mt :LfNewTab<CR>
 map tt :PopupTerm <CR> 
 map tf :FloatermSend clear <CR>

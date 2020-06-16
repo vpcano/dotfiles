@@ -31,7 +31,7 @@ let g:which_key_map['f'] = [ ':Git status'		  , 'Git Status' ]
 let g:which_key_map['g'] = [ 'tg'			  , 'Lazy git']		
 
 let g:which_key_map.s = {
-      \ 'name' : '+🔍search' ,
+      \ 'name' : '+Search' ,
       \ '/' : [':History/'     , 'history'],
       \ ';' : [':Commands'     , 'commands'],
       \ 'a' : [':Ag'           , 'text Ag'],
@@ -68,7 +68,7 @@ let g:which_key_map.d = {
 
 
 let g:which_key_map.b = {
-	\ 'name' : '+buffer' ,
+	\ 'name' : '+Buffer' ,
       	\ '1' : ['b1'        , 'buffer 1']        ,
       	\ '2' : ['b2'        , 'buffer 2']        ,
       	\ 'd' : ['bd'        , 'delete-buffer']   ,
@@ -81,7 +81,7 @@ let g:which_key_map.b = {
       	\ }
 
 let g:which_key_map.l = {
-      	\ 'name' : '+lsp',
+      	\ 'name' : '+Lsp',
       	\ 'f' : ['spacevim#lang#util#Format()'          , 'formatting']       ,
       	\ 'r' : ['spacevim#lang#util#FindReferences()'  , 'references']       ,
       	\ 'R' : ['spacevim#lang#util#Rename()'          , 'rename']           ,
@@ -121,7 +121,7 @@ let g:which_key_map.W = {
 	\ }
 
 let g:which_key_map.M = {
-	\ 'name' : '+🖿 Lf',
+	\ 'name' : '+Lf',
 	\ 'm' : [ 'mm'					, 'Open Vifm' ]		,
 	\ 't' : [ 'mt'					, 'Open Vifm on new tab' ],
 	\ 's' : [ 'ms'					, 'Open Vifm on vertical split' ],
@@ -129,7 +129,7 @@ let g:which_key_map.M = {
 	\ }
 
 let g:which_key_map.V = {
-	\ 'name' : '+🖿 Vifm',
+	\ 'name' : '+Vifm',
 	\ 'm' : [ ':Vifm'					, 'Open Vifm' ]		,
 	\ 't' : [ ':TabVifm'					, 'Open Vifm on new tab' ],
 	\ 's' : [ ':VsplitVifm'					, 'Open Vifm on vertical split' ],
@@ -137,7 +137,7 @@ let g:which_key_map.V = {
 	\ }
 
 let g:which_key_map.a = {
-	\ 'name' : '+★ Bookmarks',
+	\ 'name' : '+Bookmarks',
 	\ 'c' : [ ':e ~/.config/qtile/config.py'	, 'Open Qtile config.py' ]	,
 	\ 'i' : [ ':e ~/.config/nvim/init.vim'		, 'Open Neovim init.vim' ]	,
 	\ 'z' : [ ':e ~/.config/fish/config.fish'	, 'Open Fish config.fish' ]	,
@@ -149,7 +149,7 @@ let g:which_key_map.a = {
 	\ }
 
 let g:which_key_map.e = {
-      \ 'name' : '+⏏ Run' ,
+      \ 'name' : '+Run' ,
       \ 't' : ['tt'				        	, '💻Terminal (popup)'],
       \ 'f' : ['tf'       					, '💻Terminal (floating)'],
       \ 'g' : [':FloatermNew lazygit'                           , 'Lazy git'],

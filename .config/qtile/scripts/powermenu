@@ -1,15 +1,12 @@
 #!/bin/sh
 
 
-res=$(echo "🔒Lock|⇥ Logout|↺ Reboot|⏻ Shutdown" | rofi -sep "|" -dmenu -p 'Power Menu' -theme "$XDG_CONFIG_HOME/qtile/scripts/powermenu-theme.rasi" -width 12 -lines 4 -eh 2 -location 3 -yoffset 23 -padding 15 -font "Hack Nerd Font Mono 10")
+res=$(echo " Lock| Logout|勒 Reboot| Shutdown" | rofi -sep "|" -dmenu -p 'Power Menu' -theme "$XDG_CONFIG_HOME/qtile/scripts/powermenu-theme.rasi" -width 12 -lines 4 -eh 2 -location 3 -yoffset 23 -padding 15 -font "JetBrainsMono Nerd Font 11")
  
-if [[ $res == *"Lock"* ]]; then
-	sh -c "xscreensaver-command -lock"
-elif [[ $res == *"Logout"* ]]; then
-	qtile-cmd -o cmd -f shutdown 
-elif [[ $res == *"Reboot"* ]]; then
-	systemctl reboot
-elif [[ $res == *"Shutdown"* ]]; then
-	systemctl poweroff
-fi
-exit 0
+case $res in
+	*"Lock"*) sh -c "xscreensaver-command -lock" ;;
+	*"Logout"*) qtile-cmd -o cmd -f shutdown ;;
+	*"Reboot"*) systemctl reboot ;;
+	*"Shutdown"* ) systemctl poweroff ;;
+	*) exit 0 ;;
+esac

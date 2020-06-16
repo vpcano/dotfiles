@@ -22,8 +22,12 @@
 #========================================================================
 
 
+# Write neofetch output to a file 
+neofetch > .fetch
+
 # DEFAULT APPS AND PROGRAMS
-export TERM=alacritty
+export TERM=st
+export TERM2=alacritty
 export BROWSER=waterfox-current
 export EDITOR=nvim
 export FM=lf
