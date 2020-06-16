@@ -14689,3 +14689,19 @@ Traceback (most recent call last):
   File "/usr/lib/python3.8/subprocess.py", line 512, in run
     raise CalledProcessError(retcode, process.args,
 subprocess.CalledProcessError: Command '['checkupdates']' returned non-zero exit status 2.[0m
+[0m[31m2020-06-16 16:49:23,895 [1m[31mlibqtile base.py:worker():L502 [0m problem polling to update widget pacman
+Traceback (most recent call last):
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 498, in worker
+    text = self.poll()
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/pacman.py", line 50, in poll
+    pacman = self.call_process(['checkupdates'])
+  File "/usr/lib/python3.8/site-packages/libqtile/widget/base.py", line 286, in call_process
+    output = subprocess.check_output(command, **kwargs)
+  File "/usr/lib/python3.8/subprocess.py", line 411, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+  File "/usr/lib/python3.8/subprocess.py", line 512, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['checkupdates']' returned non-zero exit status 2.[0m
+[ 16/06/20 16:51:28.394 glx_bind_pixmap ERROR ] Failed to query info of pixmap 0x00806242.
+[ 16/06/20 16:51:28.394 paint_one ERROR ] Failed to bind texture for window 0x0180005b.
+[ 16/06/20 16:51:28.394 paint_one ERROR ] Window 0x0180005b is missing painting data.
