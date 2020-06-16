@@ -1,7 +1,7 @@
-#DOTFILES
+# DOTFILES
 Welcome to my personal desktop settings and configuration files
 
-##Screenshots
+## Screenshots
 _____________
 ![Screenshot 1](.screenshots/screenshot1.jpg)
 ![Screenshot 2](.screenshots/screenshot2.jpg)
@@ -9,8 +9,8 @@ _____________
 ![Screenshot 4](.screenshots/screenshot4.jpg)
 ![Screenshot 5](.screenshots/screenshot5.jpg)
 
-##Features
+## Features
 
 
-##Installation
+## Installation
 
