@@ -1,8 +1,14 @@
 # DOTFILES
 Welcome to my personal desktop settings and configuration files
+
 ![Animation GIF](.screenshots/anim.gif)
 
 ## Features
+- **Qtile** tiling window manager with powerline effect and custom widgets
+- Notification support using `deadd`
+- **Rofi-dmenu** for application menu and other scripts such ash `powermenu` or `dfav` \(See my scripts repo\)
+- Using **Neovim** as default text editor with multiple plugins and awesome custom settings
+- Using **Lf** as default file manager with a nice customization
 
 ## Installation
 
