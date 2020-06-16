@@ -245,4 +245,6 @@ augroup cproject
 	autocmd BufRead,BufNewFile *.c nnoremap <F7> :botright 15split term://zsh -c valgrind ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>	
 augroup END
 
+autocmd BufRead,BufNewFile *.MD :set syntax=markdown
+
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif

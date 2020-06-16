@@ -6,7 +6,7 @@ Welcome to my personal desktop settings and configuration files :yum:
 ## Features
 - **Qtile** tiling window manager with powerline effect and custom widgets
 - Notification support using `deadd`
-- **Rofi-dmenu** for application menu and other scripts such ash `powermenu` or `dfav` \(See my scripts repo\)
+- **Rofi-dmenu** for application menu and other scripts such ash `powermenu` or `dfav` \(See [my scripts repo](https://github.com/vpcano/scripts)\)
 - Using **Neovim** as default text editor with multiple plugins and awesome custom settings
 - Using **Lf** as default file manager with a nice customization
 - Using **zsh** shell with custom prompt and `select-prompt` function

@@ -1,2 +1,1 @@
-#!/bin/sh
-kill -s USR1 $(pidof deadd-notification-center)
+/home/victor/Dev/scripts/qtile_scripts/notcenter
