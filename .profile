@@ -2,34 +2,33 @@
 #========================================================================
 #                               ____ _  __        _    __  _   ______
 #          ____   _____ ____   / __/(_)/ /___    | |  / / (_) / ____/
-#         / __ \ / ___// __ \ / /_ / // // _ \   | | / / / / / /     
-#    _   / /_/ // /   / /_/ // __// // //  __/   | |/ / / / / /___   
-#   (_) / .___//_/    \____//_/  /_//_/ \___/    |___/ /_/  \____/   
-#      /_/                                                                             
+#         / __ \ / ___// __ \ / /_ / // // _ \   | | / / / / / /
+#    _   / /_/ // /   / /_/ // __// // //  __/   | |/ / / / / /___
+#   (_) / .___//_/    \____//_/  /_//_/ \___/    |___/ /_/  \____/
+#      /_/
 #
-#	~/.profile file 
+#	~/.profile file
 #	The Xsession script has been modified to search for xsession,
 #	   xprofile, Xresources, Xkbmap, Xmodmap, and Xauthority in
 #	   ~/.config/xconfig/ (set to $X_CONFIG_DIR) apart from $HOME
 #	   This .profile is the only file that remains in $HOME
 #	Other settings and autostarted programs related to DE/WM are
-#	   started from the correspondant script (ej. for qtile: 
+#	   started from the correspondant script (ej. for qtile:
 #	   ~/.config/qtile/autostart.sh)
-#	
+#
 #	Víctor Pérez Cano
-#	GitHub: https://github.com/vpcano 
+#	GitHub: https://github.com/vpcano
 #
 #========================================================================
 
 
-# Write neofetch output to a file 
+# Write neofetch output to a file
 neofetch > .fetch
 
 # DEFAULT APPS AND PROGRAMS
 export TERM=st
-export TERM2=alacritty
-export BROWSER=waterfox-current
-export EDITOR=nvim
+export BROWSER=brave
+export EDITOR=emacsclient
 export FM=lf
 
 # OTHER VARIABLES
@@ -208,3 +207,12 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+
+# COLORS FOR MAN PAGES
+export LESS_TERMCAP_mb=$(tput bold; tput setaf 2) # green
+export LESS_TERMCAP_md=$(tput bold; tput setaf 2) # green
+export LESS_TERMCAP_so=$(tput bold; tput setaf 3) # yellow
+export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 1) # red
+export LESS_TERMCAP_ue=$(tput sgr0)
+export LESS_TERMCAP_me=$(tput sgr0)

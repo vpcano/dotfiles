@@ -33,7 +33,6 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 ##  PLUGINS  ##
 source $ZDOTDIR/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept 	# Ctrl+Space to accept suggestion
 source $ZDOTDIR/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $ZDOTDIR/plugins/git.plugin.zsh
 
@@ -108,3 +107,5 @@ precmd() {
     VIMODE_COLOR="%{$fg_bold[green]%}"
     update-prompts $VIMODE_STRING $VIMODE_COLOR
 }
+
+bindkey '^ ' autosuggest-accept 	# Ctrl+Space to accept suggestion

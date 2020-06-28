@@ -41,7 +41,7 @@ font:
     family: JetBrainsMono Nerd Font
   italic:
     style: Regular
-  size: 13
+  size: 8
 key_bindings:
 - action: IncreaseFontSize
   key: I

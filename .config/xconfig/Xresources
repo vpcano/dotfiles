@@ -1,76 +1,60 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!      _  __                                                   _    __ _  ______
+!     | |/ /____ ___  _________  __  _______________  _____   | |  / /(_)/ ____/
+!     |   // ___/ _ \/ ___/ __ \/ / / / ___/ ___/ _ \/ ___/   | | / // // /     
+!    /   |/ /  /  __(__  ) /_/ / /_/ / /  / /__/  __(__  )    | |/ // // /___   
+!   /_/|_|_/   \___/____/\____/\__,_/_/   \___/\___/____/     |___//_/ \____/   
+!                                                                                                           
+!	~/.config/xconfig/Xresources file 
+!	The Xsession script has been modified to search for xsession,
+!	   xprofile, Xresources, Xkbmap, Xmodmap, and Xauthority in
+!	   ~/.config/xconfig/ (set to $X_CONFIG_DIR) apart from $HOME
+!	   ~/.profile is the only file that remains in $HOME
+!	Other settings and autostarted programs related to DE/WM are
+!	   started from the correspondant script (ej. for qtile: 
+!	   ~/.config/qtile/autostart.sh)
+!	
+!	Víctor Pérez Cano
+!	GitHub: https://github.com/vpcano 
+!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! To be able to source the following files, the Xsession script has been modified replacing "xrdb -merge "$file"" line with "xrdb -merge -I$HOME "$file""
+
+! Colorsrc file
+#include ".colorsrc"
+! Xscreensaver configuration
+#include ".config/xscreensaver/xscreensaverrc"
+! St configuration
+#include ".config/st/strc"
+
+
 ! SOME SETTINGS
-Xft.dpi: 75
-Xft.autohint: 0
+Xft.autohint:	0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.rgba: rgb
+Xft.hinting: 	1
+Xft.antialias: 	1
+Xft.rgba: 	rgb
 
-! XSCREENSAVER
-xscreensaver.splash: false
-xscreensaver.timeout:		0:10:00
-xscreensaver.cycle:		0:10:00
-xscreensaver.lock:		True
-xscreensaver.lockTimeout:	0:05:00
-xscreensaver.passwdTimeout:	0:00:30
-xscreensaver.visualID:		default
-xscreensaver.installColormap:    True
-xscreensaver.timestamp:		True
-xscreensaver.demoCommand:	xscreensaver-demo
-xscreensaver.prefsCommand:	
-xscreensaver.nice:		10
-xscreensaver.memoryLimit:	0
-xscreensaver.fade:		True
-xscreensaver.unfade:		False
-xscreensaver.fadeSeconds:	0:00:03
-xscreensaver.fadeTicks:		20
-xscreensaver.captureStderr:	True
-xscreensaver.ignoreUninstalledPrograms:False
-xscreensaver.font:		*-medium-r-*-140-*-m-*
-xscreensaver.dpmsEnabled:	False
-xscreensaver.dpmsQuickOff:	False
-xscreensaver.dpmsStandby:	2:00:00
-xscreensaver.dpmsSuspend:	2:00:00
-xscreensaver.dpmsOff:		4:00:00
-xscreensaver.grabDesktopImages:  True
-xscreensaver.grabVideoFrames:    False
-xscreensaver.chooseRandomImages: False
-xscreensaver.imageDirectory:	/usr/share/backgrounds	
-xscreensaver.mode:		one
-xscreensaver.selected:		31
-xscreensaver.textMode:		literal
-xscreensaver.textLiteral:	XScreenSaver
-xscreensaver.newLoginCommand: 	dm-tool switch-to-greeter
-xscreensaver.pointerPollTime:    0:00:05
-xscreensaver.pointerHysteresis:  10
-xscreensaver.windowCreationTimeout:0:00:30
-xscreensaver.initialDelay:	0:00:00
-xscreensaver.GetViewPortIsFullOfLies:False
-xscreensaver.procInterrupts:	True
-xscreensaver.xinputExtensionDev: False
-xscreensaver.overlayStderr:	True
-xscreensaver.authWarningSlack:   20
-xscreensaver.Dialog.foreground:         #ffffff
-xscreensaver.Dialog.background:         #111111
-xscreensaver.Dialog.topShadowColor:     #111111
-xscreensaver.Dialog.bottomShadowColor:  #111111
-xscreensaver.Dialog.Button.foreground:  #666666
-xscreensaver.Dialog.Button.background:  #ffffff
-xscreensaver.Dialog.text.foreground:    #666666
-xscreensaver.Dialog.text.background:    #ffffff
-xscreensaver.Dialog.internalBorderWidth:24
-xscreensaver.Dialog.borderWidth:        4
-xscreensaver.Dialog.shadowThickness:    2
-xscreensaver.passwd.thermometer.foreground:  #ff0000
-xscreensaver.passwd.thermometer.background:  #000000
-xscreensaver.passwd.thermometer.width:       8
-xscreensaver.dateFormat:    %H:%M 
+Emacs*geometry: 196x50
 
-xscreensaver.Dialog.headingFont:        -*-bold-r-*-*-15-*-*-*-*-*-*-*
-xscreensaver.Dialog.bodyFont:           -*-medium-r-*-*-15-*-*-*-*-*-*-*
-xscreensaver.Dialog.labelFont:          -*-medium-r-*-*-15-*-*-*-*-*-*-*
-xscreensaver.Dialog.unameFont:          -*-medium-r-*-*-15-*-*-*-*-*-*-*
-xscreensaver.Dialog.buttonFont:         -*-bold-r-*-*-15-*-*-*-*-*-*-*
-xscreensaver.Dialog.dateFont:           -*-medium-r-*-*-15-*-*-*-*-*-*-*
-xscreensaver.passwd.passwdFont:         -*-bold-r-*-*-15-*-*-*-*-*-*-*
+! Uncomment this to set ~/.colorsrc colors globally
+!*.color0:       UTS_COLOR_0
+!*.color1:       UTS_COLOR_1
+!*.color2:       UTS_COLOR_2
+!*.color3:       UTS_COLOR_3
+!*.color4:       UTS_COLOR_4
+!*.color5:       UTS_COLOR_5
+!*.color6:       UTS_COLOR_6
+!*.color7:       UTS_COLOR_7
+!*.color8:       UTS_COLOR_8
+!*.color9:       UTS_COLOR_9
+!*.color10:      UTS_COLOR_10
+!*.color11:      UTS_COLOR_11
+!*.color12:      UTS_COLOR_12
+!*.color13:      UTS_COLOR_13
+!*.color14:      UTS_COLOR_14
+!*.color15:      UTS_COLOR_15
+!*.background:   UTS_BG
+!*.foreground:   UTS_FG

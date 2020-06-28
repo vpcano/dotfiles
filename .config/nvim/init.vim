@@ -21,36 +21,36 @@
 call plug#begin('~/.config/nvim/plugins')
 
 "My plugins
-Plug 'preservim/nerdtree' 
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'preservim/nerdcommenter'
 Plug 'vifm/vifm.vim'
-Plug 'severin-lemaignan/vim-minimap'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'Shougo/deoplete.nvim'
-Plug 'dense-analysis/ale'
-Plug 'ryanoasis/vim-devicons'
-Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'morhetz/gruvbox', {'dir': '~/.config/nvim/themes/gruvbox'}
-Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
-Plug 'joshdick/onedark.vim', { 'dir': '~/.config/nvim/themes/onedark' }
 Plug 'unblevable/quick-scope'
 Plug 'liuchengxu/vim-which-key'
-Plug 'mhinz/vim-startify'
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
-Plug 'voldikss/vim-floaterm'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-syntax-extra'
-Plug 'Shougo/neocomplete.vim'
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'voldikss/vim-floaterm'
+Plug 'morhetz/gruvbox', {'dir': '~/.config/nvim/themes/gruvbox'}
+Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
+Plug 'joshdick/onedark.vim', { 'dir': '~/.config/nvim/themes/onedark' }
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'preservim/nerdtree' 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'mhinz/vim-startify'
+Plug 'dense-analysis/ale'
+Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'ryanoasis/vim-devicons'
+Plug 'jiangmiao/auto-pairs'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 "Required
 call plug#end()

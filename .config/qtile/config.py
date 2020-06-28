@@ -41,7 +41,6 @@ def init_colors():
 colors = init_colors()
 
 term = environ["TERM"]
-term2 = environ["TERM2"]
 browser = environ["BROWSER"]
 editor = environ["EDITOR"]
 filemanager = environ["FM"]
@@ -56,6 +55,9 @@ def OpenCalendar(qtile):
 
 def OpenPowermenu(qtile):
     qtile.cmd_spawn(str(path.join(scripts_path, "powermenu")))
+
+def OpenTogglesmenu(qtile):
+    qtile.cmd_spawn(str(path.join(scripts_path, "togglesmenu")))
 
 def ToggleNightmode(qtile):
     qtile.cmd_spawn(str(path.join(scripts_path, "nightmode")))
@@ -176,16 +178,19 @@ keys = [
 
     # Application shortcuts and Rofi
     Key([mod], "Return", lazy.spawn(term)),
-    Key([mod], "t", lazy.spawn(term2)),
+    Key([mod], "F1", lazy.spawn(str(path.join(scripts_path, "toggle-compositor")))),
+    Key([mod], "F2", lazy.spawn(str(path.join(scripts_path, "toggle-screensaver")))),
     Key([mod], "n", lazy.spawn(str(path.join(scripts_path, "notcenter")))),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
     Key([mod], "comma", lazy.spawn("rofi -show run")),
     Key([mod], "period", lazy.spawn("rofi -show window")),
-    Key([mod], "f", lazy.spawn("dfav")),
+    Key([mod], "b", lazy.spawn("dfav")),
     Key([mod], "p", lazy.spawn(str(path.join(scripts_path, "powermenu")))),
+    Key([mod], "t", lazy.spawn(str(path.join(scripts_path, "togglesmenu")))),
     Key([mod], "e", lazy.spawn(term + " -e " + filemanager)),
     Key([mod], "w", lazy.spawn(browser)),
-    Key([mod], "v", lazy.spawn(term2 + " -d 198 50 -e " + editor)),
+    Key([mod], "v", lazy.spawn(term + " -g 198x50 -e " + editor)),
+    Key([mod], "d", lazy.spawn("emacsclient -c")),
     Key([mod], "s", lazy.spawn(term + " -g 100x36 -e spt ")),
     Key([mod], "m", lazy.spawn(term + " -e neomutt")),
     Key([mod], "c", lazy.spawn(term + " -g 100x36 -e calcurse")),
@@ -447,6 +452,15 @@ def init_widget_list():
             text=' ',
             mouse_callbacks={
                 'Button1': OpenNotcenter
+            }
+        ),
+        widget.TextBox(
+            **base(bg='grey', fg='light'),
+            **text_box,
+            padding=5,
+            text='漣 ',
+            mouse_callbacks={
+                'Button1': OpenTogglesmenu
             }
         ),
         widget.TextBox(

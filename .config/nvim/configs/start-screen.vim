@@ -2,7 +2,7 @@ let half_width = winwidth(0)/2
 let spaces = ' ' 
 let i = 1
 
-while i<(half_width-35)
+while i<(half_width-30)
 	let spaces = spaces . ' ' 
 	let i += 1
 endwhile
@@ -42,13 +42,13 @@ let g:startify_files_number = 6
 
 let g:startify_custom_header = [
 	\ '',
-        \ spaces . '	     _   __                       _    __  _   ______      ',
-	\ spaces . '	    / | / /   __ (_)____ ___     | |  / / (_) / ____/      ',
-	\ spaces . '	   /  |/ / | / // // __ `__ \    | | / / / / / /           ', 
- 	\ spaces . '	  / /|  /| |/ // // / / / / /    | |/ / / / / /___         ', 
-	\ spaces . '	 /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/         ',
-	\ spaces . '							       	   ',
-	\ spaces . '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
+        \ spaces . '        _   __                       _    __  _   ______   ',
+	\ spaces . '       / | / /   __ (_)____ ___     | |  / / (_) / ____/   ',
+	\ spaces . '      /  |/ / | / // // __ `__ \    | | / / / / / /        ', 
+ 	\ spaces . '     / /|  /| |/ // // / / / / /    | |/ / / / / /___      ', 
+	\ spaces . '    /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/      ',
+	\ spaces . '							       ',
+	\ spaces . '━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━',
         \]
 
-let g:startify_padding_left = half_width - 25 
+let g:startify_padding_left = half_width - 20 
