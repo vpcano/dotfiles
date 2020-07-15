@@ -1,1 +1,1 @@
-.config/shell/zsh/.zshrc
+/home/victor/.config/shell/zsh/.zshrc

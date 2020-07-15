@@ -1,0 +1,22 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!COLORSCHEME:		Gruvbox
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+#define UTS_COLOR_0	#282828
+#define UTS_COLOR_1	#cc241d
+#define UTS_COLOR_2	#98971a
+#define UTS_COLOR_3	#d79921
+#define UTS_COLOR_4	#458588
+#define UTS_COLOR_5	#b16286
+#define UTS_COLOR_6	#689d6a
+#define UTS_COLOR_7	#a89984
+#define UTS_COLOR_8	#928374
+#define UTS_COLOR_9	#fb4934
+#define UTS_COLOR_10	#b8bb26
+#define UTS_COLOR_11	#fabd2f
+#define UTS_COLOR_12	#83a598
+#define UTS_COLOR_13	#d3869b
+#define UTS_COLOR_14	#8ec07c
+#define UTS_COLOR_15	#ebdbb2
+
+#define UTS_BG		#282828
+#define UTS_FG		#ebdbb2

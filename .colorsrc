@@ -1,24 +1,22 @@
-! vim: ft=xdefaults
-
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!COLORSCHEME:		Nord
+!COLORSCHEME:		Dracula
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#define UTS_COLOR_0	#1e2127
-#define UTS_COLOR_1	#bf616a
-#define UTS_COLOR_2	#98c379
-#define UTS_COLOR_3	#d19a66
-#define UTS_COLOR_4	#88c0d0
-#define UTS_COLOR_5	#c678dd
-#define UTS_COLOR_6	#61afef
-#define UTS_COLOR_7	#828791
-#define UTS_COLOR_8	#3b4252
-#define UTS_COLOR_9	#e06c75
-#define UTS_COLOR_10	#a3be8c
-#define UTS_COLOR_11	#ebcb8b
-#define UTS_COLOR_12	#81a1c1
-#define UTS_COLOR_13	#b48ead
-#define UTS_COLOR_14	#56b6c2
-#define UTS_COLOR_15	#e5e9f0
+#define UTS_COLOR_0	#000000
+#define UTS_COLOR_1	#FF5555
+#define UTS_COLOR_2	#50FA7B
+#define UTS_COLOR_3	#F1FA8C
+#define UTS_COLOR_4	#BD93F9
+#define UTS_COLOR_5	#FF79C6
+#define UTS_COLOR_6	#8BE9FD
+#define UTS_COLOR_7	#BFBFBF
+#define UTS_COLOR_8	#4D4D4D
+#define UTS_COLOR_9	#FF6E67
+#define UTS_COLOR_10	#5AF78E
+#define UTS_COLOR_11	#F4F99D
+#define UTS_COLOR_12	#CAA9FA
+#define UTS_COLOR_13	#FF92D0
+#define UTS_COLOR_14	#9AEDFE
+#define UTS_COLOR_15	#E6E6E6
 
-#define UTS_BG		#282c34
-#define UTS_FG		#d8dee9
+#define UTS_BG		#282A36
+#define UTS_FG		#F8F8F2

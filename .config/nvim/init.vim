@@ -215,6 +215,8 @@ map tg :FloatermNew lazygit <CR>
 map ; :Files<CR>
 map <C-i> :vertical resize +5<CR>
 map <C-o> :vertical resize -5<CR>
+map <C-I> :resize +5<CR>
+map <C-O> :resize -5<CR>
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k

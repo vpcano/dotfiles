@@ -27,8 +27,8 @@ neofetch > .fetch
 
 # DEFAULT APPS AND PROGRAMS
 export TERM=st
-export BROWSER=brave
-export EDITOR=emacsclient
+export BROWSER=waterfox-current
+export EDITOR="emacsclient -c"
 export FM=lf
 
 # OTHER VARIABLES

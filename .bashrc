@@ -1,1 +1,1 @@
-.config/shell/bash/bashrc
+/home/victor/.config/shell/bash/bashrc

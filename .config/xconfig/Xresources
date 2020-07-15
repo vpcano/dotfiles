@@ -21,12 +21,19 @@
 
 ! To be able to source the following files, the Xsession script has been modified replacing "xrdb -merge "$file"" line with "xrdb -merge -I$HOME "$file""
 
+! Default colorscheme
+#include ".colorschemes/nord"
 ! Colorsrc file
 #include ".colorsrc"
+
 ! Xscreensaver configuration
 #include ".config/xscreensaver/xscreensaverrc"
 ! St configuration
 #include ".config/st/strc"
+! Qtile configuration
+#include ".config/qtile/qtilerc"
+! Firefox configuration
+#include ".config/firefox/foxrc"
 
 
 ! SOME SETTINGS
@@ -38,23 +45,3 @@ Xft.antialias: 	1
 Xft.rgba: 	rgb
 
 Emacs*geometry: 196x50
-
-! Uncomment this to set ~/.colorsrc colors globally
-!*.color0:       UTS_COLOR_0
-!*.color1:       UTS_COLOR_1
-!*.color2:       UTS_COLOR_2
-!*.color3:       UTS_COLOR_3
-!*.color4:       UTS_COLOR_4
-!*.color5:       UTS_COLOR_5
-!*.color6:       UTS_COLOR_6
-!*.color7:       UTS_COLOR_7
-!*.color8:       UTS_COLOR_8
-!*.color9:       UTS_COLOR_9
-!*.color10:      UTS_COLOR_10
-!*.color11:      UTS_COLOR_11
-!*.color12:      UTS_COLOR_12
-!*.color13:      UTS_COLOR_13
-!*.color14:      UTS_COLOR_14
-!*.color15:      UTS_COLOR_15
-!*.background:   UTS_BG
-!*.foreground:   UTS_FG

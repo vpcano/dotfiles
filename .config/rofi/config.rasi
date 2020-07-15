@@ -1,15 +1,16 @@
 configuration {
- modi: "run,drun,window,ssh";
- show-icons: true;
- combi-modi: "run,drun,ssh";
- kb-accept-entry: "Control+m,Return,KP_Enter";
- kb-remove-to-eol: "";
- kb-row-down: "Control+j,Down";
- kb-row-up: "Control+k,Up";
- scroll-method: 1;
- font: "Hack Nerd Font Mono 12";
- lines: 17;
- terminal: "alacritty";
- theme: "Arc-Dark";
+  modi: "run,drun,window,ssh";
+  combi-modi: "run,drun,window";
+  theme: "Arc-Dark";
+  show-icons:         true;
+  kb-accept-entry: "Control+m,Return,KP_Enter";
+  kb-remove-to-eol: "";
+  kb-remove-char-back: "BackSpace,Shift+BackSpace";
+  kb-row-down: "Control+j,Down";
+  kb-row-up: "Control+k,Up";
+  kb-row-left: "Control+h";
+  kb-row-right: "Control+l";
+  location: 5;
+  xoffset: -40;
+  yoffset: -40;
 }
-@import "/usr/share/rofi/themes/Arc-Dark.rasi"

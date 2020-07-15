@@ -25,13 +25,13 @@ set previewer preview
 # Open function
 cmd open ${{
     case $(file --mime-type "$f" -bL) in
-        text/*|application/json) $EDITOR "$f";;
+        text/*|application/json) devour $EDITOR "$f";;
         video/*|image/*|application/pdf) xdg-open "$f" & disown;;
         *) xdg-open "$f" ;;
     esac
 }}
 # Edit with $EDITOR
-cmd edit ${{ $EDITOR "$f" }}
+cmd edit ${{ devour $EDITOR "$f" }}
 # Some command line basic functions
 cmd mkdir %printf "Dir name: " && read dirname && mkdir $dirname
 cmd mkfile %printf "File name: " && read filename && touch $filename

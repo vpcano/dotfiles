@@ -1,0 +1,25 @@
+! vim: ft=xdefaults
+
+! QTILE CONFIGURATION
+
+qtile.color0:       UTS_COLOR_0
+qtile.color1:       UTS_COLOR_1
+qtile.color2:       UTS_COLOR_2
+qtile.color3:       UTS_COLOR_3
+qtile.color4:       UTS_COLOR_4
+qtile.color5:       UTS_COLOR_5
+qtile.color6:       UTS_COLOR_6
+qtile.color7:       UTS_COLOR_7
+qtile.color8:       UTS_COLOR_8
+qtile.color9:       UTS_COLOR_9
+qtile.color10:		  UTS_COLOR_10
+qtile.color11:		  UTS_COLOR_11
+qtile.color12:		  UTS_COLOR_12
+qtile.color13:		  UTS_COLOR_13
+qtile.color14:		  UTS_COLOR_14
+qtile.color15:		  UTS_COLOR_15
+qtile.background:		UTS_BG
+qtile.foreground:		UTS_FG
+
+qtile.font:         Iosevka Nerd Font
+qtile.colormode:    normal
