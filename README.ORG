@@ -17,7 +17,7 @@
   * Modified ~colorls~ to improve list display
   * Modified ~gruvbox~ vim colorscheme for better looking tabs
   * Modified adi1090x rofi scripts to change themes location and adapt it to my filesystem
-  * Modified ~Xsession~ file to search for x files in ~\~.config/xconfig/~ and Xresources file to include all *rc files of different programs located in ~\~/.config/~
+  * Modified ~Xsession~ file to search for x files in ~\~/.config/xconfig/~ and Xresources file to include all *rc files of different programs located in \~~/.config/~
 
 ** TODO Installation
   An installation script is in progress. Meanwhile you can get these settings just by coping this repository to your home folder and installing the necessary dependencies.
