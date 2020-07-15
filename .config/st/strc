@@ -1,0 +1,35 @@
+! vim: ft=xdefaults
+
+! ST CONFIGURATION
+
+st.font:		JetBrainsMono Nerd Font:pixelsize=14:antialias=true:autohint=true
+st.font2:		JetBrainsMono Nerd Font:pixelsize=14:antialias=true:autohint=true
+st.termname:		st-256color
+st.shell:		/bin/zsh
+st.bellvolume:		0
+st.tabspaces:		8
+st.chscale:		0.9
+st.cwscale:		1.0
+st.opacity:		0.8
+st.borderpx:		2
+st.blinktimeout:	800
+
+st.color0:		UTS_COLOR_0
+st.color1:		UTS_COLOR_1
+st.color2:		UTS_COLOR_2
+st.color3:		UTS_COLOR_3
+st.color4:		UTS_COLOR_4
+st.color5:		UTS_COLOR_5
+st.color6:		UTS_COLOR_6
+st.color7:		UTS_COLOR_7
+st.color8:		UTS_COLOR_8
+st.color9:		UTS_COLOR_9
+st.color10:		UTS_COLOR_10
+st.color11:		UTS_COLOR_11
+st.color12:		UTS_COLOR_12
+st.color13:		UTS_COLOR_13
+st.color14:		UTS_COLOR_14
+st.color15:		UTS_COLOR_15
+st.background:		UTS_BG
+st.foreground:		UTS_FG
+st.cursorColor:		#add8e6
