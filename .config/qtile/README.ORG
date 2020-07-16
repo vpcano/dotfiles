@@ -1,0 +1,18 @@
+#+title: Qtile Configuration
+#+description: Settings and plugins for my qtile fork 
+
+** Features
+   * Using [[https://arcolinuxd.com/13-adding-a-battery-widget-to-qtile-config-for-laptops/][arcolinuxd]] battery icon widget
+   * *qtilerc* own plugin that loads bar colorscheme from ~Xresources~ file
+   * ~rofi-dmenu~ menu's for toggles and power options adapted to the height of the bar
+   * Using [[https://github.com/adi1090x/rofi][adi1090x]] ~rofi-git~ app launcher (top-left rocket button)
+   * Great looking powerline/slash separators achieved with [[https://www.nerdfonts.com/][Nerd Fonts]] unicode characters
+   * Clickable interactive widgets for the bar with notification support
+
+** Issues
+   * When exiting fullscreen Youtube the size of the window remains
+   * When clicking one of the items on the TaskList widget its window is focused but not brought to front
+
+** TODO's 
+   * Load list of widgets from ~Xresources~ specifying color and separator (code is writen on ~qtilerc.py~ but when loading widget list on ~config.py~ qtile crashes)
+   * Fix above issues

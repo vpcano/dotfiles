@@ -1,19 +1,22 @@
 #+title: DOTFILES VPCANO
 #+description: Personal desktop settings and configuration files
 
+Welcome to my personal desktop environment settigns and configuration files
+
 [[file:.screenshots/anim.gif]]
 
-** Features
+** DONE Features
   * *Qtile* tiling window manager with powerline effect and custom widgets (See [[file:.config/qtile/README.ORG][My Qtile README]])
   * Notification support using ~deadd~
+  * Fully working blur/transparency using [[https://github.com/yshui/picom][picom]] compositor
   * Using [[https://github.com/meskarune/i3lock-fancy][meskarune i3lock-fancy]]
   * *Rofi-dmenu* (Using both ~rofi~ and ~rofi-git~ AUR packages) for application launcher and menu's (Using [[https://github.com/adi1090x/rofi][adi1090x]] app launcher and menu's, and custom scripts such as ~powermenu~ and [[https://github.com/vpcano/scripts][others]])
   * *zsh* as default shell with custom ~select-prompt~ function
-  * Using *Neovim* (See [[file:.config/nvim/README.ORG][My Neovim README]]) and *Spacemacs* as extensible text editors
+  * Using *Neovim* and *Spacemacs* as extensible text editors
   * Using *Lf* as terminal file manager and *Nautilus* and *SpaceFM* as GUI file managers
   * Using Canta Blue GTK Theme and Icons
 
-** Modifications of other packages/plugins
+** DONE Modifications of other packages/plugins
   * Modified ~colorls~ to improve list display
   * Modified ~gruvbox~ vim colorscheme for better looking tabs
   * Modified adi1090x rofi scripts to change themes location and adapt it to my filesystem
@@ -23,9 +26,9 @@
 ** TODO Installation
   An installation script is in progress. Meanwhile you can get these settings just by coping this repository to your home folder and installing the necessary dependencies.
 
-** TODO Screenshots
-  [[file:.screenshots/screenshot1.jpg]]
-  [[file:.screenshots/screenshot2.jpg]]
-  [[file:.screenshots/screenshot3.jpg]]
-  [[file:.screenshots/screenshot4.jpg]]
-  [[file:.screenshots/screenshot5.jpg]]
+** DONE Screenshots
+  [[file:.screenshots/screenshot1.png]]
+  [[file:.screenshots/screenshot2.png]]
+  [[file:.screenshots/screenshot3.png]]
+  [[file:.screenshots/screenshot4.png]]
+  [[file:.screenshots/screenshot5.png]]
