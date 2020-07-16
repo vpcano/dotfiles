@@ -10,7 +10,7 @@ Welcome to my personal desktop environment settings and configuration files
   * Notification support using ~deadd~
   * Fully working blur/transparency using [[https://github.com/yshui/picom][picom]] compositor
   * Using [[https://github.com/meskarune/i3lock-fancy][meskarune i3lock-fancy]]
-  * *Rofi-dmenu* (Using both ~rofi~ and ~rofi-git~ AUR packages) for application launcher and menu's (Using [[https://github.com/adi1090x/rofi][adi1090x]] app launcher and menu's, and custom scripts such as ~powermenu~ and [[file:.local/bin/README.ORG][others]])
+  * *Rofi-dmenu* (Using both ~rofi~ and ~rofi-git~ AUR packages) for application launcher and menu's (Using [[https://github.com/adi1090x/rofi][adi1090x]] app launcher and menu's, and custom scripts such as ~powermenu~ and [[file:.local/bin/][others]])
   * *zsh* as default shell with custom ~select-prompt~ function
   * Using *Neovim* and *Spacemacs* as extensible text editors
   * Using *Lf* as terminal file manager and *Nautilus* and *SpaceFM* as GUI file managers
