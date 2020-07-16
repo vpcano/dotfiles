@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# ps -A | grep xscreensaver && notify-send "Killing screensaver" | killall xscreensaver || notify-send "Starting screensaver" | xscreensaver
+ps -A | grep xautolock && notify-send "Killing screensaver" | killall xautolock || notify-send "Starting screensaver" | xautolock -time 5 -locker "i3lock-fancy -- \"maim\""

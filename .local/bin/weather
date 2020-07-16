@@ -1,0 +1,6 @@
+#!/bin/sh
+
+curl wttr.in
+
+echo "Press enter to continue..."
+read

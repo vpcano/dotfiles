@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ps -A | grep emacs && notify-send.py "Restarting Emacs" -a "Emacs" -t 3000 & killall emacs || notify-send.py "No previous instance of Emacs, starting a new one" -a "Emacs" -t 3000
+
+emacs --fg-daemon

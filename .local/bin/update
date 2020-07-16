@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Script to execute pacman -Syu from a dmenu interface
+
+OP=$(echo "Yes|No|Open in terminal" | rofi -sep "|" -dmenu -p "Update system?" -location 0 -xoffset 0 -yoffset 0)
+
+if [[ $OP == "No" ]]; then
+	exit 0
+elif [[ $OP == "Open in terminal" ]]; then
+	exec $TERM -e $SHELL -c "sudo pacman -Syu"
+elif [[ $OP == "Yes" ]]; then
+	sudo -A pacman -Syu --noconfirm		# daskpass script must be set as Path askpass in /etc/sudo.conf (See "man sudo" for more info)
+	if [[ $(echo $?) -gt 0 ]]; then
+		exit 1
+	fi
+fi
+
+

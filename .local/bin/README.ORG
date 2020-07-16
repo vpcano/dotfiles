@@ -1,0 +1,14 @@
+#+title: Scripts
+#+description: All scripts used for my qtile desktop environment
+
+Here are some useful shell and dmenu scripts used in my qtile desktop environment
+
+** Most important scripts
+   * *daskpass*: This is a graphical sudo interface (to ask for root password) that works on dmenu. You can enable it as default by adding ~export SUDO_ASKPASS=/path/to/daskpass~ to a startup script (such as ~.profile~) and then calling sudo with ~sudo -A cmd~.
+   * *update*: This a dmenu script to run a ~pacman -Syu~ update graphically, using dmenu and daskpass.
+   * *preview*: This is a preview script used by ~lf~ and ~fzf~ that works detecting file extension.
+   * *dfav*: This is a dmenu script to display a list of shortcuts and run the selected one, themed by [[https://github.com/adi1090x/rofi][adi1090x]]'s applet. Shortcuts must be placed in =~/.config/dfav= folder or in the folder specified by ~$DFAV_PATH~ and must have a format similar to ~.desktop~ shortcuts but with an unicode character ([[https://www.nerdfonts.com/cheat-sheet][nerd font glyph]]) instead of a path in the ~icon~ field.
+   * *powermenu*: This is a dmenu script with its own theme used to lock/logout/reboot/poweroff.
+   * *togglesmenu*: This is a dmenu script to toggle compositor/screensaver
+   * *efzf*: This is a simple script to run fuzzy finder and open with your default editor (~$EDITOR~) the selected file.
+   * *UTS (Universal Theme Selector)*: This is a custom dmenu script to select a colorscheme between the ones in the =~/.colorschemes= folder and apply it to ~Xresources~ to change the theme globally.

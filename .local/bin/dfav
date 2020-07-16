@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Script to display bookmark selection on dmenu/rofi
+
+[ -z $DFAV_PATH ] || ![ -d $DFAV_PATH ] && DFAV_PATH=$XDG_CONFIG_HOME/dfav
+
+STR=""
+
+i=0
+for FILE in $DFAV_PATH/*; do
+	# NAME[$i]=$(grep Name= $FILE | head -n 1 | cut -d"=" -f 2)
+	ICON[$i]=$(grep Icon= $FILE | head -n 1 | cut -d"=" -f 2)
+	CMD[$i]=$(grep Exec= $FILE | head -n 1 | cut -d"=" -f 2)
+	# STR="${STR}${ICON}  ${NAME[$i]}|"
+	STR="${STR}${ICON[$i]}|"
+	i=$(expr $i + 1)
+done
+
+RES=$(echo "${STR}" | rofi -theme ${HOME}/.local/share/rofi/applets-themes/apps.rasi -sep "|" -p "> Select a bookmark" -dmenu)
+
+for j in $(seq 0 $i); do
+	[[ $RES == "${ICON[j]}" ]] && exec ${CMD[j]}
+done

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+rofi -password -location 0 -xoffsset 0 -yoffset 0 -dmenu -p "Enter password"

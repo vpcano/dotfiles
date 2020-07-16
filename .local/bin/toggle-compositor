@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ps -A | grep compton && notify-send "Killing compositor" | killall compton || notify-send "Starting compositor" | compton

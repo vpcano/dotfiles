@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# Script to choose an universal colorscheme using dmenu/rofi
+
+[ -z $COLORSCHEMES_PATH ] || ![ -d $COLORSCHEMES_PATH ] && COLORSCHEMES_PATH=$HOME/.colorschemes
+
+STR=""
+
+for CS in $COLORSCHEMES_PATH/*; do
+	STR="${STR}$(basename ${CS})|"
+done
+
+RES=$(echo "${STR}" | rofi -sep "|" -p "UUT => Choose a colorscheme" -dmenu -location 0 -xoffset 0 -yoffset 0)
+
+if [ -f $COLORSCHEMES_PATH/$RES ]; then
+    cp "${COLORSCHEMES_PATH}/${RES}" "${HOME}/.colorsrc" & xrdb -merge -I$HOME "${X_CONFIG_DIR}/Xresources" & qtile-cmd -o cmd -f restart
+fi
