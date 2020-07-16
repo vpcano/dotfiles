@@ -1,7 +1,7 @@
 #+title: DOTFILES VPCANO
 #+description: Personal desktop settings and configuration files
 
-Welcome to my personal desktop environment settigns and configuration files
+Welcome to my personal desktop environment settings and configuration files
 
 [[file:.screenshots/anim.gif]]
 
