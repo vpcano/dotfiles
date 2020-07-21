@@ -2,16 +2,21 @@
 
 # Alias script for Víctor Pérez Cano
 
-alias ls="colorls -l --sd"
+if [[ $XDG_SESSION_TYPE == "tty" ]]; then
+    alias ls="exa -l --group-directories-first"
+    alias tree="exa -T"
+else
+    alias ls="colorls -l --sd"
+    alias tree="colorls --tree"
+fi
 alias la="ls -a"
-alias tree="colorls --tree"
 alias grep="grep --color=auto"
 alias dotfiles="git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"
-alias vim="nvim"
 alias mutt="neomutt"
 alias waterfox="devour waterfox-current"
 alias ex="extract"
 alias cz="compress -zip"
 alias cr="compress -rar"
+alias vim="nvim"
 alias em="devour emacsclient -c"

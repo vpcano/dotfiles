@@ -25,24 +25,30 @@
 # Write neofetch output to a file
 neofetch > .fetch
 
-# DEFAULT APPS AND PROGRAMS
-export TERM=st
-export BROWSER=waterfox-current
-export EDITOR="emacsclient -c"
-export FM=lf
-
-# OTHER VARIABLES
-export PATH=$PATH:$HOME/.local/bin/
-export SUDO_ASKPASS=$HOME/.local/bin/daskpass
-
 # KEEP HOME DIR CLEAN
+[ -z $XDG_CONFIG_HOME ] && export XDG_CONFIG_HOME=$HOME/.config
 export ZDOTDIR=$XDG_CONFIG_HOME/shell/zsh
 export POWERLEVEL9K_INSTALLATION_DIR=$ZDOTDIR/plugins/powerlevel10k
 export LESSHISTFILE=$HOME/.local/share/less/.lesshst
 export HISTFILE=$XDG_CONFIG_HOME/shell/histfile
 export PYTHONSTARTUP=$XDG_CONFIG_HOME/python/pythonrc
 export NOTMUCH_CONFIG=$XDG_CONFIG_HOME/notmuch/config
-rm $HOME/.xsession-errors* >>/dev/null 2>&1	# This can be done since Xsession output has been redirected to ~/.config/xconfig/xsession-log
+rm -f $HOME/.xsession-errors >> /dev/null 2>&1	# This can be done since Xsession output has been redirected to ~/.config/xconfig/xsession-log
+
+# DEFAULT APPS AND PROGRAMS
+if [[ $XDG_SESSION_TYPE == "tty" ]]; then
+    export EDITOR="nvim"
+    cp $ZDOTDIR/prompts/nounicode.zsh-theme $ZDOTDIR/prompt.zsh-theme	# Set nounicode prompt when using tty
+else
+    export TERM=st
+    export BROWSER=waterfox-current
+    export EDITOR="emacsclient -c"
+fi
+export FM=lf
+
+# OTHER VARIABLES
+export PATH=$PATH:$HOME/.local/bin/
+export SUDO_ASKPASS=$HOME/.local/bin/daskpass
 
 # LF COLORS
 export LF_ICONS="\

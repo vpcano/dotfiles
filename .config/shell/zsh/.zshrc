@@ -12,6 +12,7 @@
 #
 ###################################################
 
+[[ $XDG_SESSION_TYPE == "tty" ]] && source $HOME/.profile
 
 ##  SOME SETTINGS  ##
 [[ $- != *i* ]] && return

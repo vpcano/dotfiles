@@ -14,7 +14,7 @@ fi
  
 CONTRAST=$(xbacklight | cut -d "." -f 1)
 FILE=/tmp/bri_prev
-PREV_ID=$(cat "${FILE}")
+PREV_ID=$([ -z $(cat "${FILE}") ] && echo "37" || cat "${FILE}")
 
 notify-send.py "Brightness ${SYM}" "${CONTRAST}" -a "Brightness" -r ${PREV_ID}  -t 3000 --hint string:image-path:"contrast" boolean:transient:true > "${FILE}"
 
