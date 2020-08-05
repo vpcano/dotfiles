@@ -31,7 +31,8 @@ Plug 'unblevable/quick-scope'
 Plug 'liuchengxu/vim-which-key'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'justinmk/vim-syntax-extra'
+" Plug 'justinmk/vim-syntax-extra'
+Plug 'sheerun/vim-polyglot' 
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
 Plug 'godlygeek/tabular'
@@ -40,13 +41,14 @@ Plug 'voldikss/vim-floaterm'
 Plug 'morhetz/gruvbox', {'dir': '~/.config/nvim/themes/gruvbox'}
 Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
 Plug 'joshdick/onedark.vim', { 'dir': '~/.config/nvim/themes/onedark' }
-Plug 'severin-lemaignan/vim-minimap'
+" Plug 'severin-lemaignan/vim-minimap'
 Plug 'preservim/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-startify'
 Plug 'dense-analysis/ale'
-Plug 'Shougo/deoplete.nvim'
-Plug 'Shougo/neocomplete.vim'
+" Plug 'Shougo/deoplete.nvim'
+" Plug 'Shougo/neocomplete.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
@@ -90,7 +92,7 @@ command PopupTerm botright 15split term://zsh | :set nonumber | :set norelativen
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  THEME 
 """"""""""""""""""""""""""""""""""""""""""""""""
-colorscheme gruvbox
+colorscheme dracula
 
 
 
@@ -132,17 +134,20 @@ let g:minimap_highlight='Visual'
 ""  VIM-AIRLINE (POWERLINE)
 """"""""""""""""""""""""""""""""""""""""""""""""
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'base16'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'violet'
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-""  LINTING (DEOPLETE AND ALE) 
+""  LINTING 
 """"""""""""""""""""""""""""""""""""""""""""""""
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('sources', {
-\ '_': ['ale'],
-\})
+" let g:deoplete#enable_at_startup = 1
+" call deoplete#custom#option('sources', {
+" \ '_': ['ale'],
+" \})
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
 
 
 

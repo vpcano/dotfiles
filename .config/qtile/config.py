@@ -226,11 +226,12 @@ def init_layout_theme():
 layout_theme = init_layout_theme()
 
 layouts = [
-    layout.MonadTall(**layout_theme),
     layout.Floating(**layout_theme),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
     layout.Matrix(columns=2, **layout_theme),
     layout.Max(**layout_theme),
-    layout.Stack(num_stacks=2)
+    layout.Stack(num_stacks=2, **layout_theme)
 ]
 
 
