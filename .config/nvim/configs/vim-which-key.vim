@@ -14,7 +14,7 @@ highlight default link WhichKey          Operator
 highlight default link WhichKeySeperator DiffAdded
 highlight default link WhichKeyGroup     Function
 
-let g:which_key_map[','] = [ '<Plug>NERDCommenterToggle'  , 'Comment' ]
+let g:which_key_map[','] = [ '<Plug>NERDCommenterToggle | j'  , 'Comment' ]
 let g:which_key_map['/'] = [ '/'                          , 'Search text' ]
 let g:which_key_map['h'] = [ '<C-W>s'                     , 'Split below']
 let g:which_key_map['v'] = [ '<C-W>v'                     , 'Split right']

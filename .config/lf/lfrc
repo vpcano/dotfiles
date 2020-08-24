@@ -24,10 +24,11 @@ set previewer preview
 ##  FUNCTIONS  ##
 # Open function
 cmd open ${{
+    [[ "$f" == *.org || "$f" == *.ORG ]] && devour emacsclient -c "$f" ||
     case $(file --mime-type "$f" -bL) in
-        text/*|application/json) devour $EDITOR "$f";;
+        text/*|application/json) $EDITOR "$f";;
         video/*|image/*|application/pdf) xdg-open "$f" & disown;;
-        *) xdg-open "$f" ;;
+        *) xdg-open "$f" & disown ;;
     esac
 }}
 # Edit with $EDITOR

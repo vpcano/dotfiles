@@ -10,7 +10,7 @@ st.bellvolume:		0
 st.tabspaces:		8
 st.chscale:		0.9
 st.cwscale:		1.0
-st.opacity:		0.8
+st.opacity:		0.7
 st.borderpx:		2
 st.blinktimeout:	800
 

@@ -42,13 +42,15 @@ if [[ $XDG_SESSION_TYPE == "tty" ]]; then
 else
     export TERM=st
     export BROWSER=waterfox-current
-    export EDITOR="emacsclient -c"
+    # export EDITOR="emacsclient -c"
+    export EDITOR="nvim"
 fi
 export FM=lf
 
 # OTHER VARIABLES
 export PATH=$PATH:$HOME/.local/bin/
 export SUDO_ASKPASS=$HOME/.local/bin/daskpass
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
 # LF COLORS
 export LF_ICONS="\

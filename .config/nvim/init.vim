@@ -5,10 +5,10 @@
 "     / /|  /| |/ // // / / / / /    | |/ / / / / /___   
 "    /_/ |_/ |___//_//_/ /_/ /_/     |___/ /_/  \____/   
 "
-"	~/.config/nvim/init.vim file 
-"	
-"	Víctor Pérez Cano
-"	GitHub: https://github.com/vpcano 
+"   ~/.config/nvim/init.vim file 
+"   
+"   Víctor Pérez Cano
+"   GitHub: https://github.com/vpcano 
 "
 "==============================================================
 
@@ -31,7 +31,6 @@ Plug 'unblevable/quick-scope'
 Plug 'liuchengxu/vim-which-key'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-" Plug 'justinmk/vim-syntax-extra'
 Plug 'sheerun/vim-polyglot' 
 Plug 'ptzz/lf.vim'
 Plug 'rbgrouleff/bclose.vim'
@@ -41,18 +40,16 @@ Plug 'voldikss/vim-floaterm'
 Plug 'morhetz/gruvbox', {'dir': '~/.config/nvim/themes/gruvbox'}
 Plug 'dracula/vim', { 'dir': '~/.config/nvim/themes/dracula' }
 Plug 'joshdick/onedark.vim', { 'dir': '~/.config/nvim/themes/onedark' }
-" Plug 'severin-lemaignan/vim-minimap'
 Plug 'preservim/nerdtree' 
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mhinz/vim-startify'
 Plug 'dense-analysis/ale'
-" Plug 'Shougo/deoplete.nvim'
-" Plug 'Shougo/neocomplete.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
+Plug 'honza/vim-snippets'
 
 "Required
 call plug#end()
@@ -63,19 +60,21 @@ call plug#end()
 ""  GENERAL CONFIG
 """"""""""""""""""""""""""""""""""""""""""""""""
 set number relativenumber
-set cursorline
+" set cursorline
 set splitbelow splitright
 set path+=**
 set wildmenu
 set incsearch
-set smarttab
+set tabstop=4
+set shiftwidth=4
+set expandtab
 set shell=sh
 set noshowmode
 set termguicolors
 syntax on
 set mouse=a
 filetype plugin on
-set timeoutlen=350
+set timeoutlen=400
 let g:mapleader = ","
 
 
@@ -92,19 +91,17 @@ command PopupTerm botright 15split term://zsh | :set nonumber | :set norelativen
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  THEME 
 """"""""""""""""""""""""""""""""""""""""""""""""
-colorscheme dracula
+colorscheme onedark
+hi Normal guibg=NONE ctermbg=NONE
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  NERDTREE
 """"""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeDirArrowExpandable = '►'
-let g:NERDTreeDirArrowCollapsible = '▼'
 let NERDTreeShowLineNumbers=0
 let NERDTreeShowHidden=1
-let g:NERDTreeWinSize=30
-let g:NERDTreeHijackNetrw = 0
+let g:NERDTreeWinSize=25
 let g:lf_replace_netrw = 1
 
 
@@ -124,30 +121,32 @@ let g:NERDCreateDefaultMappings = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
-""  VIM-MINIMAP
-""""""""""""""""""""""""""""""""""""""""""""""""
-let g:minimap_highlight='Visual'
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""
 ""  VIM-AIRLINE (POWERLINE)
 """"""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'violet'
+" let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'base16_spacemacs'
 
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  LINTING 
 """"""""""""""""""""""""""""""""""""""""""""""""
-" let g:deoplete#enable_at_startup = 1
-" call deoplete#custom#option('sources', {
-" \ '_': ['ale'],
-" \})
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+
+
+
+""""""""""""""""""""""""""""""""""""""""""""""""
+""  COC
+""""""""""""""""""""""""""""""""""""""""""""""""
+inoremap <silent><expr> <c-space> coc#refresh()
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent><nowait> <C-j>  :<C-u>CocNext<CR>
+nnoremap <silent><nowait> <C-k>  :<C-u>CocPrev<CR>
 
 
 
@@ -233,23 +232,23 @@ nnoremap <C-Space> <C-w>r
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  AUTOSTART
 """"""""""""""""""""""""""""""""""""""""""""""""
-augroup autostart	
-	autocmd!
-	"autocmd VimEnter * :Minimap
-	autocmd VimEnter *
-	  \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
-	  \|   PlugInstall | q
-	  \| endif
+augroup autostart   
+    autocmd!
+    "autocmd VimEnter * :Minimap
+    autocmd VimEnter *
+      \  if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+      \|   PlugInstall | q
+      \| endif
 augroup END 
 
 augroup cproject 
-	autocmd!
+    autocmd!
 "" TODO autocmd BufRead,BufNewFile *.c set makeprg=*COMMAND TO COMPILE (READ FROM CURRENT FILE)*
-	autocmd BufRead,BufNewFile *.c :packadd termdebug
-	autocmd BufRead,BufNewFile *.c nnoremap <F4> :w <bar> :make %:r<cr>
-	autocmd BufRead,BufNewFile *.c nnoremap <F5> :Termdebug exec/%:r<cr>	
-	autocmd BufRead,BufNewFile *.c nnoremap <F6> :botright 15split term://zsh -c ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>	
-	autocmd BufRead,BufNewFile *.c nnoremap <F7> :botright 15split term://zsh -c valgrind ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>	
+    autocmd BufRead,BufNewFile *.c :packadd termdebug
+    autocmd BufRead,BufNewFile *.c nnoremap <F4> :w <bar> :make %:r<cr>
+    autocmd BufRead,BufNewFile *.c nnoremap <F5> :Termdebug exec/%:r<cr>    
+    autocmd BufRead,BufNewFile *.c nnoremap <F6> :botright 15split term://zsh -c ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>   
+    autocmd BufRead,BufNewFile *.c nnoremap <F7> :botright 15split term://zsh -c valgrind ./exec/%:r && zsh<bar> :set nonumber <bar> :startinsert <cr>  
 augroup END
 
 autocmd BufRead,BufNewFile *.MD :set syntax=markdown
