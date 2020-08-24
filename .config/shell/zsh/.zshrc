@@ -25,6 +25,7 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 
 zmodload zsh/complist
 compinit
 _comp_options+=(globdots)
+kitty + complete setup zsh | source /dev/stdin
 # History
 HISTSIZE=1000
 SAVEHIST=1000
