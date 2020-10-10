@@ -53,7 +53,8 @@ source $HOME/.aliasrc
 
 ##  AUTOSTART  ##
 if ! [[ $(neofetch | grep -m 1 Terminal) == *"vim"* || $(neofetch | grep -m 1 Terminal) == *"vscode"* ]]; then 	# For not displaying vicfetch on vim terminal
-	vicfetch
+	# vicfetch
+    ufetch
 fi
 if ! [ -e $ZDOTDIR/prompt.zsh-theme ]; then
 	select-prompt

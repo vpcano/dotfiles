@@ -41,11 +41,12 @@ if [[ $XDG_SESSION_TYPE == "tty" ]]; then
     cp $ZDOTDIR/prompts/nounicode.zsh-theme $ZDOTDIR/prompt.zsh-theme	# Set nounicode prompt when using tty
 else
     export TERM=st
-    export BROWSER=waterfox-current
+    export BROWSER=firefox
     # export EDITOR="emacsclient -c"
     export EDITOR="nvim"
 fi
-export FM=lf
+export TERMFM=lf
+export GUIFM=dolphin
 
 # OTHER VARIABLES
 export PATH=$PATH:$HOME/.local/bin/

@@ -91,8 +91,8 @@ command PopupTerm botright 15split term://zsh | :set nonumber | :set norelativen
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  THEME 
 """"""""""""""""""""""""""""""""""""""""""""""""
-colorscheme onedark
-hi Normal guibg=NONE ctermbg=NONE
+colorscheme dracula
+" hi Normal guibg=NONE ctermbg=NONE
 
 
 

@@ -27,6 +27,7 @@ from libqtile import layout, bar, widget, hook
 from plugins import arcobattery
 from plugins.qtilerc import QtileRC
 from plugins import contrastcolor
+from libqtile import extension
 
 
 ##  VARIABLES  ##
@@ -39,7 +40,8 @@ mod = "mod4"
 term = environ["TERM"]
 browser = environ["BROWSER"]
 editor = environ["EDITOR"]
-filemanager = environ["FM"]
+term_filemanager = environ["TERMFM"]
+gui_filemanager = environ["GUIFM"]
 
 mailbox1 = '.local/share/mail/gmail'
 mailbox2 = '.local/share/mail/uam'
@@ -65,7 +67,7 @@ def OpenTogglesmenu(qtile):
     qtile.cmd_spawn("togglesmenu")
 
 def OpenApplauncher(qtile):
-    qtile.cmd_spawn("launcher")
+    qtile.cmd_spawn("rofi -show drun")
 
 def ToggleNightmode(qtile):
     qtile.cmd_spawn("nightmode")
@@ -186,18 +188,26 @@ keys = [
     Key([mod], "F1", lazy.spawn("toggle-compositor")),
     Key([mod], "F2", lazy.spawn("toggle-screensaver")),
     Key([mod], "n", lazy.spawn("notcenter")),
-    Key([mod], "r", lazy.spawn("launcher")),
-    Key([mod], "comma", lazy.spawn("rofi -location 0 -xoffset 0 -yoffset 0 -show run")),
-    Key([mod], "period", lazy.spawn("rofi -location 0 -xoffset 0 -yoffset 0 -show window")),
-    Key([mod], "b", lazy.spawn("dfav")),
+    Key([mod], "r", lazy.spawn("rofi -show drun")),
+    Key([mod], "comma", lazy.run_extension(extension.DmenuRun(
+        dmenu_prompt="  Run: ",
+        dmenu_font="Iosevka Nerd Font-11",
+        background=colors['background'][0],
+        foreground=colors['foreground'][0],
+        selected_background=colors['color6'][0],
+        selected_foreground=colors['background'][0],
+        dmenu_height=23,
+    ))),
+    Key([mod], "period", lazy.spawn("rofi -show window")),
     Key([mod], "p", lazy.spawn("powermenu")),
     Key([mod], "t", lazy.spawn("togglesmenu")),
-    Key([mod], "e", lazy.spawn(term + " -e " + filemanager)),
+    Key([mod], "e", lazy.spawn(term + " -e " + term_filemanager)),
+    Key([mod, "shift"], "e", lazy.spawn(gui_filemanager)),
     Key([mod], "w", lazy.spawn(browser)),
     Key([mod], "d", lazy.spawn(editor)),
-    Key([mod], "s", lazy.spawn(term + " -g 100x36 -e spt ")),
+    Key([mod], "s", lazy.spawn(term + " -e spt ")),
     Key([mod], "m", lazy.spawn(term + " -e neomutt")),
-    Key([mod], "c", lazy.spawn(term + " -g 100x36 -e calcurse")),
+    Key([mod], "c", lazy.spawn(term + " -e calcurse")),
 ]
 
 
@@ -218,10 +228,10 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 ##  LAYOUTS  ##
 def init_layout_theme():
-    return {"border_width": 2,
-            "margin": 4,
-            "border_focus": "e1acff",
-            "border_normal": "1D2330"
+    return {"border_width": 1,
+            "margin": 12,
+            "border_focus": colors['color15'][0],
+            "border_normal": colors['color8'][0]
             }
 layout_theme = init_layout_theme()
 

@@ -10,7 +10,4 @@ configuration {
   kb-row-up: "Control+k,Up";
   kb-row-left: "Control+h";
   kb-row-right: "Control+l";
-  location: 5;
-  xoffset: -40;
-  yoffset: -40;
 }
