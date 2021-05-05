@@ -1,0 +1,8 @@
+alias ls exa -l --group-directories-first
+alias tree exa -T
+alias la ls -a
+alias grep grep --color=auto
+alias valgrind valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v
+alias ex extract
+alias cz compress -zip
+alias cr compress -rar
