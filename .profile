@@ -22,8 +22,6 @@
 #========================================================================
 
 
-# Write neofetch output to a file
-neofetch > .fetch
 
 # KEEP HOME DIR CLEAN
 [ -z $XDG_CONFIG_HOME ] && export XDG_CONFIG_HOME=$HOME/.config
@@ -40,7 +38,7 @@ if [[ $XDG_SESSION_TYPE == "tty" ]]; then
     export EDITOR="nvim"
     cp $ZDOTDIR/prompts/nounicode.zsh-theme $ZDOTDIR/prompt.zsh-theme	# Set nounicode prompt when using tty
 else
-    export TERM=st
+    export TERM=kitty
     export BROWSER=firefox
     # export EDITOR="emacsclient -c"
     export EDITOR="nvim"
@@ -50,6 +48,7 @@ export GUIFM=dolphin
 
 # OTHER VARIABLES
 export PATH=$PATH:$HOME/.local/bin/
+export XDG_DATA_DIRS=$XDG_DATA_DIRS:/var/lib/flatpak/exports/share/:$HOME/.local/share/flatpak/exports/share/
 export SUDO_ASKPASS=$HOME/.local/bin/daskpass
 export QT_QPA_PLATFORMTHEME="qt5ct"
 

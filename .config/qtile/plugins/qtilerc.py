@@ -98,7 +98,7 @@ class QtileRC:
     def loadWidgets(self):
         all_widgets = WidgetList(self.font, self.colors)
         self.widget_list.append(all_widgets.Layout('slash', 'background', 'color1'))
-        self.widget_list.append(all_widgets.Updates('powerline', 'color1', 'color2'))
+        #  self.widget_list.append(all_widgets.Updates('powerline', 'color1', 'color2'))
         self.widget_list.append(all_widgets.Battery('powerline', 'color2', 'color3'))
         self.widget_list.append(all_widgets.Volume('powerline', 'color3', 'color4'))
         self.widget_list.append(all_widgets.Brightness('pipe', 'color3', 'color3'))

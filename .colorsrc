@@ -1,22 +1,22 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!COLORSCHEME:		Dracula
+!COLORSCHEME:		Onedark
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-#define UTS_COLOR_0	#000000
-#define UTS_COLOR_1	#FF5555
-#define UTS_COLOR_2	#50FA7B
-#define UTS_COLOR_3	#F1FA8C
-#define UTS_COLOR_4	#BD93F9
-#define UTS_COLOR_5	#FF79C6
-#define UTS_COLOR_6	#8BE9FD
-#define UTS_COLOR_7	#BFBFBF
-#define UTS_COLOR_8	#4D4D4D
-#define UTS_COLOR_9	#FF6E67
-#define UTS_COLOR_10	#5AF78E
-#define UTS_COLOR_11	#F4F99D
-#define UTS_COLOR_12	#CAA9FA
-#define UTS_COLOR_13	#FF92D0
-#define UTS_COLOR_14	#9AEDFE
-#define UTS_COLOR_15	#E6E6E6
+#define UTS_COLOR_0	
+#define UTS_COLOR_1	#be5046
+#define UTS_COLOR_2	#98c379
+#define UTS_COLOR_3	#d19a66
+#define UTS_COLOR_4	#61afef
+#define UTS_COLOR_5	#c678dd
+#define UTS_COLOR_6	#56b6c2
+#define UTS_COLOR_7	#5c6370
+#define UTS_COLOR_8	#4b5263
+#define UTS_COLOR_9 #e06c75	
+#define UTS_COLOR_10	#98c379
+#define UTS_COLOR_11	#e5c07b
+#define UTS_COLOR_12  #61afef
+#define UTS_COLOR_13  #c678dd
+#define UTS_COLOR_14  #56b6c2
+#define UTS_COLOR_15  #abb2bf
 
-#define UTS_BG		#282A36
-#define UTS_FG		#F8F8F2
+#define UTS_BG	  #282c34
+#define UTS_FG    #abb2bf

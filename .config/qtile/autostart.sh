@@ -1,7 +1,7 @@
 #! /bin/sh
 
 # compositor
-picom &
+picom --experimental-backend &
 # systray applets
 nm-applet &
 blueman-applet &
@@ -13,10 +13,10 @@ xmodmap -e "remove mod1 = Super_L" &
 # emacs
 emacs --fg-daemon &
 # screen lock
-# xautolock -time 5 -locker "i3lock-fancy -- \"maim\"" &
-xscreensaver &
+xautolock -time 5 -locker "i3lock-fancy -- \"maim\"" &
+# xscreensaver &
 # systemd services
-systemctl --user start spotifyd &
+# systemctl --user start spotifyd &
 # wallpaper
 nitrogen --restore &
 nextcloud &

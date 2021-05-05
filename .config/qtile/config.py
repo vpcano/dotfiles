@@ -117,8 +117,7 @@ keys = [
     Key([mod], "j", lazy.layout.up()),
     Key([mod], "k", lazy.layout.down()),
     Key([mod], "l", lazy.layout.right()),
-    Key([mod], "space", lazy.layout.next()),
-    
+
     # Swap and move windows
     Key([mod, "shift"], "h", lazy.layout.swap_left()),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
@@ -168,7 +167,7 @@ keys = [
     Key([mod, "shift"], "Return", lazy.layout.toggle_split()),
     
     # Killing a window and maximize/minimize it
-    Key([mod], "x", lazy.window.kill()),
+    Key([mod], "q", lazy.window.kill()),
 
     # Qtile restart and shutdown
     Key([mod, "control"], "r", lazy.restart()),
@@ -189,7 +188,7 @@ keys = [
     Key([mod], "F2", lazy.spawn("toggle-screensaver")),
     Key([mod], "n", lazy.spawn("notcenter")),
     Key([mod], "r", lazy.spawn("rofi -show drun")),
-    Key([mod], "comma", lazy.run_extension(extension.DmenuRun(
+    Key([mod], "x", lazy.run_extension(extension.DmenuRun(
         dmenu_prompt="  Run: ",
         dmenu_font="Iosevka Nerd Font-11",
         background=colors['background'][0],
@@ -198,7 +197,7 @@ keys = [
         selected_foreground=colors['background'][0],
         dmenu_height=23,
     ))),
-    Key([mod], "period", lazy.spawn("rofi -show window")),
+    Key([mod], "space", lazy.spawn("rofi -show window")),
     Key([mod], "p", lazy.spawn("powermenu")),
     Key([mod], "t", lazy.spawn("togglesmenu")),
     Key([mod], "e", lazy.spawn(term + " -e " + term_filemanager)),
@@ -228,8 +227,8 @@ for i, (name, kwargs) in enumerate(group_names, 1):
 
 ##  LAYOUTS  ##
 def init_layout_theme():
-    return {"border_width": 1,
-            "margin": 12,
+    return {"border_width": 0,
+            "margin": 15,
             "border_focus": colors['color15'][0],
             "border_normal": colors['color8'][0]
             }
@@ -380,15 +379,15 @@ def init_widget_list():
             padding=5,
             text=' ⟳'
         ),
-        widget.Pacman(
-            **base(bg='color2'),
-            **text_box,
-            execute='update',
-            update_interval=1000,
-            mouse_callbacks={
-                'Button1': OpenUpdate
-            }
-        ),
+        #  widget.Pacman(
+            #  **base(bg='color2'),
+            #  **text_box,
+            #  execute='update',
+            #  update_interval=1000,
+            #  mouse_callbacks={
+                #  'Button1': OpenUpdate
+            #  }
+        #  ),
         widget.Sep(**separator, background=colors['color2']),
         # widget.TextBox(**powerline_sep(prev='color1', to='color2')),
         # widget.Sep(**separator, background=colors['color2']),
@@ -414,55 +413,55 @@ def init_widget_list():
         #     }
         # ), 
         # widget.Sep(**separator, background=colors['color2']),
-        widget.TextBox(**powerline_sep(prev='color2', to='color3')),
-        widget.Sep(**separator, background=colors['color3']),
+        widget.TextBox(**powerline_sep(prev='color2', to='color4')),
+        widget.Sep(**separator, background=colors['color4']),
         arcobattery.BatteryIcon(
             padding=0,
             scale=0.66,
             y_poss=-1.5,
             theme_path=str(path.join(icons_path, "battery")),
             update_interval = 5,
-            background = colors['color3']
+            background = colors['color4']
         ),
         widget.Battery(
-            **base(bg='color3'),
+            **base(bg='color4'),
             **text_box,
             format='{percent:2.0%} - {hour:d}:{min:02d}'
         ),
-        widget.Sep(**separator, background=colors['color3']),
-        widget.TextBox(**powerline_sep(prev='color3', to='color4')),
+        widget.Sep(**separator, background=colors['color4']),
+        widget.TextBox(**powerline_sep(prev='color4', to='color3')),
         widget.Volume(
-            **base(bg='color4'),
+            **base(bg='color3'),
             **text_box,
             padding=3,
             emoji=True,
         ),
         widget.Volume(
-            **base(bg='color4'),
+            **base(bg='color3'),
             **text_box,
             padding=2,
         ),
         widget.TextBox(
-            **base(bg='color4'),
+            **base(bg='color3'),
             **text_box,
             text='| 🔆'
         ),
         widget.Backlight(
-            **base(bg='color4'),
+            **base(bg='color3'),
             **text_box,
             backlight_name='intel_backlight',
             format='{percent:2.0%}'
         ),
         widget.TextBox(
-            **base(bg='color4'),
+            **base(bg='color3'),
             **text_box,
             text='| 🌙',
             mouse_callbacks={
                 'Button1': ToggleNightmode
             }
         ),
-        widget.Sep(**separator, background=colors['color4']),
-        widget.TextBox(**powerline_sep(prev='color4', to='color8')),
+        widget.Sep(**separator, background=colors['color3']),
+        widget.TextBox(**powerline_sep(prev='color3', to='color8')),
         widget.YahooWeather(
             **base(bg='color8'),
             **text_box,

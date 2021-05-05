@@ -14,7 +14,6 @@
 
 ##  SETTINGS  ##
 set hidden true
-set color256 true
 set drawbox true
 set icons true		# LF_ICONS variable set in .profile
 set shell sh
