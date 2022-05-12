@@ -60,7 +60,7 @@ call plug#end()
 ""  GENERAL CONFIG
 """"""""""""""""""""""""""""""""""""""""""""""""
 set number relativenumber
-" set cursorline
+set cursorline
 set splitbelow splitright
 set path+=**
 set wildmenu
@@ -82,9 +82,11 @@ let g:mapleader = ","
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  COMMANDS
 """"""""""""""""""""""""""""""""""""""""""""""""
-command Mail botright split term://zsh -c mutt | :set nonumber | :set norelativenumber | :startinsert
-command Calendar botright 15split term://zsh -c calcurse | :set nonumber | :set norelativenumber | :startinsert
+" command Mail botright split term://zsh -c mutt | :set nonumber | :set norelativenumber | :startinsert
+" command Calendar botright 15split term://zsh -c calcurse | :set nonumber | :set norelativenumber | :startinsert
 command PopupTerm botright 15split term://zsh | :set nonumber | :set norelativenumber | :startinsert
+command VsplitLf botright vsplit | :LfCurrentFile
+command SplitLf botright split | :LfCurrentFile
 
 
 
@@ -102,6 +104,7 @@ colorscheme dracula
 let NERDTreeShowLineNumbers=0
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize=25
+let g:NERDTreeHijackNetrw = 0
 let g:lf_replace_netrw = 1
 
 
@@ -123,9 +126,9 @@ let g:NERDCreateDefaultMappings = 0
 """"""""""""""""""""""""""""""""""""""""""""""""
 ""  VIM-AIRLINE (POWERLINE)
 """"""""""""""""""""""""""""""""""""""""""""""""
-" let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme = 'base16_spacemacs'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'dracula'
 
 
 
