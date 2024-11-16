@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Script to toggle night mode (using gammastep) and show notification
+
+if [ $(ps -A | grep gammastep | wc | tr -s ' ' | cut -d " " -f 2) -gt 0 ]; then
+	notify-send.py "Night Mode" "Disabled" -a "Night Mode" -t 3000 --hint string:image-path:"night-light-disabled-symbolic" boolean:transient:true
+	killall gammastep
+else
+	notify-send.py "Night Mode" "Enabled" -a "Night Mode" -t 3000 --hint string:image-path:"stock_weather-night-clear" boolean:transient:true
+	gammastep -O 3200
+fi

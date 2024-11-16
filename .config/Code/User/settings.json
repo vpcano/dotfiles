@@ -1,0 +1,174 @@
+{
+    "workbench.iconTheme": "ayu",
+    "editor.cursorBlinking": "phase",
+    "editor.cursorSmoothCaretAnimation": "on",
+    "multiDiffEditor.experimental.enabled": true,
+    "explorer.fileNesting.enabled": true,
+    "C_Cpp.default.compilerPath": "",
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "update.mode": "default",
+    "github.copilot.editor.enableAutoCompletions": true,
+    "workbench.sideBar.location": "right",
+    "workbench.productIconTheme": "material-product-icons",
+    "apc.statusBar": {
+        "position": "editor-bottom",
+        "height": 34,
+    },
+    "apc.font.family": "Ubuntu Nerd Font",
+    /*     "apc.imports": [
+        "${userHome}/.config/Code/User/styles/vim_statusbar.css"
+    ], */
+    "apc.stylesheet": {
+        "#vscodevim\\.vim\\.primary": "padding: 0 8px; font-family: monospace; font-weight: 500;",
+        "#vscodevim\\.vim\\.primary[aria-label='Already at newest change'], #vscodevim\\.vim\\.primary[aria-label='Already at oldest change']": "background-color: #475569; color: #d1d5db; font-family: unset; font-weight: unset;",
+        "#vscodevim\\.vim\\.primary[aria-label='Already at newest change']:hover, #vscodevim\\.vim\\.primary[aria-label='Already at oldest change']:hover": "background-color: #47556999;",
+        "#vscodevim\\.vim\\.primary[aria-label^='-- NORMAL']": "background-color: #7daea3; color: #292828;",
+        "#vscodevim\\.vim\\.primary[aria-label^='-- NORMAL']:hover": "background-color: #7daea399;",
+        "#vscodevim\\.vim\\.primary[aria-label='-- INSERT --']": "background-color: #a9b665; color: #292828;",
+        "#vscodevim\\.vim\\.primary[aria-label='-- INSERT --']:hover": "background-color: #a9b66599;",
+        "#vscodevim\\.vim\\.primary[aria-label='-- VISUAL --'], #vscodevim\\.vim\\.primary[aria-label='-- VISUAL LINE --'], #vscodevim\\.vim\\.primary[aria-label='-- VISUAL BLOCK --']": "background-color: #d8a657; color: #292828;",
+        "#vscodevim\\.vim\\.primary[aria-label='-- VISUAL --']:hover, #vscodevim\\.vim\\.primary[aria-label='-- VISUAL LINE --']:hover, #vscodevim\\.vim\\.primary[aria-label='-- VISUAL BLOCK --']:hover": "background-color: #d8a65799;",
+        "#vscodevim\\.vim\\.primary[aria-label^=':'], #vscodevim\\.vim\\.showcmd": "background-color: #f9826c; color: #292828;",
+        "#vscodevim\\.vim\\.primary[aria-label^=':']:hover, #vscodevim\\.vim\\.showcmd:hover": "background-color: #f9826c99;",
+        "#vscodevim\\.vim\\.primary a:hover": "background-color: unset; color: unset; text-decoration: none;",
+        "#status\\.host": "background-color: #f9826c; color: #292828;",
+        "#status\\.host a:hover": "background-color: unset !important; color: unset !important; text-decoration: none !important;",
+        "#status\\.host:hover": "background-color: #f9826c99;"
+    },
+    "workbench.layoutControl.enabled": false,
+    "workbench.commandPalette.experimental.enableNaturalLanguageSearch": true,
+    "breadcrumbs.filePath": "off",
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-k>": false,
+        "<C-b>": false
+    },
+    "editor.fontLigatures": true,
+    "workbench.tree.indent": 12,
+    "workbench.tree.renderIndentGuides": "always",
+    "workbench.colorCustomizations": {
+        "[GitHub Dark Default]": {
+            "tree.indentGuidesStroke": "#fff",
+            "titleBar.activeBackground": "#000",
+            "statusBarItem.remoteBackground": "#f9826c",
+        },
+        "[Gruvbox Material Dark]": {
+            "tree.indentGuidesStroke": "#fff",
+            "statusBar.focusBorder": "#f9826c",
+            "statusBar.border": "#f9826c",
+            "statusBar.noFolderBorder":  "#f9826c",
+        }
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "comment",
+                    "storage.modifier", //static keyword
+                    "storage.type.class",
+                    "storage.type.class.js", //class keyword
+                    "entity.other.attribute-name",
+                    "entity.other.attribute-name.html",
+                    // "entity.other.attribute-name.tag.jade",
+                    // "entity.other.attribute-name.tag.pug",
+                    "markup.italic",
+                    "keyword", //import, export, return…
+                    "keyword.control",
+                    "variable.language",
+                    "constant", //String, Number, Boolean…, this, super
+                ],
+                "settings": {
+                    "fontStyle": "italic",
+                }
+            },
+            {
+                "scope": ["strong", "markup.bold", "markup.heading"],
+                "settings": {
+                    "fontStyle": "bold"
+                }
+            },
+            {
+                "scope": ["markup.underline"],
+                "settings": {
+                    "fontStyle": "underline"
+                }
+            },
+            {
+                "scope": [
+                    "invalid",
+                    "keyword.operator",
+                    "constant.numeric",
+                    "entity.other.attribute-name",
+                    "entity.name.tag",
+                    "entity.name.tag.html.ng",
+                    "html-template.tag.html",
+                ],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
+    "vim.overrideCopy": false,
+    "workbench.reduceMotion": "off",
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "latex-workshop.linting.chktex.enabled": true,
+    "git.confirmSync": false,
+    "explorer.compactFolders": false,
+    "explorer.excludeGitIgnore": true,
+    "diffEditor.maxComputationTime": 0,
+    "[latex]": {
+        "editor.defaultFormatter": "James-Yu.latex-workshop"
+    },
+    "gruvboxMaterial.italicKeywords": false,
+    "editor.fontFamily": "'JetBrainsVictorMono', 'Courier New', monospace",
+    "gruvboxMaterial.lightPalette": "mix",
+    "gruvboxMaterial.lightWorkbench": "high-contrast",
+    "editor.fontSize": 15,
+    "editor.lineNumbers": "relative",
+    "editor.mouseWheelZoom": true,
+    "gruvboxMaterial.lightContrast": "hard",
+    "editor.smoothScrolling": true,
+    "workbench.list.smoothScrolling": true,
+    "editor.guides.bracketPairs": true,
+    "git.openRepositoryInParentFolders": "never",
+    "editor.wordWrap": "on",
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "scm.experimental.showHistoryGraph": true,
+    "vim.camelCaseMotion.enable": true,
+    "vim.leader": ",",
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "makefile.configureOnOpen": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "window.zoomLevel": 0.25,
+    "githubPullRequests.createOnPublishBranch": "never",
+    "workbench.editor.editorActionsLocation": "hidden",
+    "window.customTitleBarVisibility": "windowed",
+    "settingsSync.ignoredSettings": [
+        "workbench.editor.editorActionsLocation",
+        "window.customTitleBarVisibility",
+        "window.titleBarStyle"
+    ],
+    "window.titleBarStyle": "custom"
+}

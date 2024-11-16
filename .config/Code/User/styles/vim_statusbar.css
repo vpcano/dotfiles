@@ -1,0 +1,74 @@
+#vscodevim\.vim\.primary {
+    padding: 0 8px;
+    font-family: monospace;
+    font-weight: 500;
+}
+
+#vscodevim\.vim\.primary[aria-label='Already at newest change'],
+#vscodevim\.vim\.primary[aria-label='Already at oldest change'] {
+    background-color: #475569;
+    color: #d1d5db;
+    font-family: unset;
+    font-weight: unset;
+}
+#vscodevim\.vim\.primary[aria-label='Already at newest change']:hover,
+#vscodevim\.vim\.primary[aria-label='Already at oldest change']:hover {
+    background-color: #47556999;
+}
+
+#vscodevim\.vim\.primary[aria-label^='-- NORMAL'] {
+    background-color: #7daea3;
+    color: #292828;
+}
+#vscodevim\.vim\.primary[aria-label^='-- NORMAL']:hover {
+    background-color: #7daea399;
+}
+
+#vscodevim\.vim\.primary[aria-label='-- INSERT --'] {
+    background-color: #a9b665;
+    color: #292828;
+}
+#vscodevim\.vim\.primary[aria-label='-- INSERT --']:hover {
+    background-color: #a9b66599;
+}
+
+#vscodevim\.vim\.primary[aria-label='-- VISUAL --'],
+#vscodevim\.vim\.primary[aria-label='-- VISUAL LINE --'],
+#vscodevim\.vim\.primary[aria-label='-- VISUAL BLOCK --'] {
+    background-color: #d8a657;
+    color: #292828;
+}
+#vscodevim\.vim\.primary[aria-label='-- VISUAL --']:hover,
+#vscodevim\.vim\.primary[aria-label='-- VISUAL LINE --']:hover,
+#vscodevim\.vim\.primary[aria-label='-- VISUAL BLOCK --']:hover {
+    background-color: #d8a65799;
+}
+
+#vscodevim\.vim\.primary[aria-label^=':'],
+#vscodevim\.vim\.showcmd {
+    background-color: #f9826c;
+    color: #292828;
+}
+#vscodevim\.vim\.primary[aria-label^=':']:hover,
+#vscodevim\.vim\.showcmd:hover {
+    background-color: #f9826c99;
+}
+
+#vscodevim\.vim\.primary a:hover {
+    background-color: unset;
+    color: unset;
+    text-decoration: none;
+}
+
+#status\.host {
+    background-color: #f9826c;
+    color: #292828;
+}
+#status\.host a:hover {
+    background-color: unset !important;
+    color: unset !important;
+    text-decoration: none !important;
+}
+#status\.host:hover {
+    background-color: #f9826c99;
+}

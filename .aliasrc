@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# Alias script for Víctor Pérez Cano
+
+alias ls="exa -l --icons --group-directories-first"
+alias tree="exa -T"
+alias la="ls -a"
+alias grep="grep --color=auto"
+alias valgrind="valgrind --leak-check=full --track-origins=yes --show-leak-kinds=all -v"
+alias vim="nvim"
+alias cat="bat"
+alias cls="clear"
+alias edge="microsoft-edge-stable"
+alias chrome="google-chrome-stable"
+alias dotfiles="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"

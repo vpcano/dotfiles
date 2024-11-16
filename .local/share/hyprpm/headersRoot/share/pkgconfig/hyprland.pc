@@ -1,0 +1,7 @@
+prefix=/home/victor/.local/share/hyprpm/headersRoot/include
+
+Name: Hyprland
+URL: https://github.com/hyprwm/Hyprland
+Description: Hyprland header files
+Version: 0.44.0
+Cflags: -I${prefix} -I${prefix}/hyprland/protocols -I${prefix}/hyprland

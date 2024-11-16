@@ -1,0 +1,3 @@
+#!/bin/sh
+
+# Script to compress in a zip/rar file (specified in the first argument: the name of the file) the files listed on the rest of the arguments 

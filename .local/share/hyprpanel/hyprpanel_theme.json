@@ -1,0 +1,18 @@
+{
+  "theme.bar.menus.background": "#11111b",
+  "theme.bar.menus.menu.media.card.color": "#353027",
+  "theme.bar.buttons.style": "wave",
+  "theme.bar.buttons.hover": "#45475a",
+  "theme.bar.buttons.background": "#242438",
+  "theme.bar.buttons.modules.power.icon": "#f66151",
+  "theme.bar.buttons.modules.power.border": "#f66151",
+  "theme.bar.buttons.dashboard.icon": "#62a0ea",
+  "theme.bar.buttons.dashboard.border": "#62a0ea",
+  "theme.bar.buttons.windowtitle.text": "#deddda",
+  "theme.bar.buttons.windowtitle.icon": "#deddda",
+  "theme.bar.buttons.windowtitle.border": "#deddda",
+  "theme.bar.menus.menu.power.buttons.shutdown.icon_background": "#f66151",
+  "theme.bar.menus.menu.power.buttons.shutdown.text": "#f66151",
+  "theme.bar.menus.menu.dashboard.powermenu.shutdown": "#f66151",
+  "theme.bar.buttons.modules.power.background": "#242438"
+}
