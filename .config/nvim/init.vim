@@ -36,7 +36,7 @@ Plug 'github/copilot.vim'
 Plug 'MunifTanjim/nui.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'jackMort/ChatGPT.nvim'
+"Plug 'jackMort/ChatGPT.nvim'
 
 "Required
 call plug#end()
