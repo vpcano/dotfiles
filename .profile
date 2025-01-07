@@ -41,6 +41,12 @@ else
     export EDITOR=nvim
 fi
 
+# SSH AGENT (using gpg-agent via systemd user unit instead of usual ssh-agent)
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+  export SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"
+fi
+
 # OTHER VARIABLES
 export PATH=$PATH:$HOME/.local/bin/:$HOME/.dotnet/tools/
 
