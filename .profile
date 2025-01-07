@@ -1,25 +1,13 @@
 # vim: set ft=sh:
 #========================================================================
-#                               ____ _  __        _    __  _   ______
-#          ____   _____ ____   / __/(_)/ /___    | |  / / (_) / ____/
-#         / __ \ / ___// __ \ / /_ / // // _ \   | | / / / / / /
-#    _   / /_/ // /   / /_/ // __// // //  __/   | |/ / / / / /___
-#   (_) / .___//_/    \____//_/  /_//_/ \___/    |___/ /_/  \____/
-#      /_/
-#
-#	~/.profile file
-#	The Xsession script has been modified to search for xsession,
-#	   xprofile, Xresources, Xkbmap, Xmodmap, and Xauthority in
-#	   ~/.config/xconfig/ (set to $X_CONFIG_DIR) apart from $HOME
-#	   This .profile is the only file that remains in $HOME
-#	Other settings and autostarted programs related to DE/WM are
-#	   started from the correspondant script (ej. for qtile:
-#	   ~/.config/qtile/autostart.sh)
-#
+
 #	Víctor Pérez Cano
 #	GitHub: https://github.com/vpcano
 #
+#	~/.profile file
+#
 #========================================================================
+
 
 
 # KEEP HOME DIR CLEAN
